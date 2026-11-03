@@ -19,7 +19,7 @@ There is no test suite or linter.
 ## CI and releases
 
 - `.github/workflows/ci.yml`: every pull request and push to main renders the site and builds the image. Pushes to main also publish `ghcr.io/markgarrigan/dotcom:edge` and `:sha-<short>` (never `latest`).
-- `.github/workflows/release.yml`: release-please keeps a release PR open from conventional commits (`feat:`, `fix:`, `feat!:`). Merging it bumps `package.json`, writes `CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. The `publish` job then pushes the image: `X.Y.Z` always, and `X.Y`, `X` and `latest` only for stable releases. It refuses to publish if the tag doesn't match `package.json`, or if `site/markgarrigan.pdf` is missing.
+- `.github/workflows/release.yml`: runs after CI passes on a push to main (`workflow_run`), never alongside it. release-please keeps a release PR open from conventional commits (`feat:`, `fix:`, `feat!:`). Merging it bumps `package.json`, writes `CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. The `publish` job then pushes the image: `X.Y.Z` always, and `X.Y`, `X` and `latest` only for stable releases. It refuses to publish if the tag doesn't match `package.json`, or if `site/markgarrigan.pdf` is missing.
 - Images carry a signed build-provenance attestation.
 - boxx follows a tag's digest, so point production at `:1` (or `:latest`) with update policy `auto` to deploy each stable release, and a staging app at `:edge`.
 - To force a version, put `Release-As: 1.0.0` in a commit body.
@@ -34,6 +34,6 @@ There is no test suite or linter.
 
 ## Open items
 
-- `site/markgarrigan.pdf` (the résumé) isn't in place yet.
+- `site/markgarrigan.pdf` is the public résumé, rendered from `~/Desktop/Mark Garrigan Résumé 2026/resume.html`. Re-copy it when the résumé changes.
 - The contact form has no server-side handler.
 - boxx and stored are "coming soon": no repo, install or registry links until they're public.

@@ -2,13 +2,22 @@
 # conventional commits. Merging it bumps package.json, writes CHANGELOG.md, tags vX.Y.Z
 # and publishes the GitHub Release. The publish job then pushes the versioned image.
 #
+# It runs only after CI has passed on a push to main, so nothing is released from a
+# commit whose site or image failed to build.
+#
 # Publishing runs in this workflow (not on a separate `release: published` trigger)
 # because a release created with GITHUB_TOKEN does not start other workflows.
 name: Release
 
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [main]
+
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -20,6 +29,7 @@ env:
 
 jobs:
   release-please:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.rp.outputs.release_created }}
