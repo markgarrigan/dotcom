@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luna Coffee: The whole online business for a small-batch roaster. · Mark Garrigan</title>
+<meta name="description" content="The whole online business for a small-batch roaster. Luna Coffee has roasted small-batch coffee since 2000, and I've been its web developer since the early 2000s, long before I used GitHub. Today's platform is the fourth version of the site and the third of the admin.">
+<meta property="og:title" content="Luna Coffee: The whole online business for a small-batch roaster. · Mark Garrigan">
+<meta property="og:description" content="The whole online business for a small-batch roaster. Luna Coffee has roasted small-batch coffee since 2000, and I've been its web developer since the early 2000s, long before I used GitHub. Today's platform is the fourth version of the site and the third of the admin.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231e1e2e'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23cba6f7' stroke-width='2'/%3E%3Cpath d='M9 22V10l4 6 4-6v12M21 10h3' stroke='%23cdd6f4' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/saucecodepro-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme"),f=localStorage.getItem("font");if(t&&t!=="auto")d.dataset.theme=t;if(f&&f!=="saucecode")d.dataset.font=f}catch(e){}</script>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/main.js" defer></script>
+</head>
+<body data-page="/work/luna/">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-sel focus:px-3 focus:py-1 focus:text-sel-fg">Skip to content</a>
+<header class="titlebar">
+  <a href="/" class="font-bold whitespace-nowrap no-underline">Mark Garrigan</a>
+  <span class="hidden truncate md:block">Full-stack engineer</span>
+  <div class="flex shrink-0 items-center gap-[1ch]">
+    <div class="relative">
+      <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
+      <div class="menu" id="font-menu" data-menu="font" hidden>
+        <button type="button" data-set="saucecode"><span data-check aria-hidden="true"></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="jetbrains"><span data-check aria-hidden="true"></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="noto"><span data-check aria-hidden="true"></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="bigblue" hidden><span data-check aria-hidden="true"></span><span>BigBlueTerm <span class="sr-only">(Borland theme only)</span></span><span class="sample sample--bigblue" aria-hidden="true">Aa ├─┤</span></button>
+      </div>
+    </div>
+    <div class="relative">
+      <button type="button" class="btn" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-keyshortcuts="T"><span><span class="tab-key">T</span>heme<span class="hidden lg:inline">: <span data-theme-name>Auto</span></span></span></button>
+      <div class="menu" id="theme-menu" data-menu="theme" hidden>
+        <button type="button" data-set="auto"><span data-check aria-hidden="true"></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></button>
+        <button type="button" data-set="latte"><span data-check aria-hidden="true"></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></button>
+        <button type="button" data-set="frappe"><span data-check aria-hidden="true"></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></button>
+        <button type="button" data-set="macchiato"><span data-check aria-hidden="true"></span><span>Macchiato <span class="sr-only">(Catppuccin, dark)</span></span><span class="sw" aria-hidden="true"><i style="background:#24273a"></i><i style="background:#cad3f5"></i><i style="background:#c6a0f6"></i></span></button>
+        <button type="button" data-set="mocha"><span data-check aria-hidden="true"></span><span>Mocha <span class="sr-only">(Catppuccin, darkest)</span></span><span class="sw" aria-hidden="true"><i style="background:#1e1e2e"></i><i style="background:#cdd6f4"></i><i style="background:#cba6f7"></i></span></button>
+        <button type="button" data-set="borland"><span data-check aria-hidden="true"></span><span>Borland <span class="sr-only">(Blue screen, grey bars)</span></span><span class="sw" aria-hidden="true"><i style="background:#0000aa"></i><i style="background:#aaaaaa"></i><i style="background:#ffff55"></i></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <a href="/" aria-current="page" aria-keyshortcuts="W"><span class="tab-key">W</span>ork</a><a href="/about/" aria-keyshortcuts="A"><span class="tab-key">A</span>bout</a><a href="/contact/" aria-keyshortcuts="C"><span class="tab-key">C</span>ontact</a>
+</nav>
+<main id="main" class="flex-1 px-[2ch] pt-8 pb-10">
+<p class="mb-6 text-muted"><a href="/" class="no-underline hover:underline">Work</a> › <span class="text-fg">Luna Coffee</span></p>
+<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
+  <section class="pane pane--focus lg:col-span-12" aria-labelledby="p-title">
+    <span class="pane-title" aria-hidden="true">Overview</span>
+    <div class="grid gap-x-[4ch] gap-y-6 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <h1 id="p-title" class="display text-[clamp(2.75rem,6vw,5rem)]">Luna Coffee</h1>
+        <p class="mt-4 max-w-[48ch] text-[1.2rem] leading-snug">The whole online business for a small-batch roaster.</p>
+        <p class="mt-4"><span class="st st--live">Live</span> <a href="https://lunacafe.com" rel="noopener" target="_blank">lunacafe.com ↗</a></p>
+      </div>
+      <div class="lg:col-span-5">
+        <dl class="kv">
+          <dt>Role</dt><dd>Client since the early 2000s. Its web developer through every version.</dd>
+          <dt>Built</dt><dd class="tabular-nums">2000s → now</dd>
+          <dt>History</dt><dd>Site version 4, admin version 3, built since the early 2000s.</dd>
+          <dt>Stack</dt><dd>Express · MySQL · Stripe · EasyPost · Cloud Run</dd>
+        </dl>
+        <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid content-start gap-y-10 lg:col-span-7">
+  <section class="pane" aria-labelledby="story-title">
+    <h2 class="pane-title" id="story-title">Story</h2>
+    <div class="max-w-[68ch] space-y-4 text-[1rem]"><p>Luna Coffee has roasted small-batch coffee since 2000, and I've been its web developer since the early 2000s, long before I used GitHub. Today's platform is the fourth version of the site and the third of the admin.</p><p>The current version runs the whole online business. Customers shop for coffee, tea, gift boxes, gift cards, drinkware and apparel, then check out for pickup, local delivery (checked by ZIP code) or shipping. Orders are packed, labelled and tracked in the admin, and the local driver delivers them from a phone app. A monthly job writes a Stripe sales report, and product images come from a separate image host.</p><p>Over those versions it opened new sales channels for them: online ordering, local delivery, shipping, gift cards and fundraisers.</p></div>
+  </section>
+    <section class="pane pane--focus" aria-labelledby="res-title">
+      <h2 class="pane-title" id="res-title">Results</h2>
+      <ul class="grid gap-3"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Built and rebuilt since the early 2000s: the site is on version 4, the admin on version 3.</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Opened online ordering, pickup, local delivery, shipping, gift cards and fundraisers.</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Live at lunacafe.com.</span></li></ul>
+    </section>
+  </div>
+
+  <section class="pane pane--panel lg:col-span-5" aria-labelledby="sys-title">
+    <h2 class="pane-title" id="sys-title">System, layer by layer</h2>
+    <dl class="grid gap-4">
+      <div><dt class="font-bold">[x] Interface</dt><dd class="mt-1">Express 5 with a small custom file-based router, plus htmx, server-sent events and idiomorph, and Tailwind 4 through Vite.</dd></div>
+      <div><dt class="font-bold">[x] API</dt><dd class="mt-1">api.lunacafe.com on Express and Sequelize, about 25 models, with a bearer-token client.</dd></div>
+      <div><dt class="font-bold">[x] Data</dt><dd class="mt-1">MySQL, with Stripe payments and invoices as the source of orders.</dd></div>
+      <div><dt class="font-bold">[x] Infra</dt><dd class="mt-1">Google Cloud Run, deployed by GitHub Actions on each release. Cloud Storage for images and reports, EasyPost for shipping and Mailgun for email.</dd></div>
+      <div><dt class="font-bold">[x] Ops</dt><dd class="mt-1">A monthly Stripe sales report that runs as a Cloud Run job, rate limiting, and a customer email at every fulfillment step.</dd></div>
+    </dl>
+  </section>
+
+  
+
+
+
+  <section class="pane lg:col-span-12" aria-labelledby="screens-title">
+    <h2 class="pane-title" id="screens-title">Screens</h2>
+    <div class="grid gap-x-[2ch] gap-y-8 md:grid-cols-2">
+    <figure class="shot">
+      <img src="/assets/img/work/luna.webp" width="1200" height="750" alt="Screenshot: lunacafe.com, the storefront." loading="lazy" decoding="async">
+      <figcaption><b>lunacafe.com, the storefront.</b><span>[Screenshot]</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/assets/img/work/luna-admin-order.webp" width="1200" height="750" alt="Illustration: Admin: an order and its fulfillment panel." loading="lazy" decoding="async">
+      <figcaption><b>Admin: an order and its fulfillment panel.</b><span>[Illustration]</span></figcaption>
+    </figure>
+  </div>
+  </section>
+
+  <section class="pane pane--focus scroll-mt-6 lg:col-span-12" id="delivery" aria-labelledby="admin-title">
+    <h2 class="pane-title" id="admin-title">Private tool: Luna delivery app</h2>
+    <div class="grid gap-x-[4ch] gap-y-6 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="display text-[2rem]" aria-hidden="true">Luna delivery app</p>
+        <p class="mt-3"><span class="st st--priv">Private</span> <span class="text-muted">· Private tool, shown as illustrations · 2025-08 → now</span></p>
+        <p class="mt-5 max-w-[60ch] text-[1rem]">A phone app for the local driver. It isn't public, so the screens here are drawn from its real templates with invented addresses.</p>
+        <ul class="mt-5 grid gap-2"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">▸</span><span>Shows every order waiting for local delivery as a numbered stop on a map</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">▸</span><span>Pulls those orders straight from Stripe payments and invoices tagged for delivery</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">▸</span><span>Drag stops to reorder the route</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">▸</span><span>Tap a stop to confirm it's delivered</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">▸</span><span>Confirming marks the order delivered in Stripe, with a timestamp</span></li></ul>
+      </div>
+      <div class="lg:col-span-7"><div class="grid gap-x-[2ch] gap-y-8 md:grid-cols-2">
+    <figure class="shot md:col-span-2">
+      <img src="/assets/img/work/luna-delivery.webp" width="1200" height="750" alt="Illustration: The map of pinned stops, the stop list, and confirming a delivery." loading="lazy" decoding="async">
+      <figcaption><b>The map of pinned stops, the stop list, and confirming a delivery.</b><span>[Illustration]</span></figcaption>
+    </figure>
+  </div></div>
+    </div>
+  </section>
+
+  <section class="pane lg:col-span-7" aria-labelledby="dec-title">
+    <h2 class="pane-title" id="dec-title">Decisions</h2>
+    <ol class="grid gap-5">
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">01</span><div><h3 class="font-bold">Stripe is the order book</h3><p class="mt-1 max-w-[64ch]">Orders come straight from Stripe payments and invoices. The app keeps no separate order ledger.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">02</span><div><h3 class="font-bold">Pages are just files</h3><p class="mt-1 max-w-[64ch]">Pages are HTML files with optional data loaders, routed by a small custom handler. Adding a page means adding a file.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">03</span><div><h3 class="font-bold">Every fulfillment gets its own path</h3><p class="mt-1 max-w-[64ch]">Pickup, local delivery (ZIP allow-list, $6 charge), shipping with EasyPost labels across UPS, FedEx and USPS, gift cards, and manual orders. Each has its own panel and its own customer emails.</p></div></li>
+    </ol>
+  </section>
+
+  <div class="grid content-start gap-y-10 lg:col-span-5">
+
+    <section class="pane" aria-labelledby="inv-title">
+      <h2 class="pane-title" id="inv-title">In the box</h2>
+      <ul class="grid gap-1.5"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Shop by category, product pages and a cart drawer</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Pickup, local delivery by ZIP, or shipping</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Stripe checkout</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Twelve café menu pages, contact and fundraising</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Admin: orders, subscriptions, packing slips</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Fulfillment panels: pickup, delivery, shipping, parcel, tracking, gift card</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Customer emails from confirmation to delivered</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Products in six categories, café hours, sales report</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Delivery app for the local driver</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Monthly Stripe sales report job</span></li></ul>
+    </section>
+  </div>
+
+  <nav class="pane lg:col-span-12" aria-label="More projects">
+    <span class="pane-title" aria-hidden="true">More projects</span>
+    <div class="flex flex-wrap justify-between gap-4">
+      <a class="btn" href="/work/nurun/" data-prev>◂ nurun co.</a>
+      <a class="btn" href="/">All projects</a>
+      <a class="btn" href="/work/plainwork/" data-next>Plainwork ▸</a>
+    </div>
+  </nav>
+</div>
+</main>
+<footer class="legend" aria-label="Keys">
+  <a href="/" data-back><span class="k">h</span><span class="k">Esc</span>Back</a>
+  <a href="/work/nurun/"><span class="k">←</span>nurun co.</a>
+  <a href="/work/plainwork/"><span class="k">→</span>Plainwork</a>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">j</span><span class="k">k</span>Scroll</span>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>
+  <a href="mailto:mrkgrrgn@gmail.com"><span class="k">E</span>Email</a>
+  <a href="/markgarrigan.pdf" download><span class="k">R</span>Résumé</a>
+  <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
+</footer>
+</body>
+</html>

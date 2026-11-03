@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mark Garrigan, full-stack engineer</title>
+<meta name="description" content="I take products from the first idea to running them in production. Six projects, from a race-timing appliance to a commerce engine.">
+<meta property="og:title" content="Mark Garrigan, full-stack engineer">
+<meta property="og:description" content="I take products from the first idea to running them in production. Six projects, from a race-timing appliance to a commerce engine.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231e1e2e'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23cba6f7' stroke-width='2'/%3E%3Cpath d='M9 22V10l4 6 4-6v12M21 10h3' stroke='%23cdd6f4' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/saucecodepro-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme"),f=localStorage.getItem("font");if(t&&t!=="auto")d.dataset.theme=t;if(f&&f!=="saucecode")d.dataset.font=f}catch(e){}</script>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/main.js" defer></script>
+</head>
+<body data-page="/">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-sel focus:px-3 focus:py-1 focus:text-sel-fg">Skip to content</a>
+<header class="titlebar">
+  <a href="/" class="font-bold whitespace-nowrap no-underline">Mark Garrigan</a>
+  <span class="hidden truncate md:block">Full-stack engineer</span>
+  <div class="flex shrink-0 items-center gap-[1ch]">
+    <div class="relative">
+      <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
+      <div class="menu" id="font-menu" data-menu="font" hidden>
+        <button type="button" data-set="saucecode"><span data-check aria-hidden="true"></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="jetbrains"><span data-check aria-hidden="true"></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="noto"><span data-check aria-hidden="true"></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="bigblue" hidden><span data-check aria-hidden="true"></span><span>BigBlueTerm <span class="sr-only">(Borland theme only)</span></span><span class="sample sample--bigblue" aria-hidden="true">Aa ├─┤</span></button>
+      </div>
+    </div>
+    <div class="relative">
+      <button type="button" class="btn" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-keyshortcuts="T"><span><span class="tab-key">T</span>heme<span class="hidden lg:inline">: <span data-theme-name>Auto</span></span></span></button>
+      <div class="menu" id="theme-menu" data-menu="theme" hidden>
+        <button type="button" data-set="auto"><span data-check aria-hidden="true"></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></button>
+        <button type="button" data-set="latte"><span data-check aria-hidden="true"></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></button>
+        <button type="button" data-set="frappe"><span data-check aria-hidden="true"></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></button>
+        <button type="button" data-set="macchiato"><span data-check aria-hidden="true"></span><span>Macchiato <span class="sr-only">(Catppuccin, dark)</span></span><span class="sw" aria-hidden="true"><i style="background:#24273a"></i><i style="background:#cad3f5"></i><i style="background:#c6a0f6"></i></span></button>
+        <button type="button" data-set="mocha"><span data-check aria-hidden="true"></span><span>Mocha <span class="sr-only">(Catppuccin, darkest)</span></span><span class="sw" aria-hidden="true"><i style="background:#1e1e2e"></i><i style="background:#cdd6f4"></i><i style="background:#cba6f7"></i></span></button>
+        <button type="button" data-set="borland"><span data-check aria-hidden="true"></span><span>Borland <span class="sr-only">(Blue screen, grey bars)</span></span><span class="sw" aria-hidden="true"><i style="background:#0000aa"></i><i style="background:#aaaaaa"></i><i style="background:#ffff55"></i></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <a href="/" aria-current="page" aria-keyshortcuts="W"><span class="tab-key">W</span>ork</a><a href="/about/" aria-keyshortcuts="A"><span class="tab-key">A</span>bout</a><a href="/contact/" aria-keyshortcuts="C"><span class="tab-key">C</span>ontact</a>
+</nav>
+<main id="main" class="flex-1 px-[2ch] pt-8 pb-10">
+<h1 class="sr-only">Mark Garrigan, full-stack engineer</h1>
+<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
+  <section class="pane pane--focus lg:col-span-7 lg:min-h-[calc(100svh-11.5rem)]" aria-labelledby="main-title">
+    <h2 class="pane-title" id="main-title">Main</h2>
+    <p class="display text-[clamp(2.75rem,6.2vw,5.25rem)]" aria-hidden="true">Mark Garrigan</p>
+    <p class="mt-4 text-muted">Full-stack engineer · idea to production</p>
+    <p class="mt-5 max-w-[60ch] text-[1.2rem] leading-snug">I take products from the first idea to running them in production. I work across the whole stack: interface, API, data, infrastructure and operations.</p>
+    <p class="mt-4 text-muted">Owned end to end: <span class="text-fg">Idea ▸ Architecture ▸ Build ▸ Review ▸ Launch ▸ Run</span></p>
+    <hr class="rule rule--double">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+      <h2 class="font-bold text-accent">Projects</h2>
+      <p class="text-muted tabular-nums">8 items · 4 live · 2 soon · 2 private</p>
+    </div>
+    <nav aria-label="Projects" class="mt-3">
+      <ul class="items" data-items>
+        <li><a class="item" href="/work/bibsee/" data-item="bibsee" data-sel>
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">Bibsee</span> <span class="desc">Offline race timing</span></span>
+          <span class="when hidden sm:inline">2025-09 → now</span>
+          <span class="st st--live">Live</span>
+        </a></li>
+        <li><a class="item" href="/work/nurun/" data-item="nurun">
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">nurun co.</span> <span class="desc">Race site and ops admin</span></span>
+          <span class="when hidden sm:inline">2017 → now</span>
+          <span class="st st--live">Live</span>
+        </a></li>
+        <li><a class="item item--child" href="/work/nurun/#admin" data-item="nurun-admin">
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">nurun-admin</span> <span class="desc">Race operations admin</span></span>
+          <span class="when hidden sm:inline">2026-05 → now</span>
+          <span class="st st--priv">Private</span>
+        </a></li>
+        <li><a class="item" href="/work/luna/" data-item="luna">
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">Luna Coffee</span> <span class="desc">Online store and operations</span></span>
+          <span class="when hidden sm:inline">2000s → now</span>
+          <span class="st st--live">Live</span>
+        </a></li>
+        <li><a class="item item--child" href="/work/luna/#delivery" data-item="luna-delivery">
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">Luna delivery app</span> <span class="desc">The driver's delivery app</span></span>
+          <span class="when hidden sm:inline">2025-08 → now</span>
+          <span class="st st--priv">Private</span>
+        </a></li>
+        <li><a class="item" href="/work/plainwork/" data-item="plainwork">
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">Plainwork</span> <span class="desc">Tiny macOS apps</span></span>
+          <span class="when hidden sm:inline">2025-12 → 2026-01</span>
+          <span class="st st--live">Live</span>
+        </a></li>
+        <li><a class="item" href="/work/boxx/" data-item="boxx">
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">boxx</span> <span class="desc">Single-host deploy tool</span></span>
+          <span class="when hidden sm:inline">2026-05 → now</span>
+          <span class="st st--soon">Soon</span>
+        </a></li>
+        <li><a class="item" href="/work/stored/" data-item="stored">
+          <span class="cur" aria-hidden="true">▸</span>
+          <span class="min-w-0"><span class="name font-bold">stored</span> <span class="desc">Own-your-store commerce</span></span>
+          <span class="when hidden sm:inline">2026-05 → now</span>
+          <span class="st st--soon">Soon</span>
+        </a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="pane pane--panel lg:col-span-5 lg:min-h-[calc(100svh-11.5rem)]" aria-labelledby="help-title">
+    <h2 class="pane-title" id="help-title">Item Specific Help</h2>
+    <div data-help><h3 class="display text-[2rem]">Bibsee</h3>
+  <p class="mt-2 text-[1rem]">Race timing for where the signal ends.</p>
+  <p class="mt-2"><span class="st st--live">Live</span> <a href="https://bibsee.com" rel="noopener" target="_blank">bibsee.com</a></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/bibsee.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>bibsee.com, the marketing site.</b><span>[Screenshot]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Bun · SQLite · Go · Docker · Raspberry Pi</dd><dt>Built</dt><dd class="tabular-nums">2025-09 → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/bibsee/">Open Bibsee ↵</a></p></div>
+    <template data-help-for="bibsee"><h3 class="display text-[2rem]">Bibsee</h3>
+  <p class="mt-2 text-[1rem]">Race timing for where the signal ends.</p>
+  <p class="mt-2"><span class="st st--live">Live</span> <a href="https://bibsee.com" rel="noopener" target="_blank">bibsee.com</a></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/bibsee.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>bibsee.com, the marketing site.</b><span>[Screenshot]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Bun · SQLite · Go · Docker · Raspberry Pi</dd><dt>Built</dt><dd class="tabular-nums">2025-09 → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/bibsee/">Open Bibsee ↵</a></p></template>
+    <template data-help-for="nurun"><h3 class="display text-[2rem]">nurun co.</h3>
+  <p class="mt-2 text-[1rem]">My race company's site, and the admin I run race week from.</p>
+  <p class="mt-2"><span class="st st--live">Live</span> <a href="https://nurun.co" rel="noopener" target="_blank">nurun.co</a></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/nurun.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>nurun.co, the public race site.</b><span>[Screenshot]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Bun · Edge · MySQL · Tailwind · Mailgun</dd><dt>Built</dt><dd class="tabular-nums">2017 → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/nurun/">Open nurun co. ↵</a></p></template>
+    <template data-help-for="nurun-admin"><h3 class="display text-[2rem]">nurun-admin</h3>
+  <p class="mt-2 text-[1rem]">The admin I run race week from. It replaced my spreadsheets.</p>
+  <p class="mt-2"><span class="st st--priv">Private</span> <span class="text-muted">· Private tool, shown as illustrations</span></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/nurun-admin-shirts.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>nurun-admin: shirt sizes for a race date.</b><span>[Illustration]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Bun · Edge · MySQL · Tailwind · Mailgun</dd><dt>Built</dt><dd class="tabular-nums">2026-05 → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/nurun/#admin">Open nurun-admin ↵</a></p></template>
+    <template data-help-for="luna"><h3 class="display text-[2rem]">Luna Coffee</h3>
+  <p class="mt-2 text-[1rem]">The whole online business for a small-batch roaster.</p>
+  <p class="mt-2"><span class="st st--live">Live</span> <a href="https://lunacafe.com" rel="noopener" target="_blank">lunacafe.com</a></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/luna.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>lunacafe.com, the storefront.</b><span>[Screenshot]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Express · MySQL · Stripe · EasyPost · Cloud Run</dd><dt>Built</dt><dd class="tabular-nums">2000s → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/luna/">Open Luna Coffee ↵</a></p></template>
+    <template data-help-for="luna-delivery"><h3 class="display text-[2rem]">Luna delivery app</h3>
+  <p class="mt-2 text-[1rem]">The app the local delivery driver uses to deliver orders.</p>
+  <p class="mt-2"><span class="st st--priv">Private</span> <span class="text-muted">· Private tool, shown as illustrations</span></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/luna-delivery.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>The map of pinned stops, the stop list, and confirming a delivery.</b><span>[Illustration]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Express · MySQL · Stripe · EasyPost · Cloud Run</dd><dt>Built</dt><dd class="tabular-nums">2025-08 → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/luna/#delivery">Open Luna delivery app ↵</a></p></template>
+    <template data-help-for="plainwork"><h3 class="display text-[2rem]">Plainwork</h3>
+  <p class="mt-2 text-[1rem]">Micro apps for micro tasks.</p>
+  <p class="mt-2"><span class="st st--live">Live</span> <a href="https://plainwork.github.io" rel="noopener" target="_blank">plainwork.github.io</a></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/plainwork.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>plainwork.github.io.</b><span>[Screenshot]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span class="flag--off">[ ] API</span><span>[x] Data</span><span class="flag--off">[ ] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Swift · Cocoa · Bash · Homebrew</dd><dt>Built</dt><dd class="tabular-nums">2025-12 → 2026-01</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/plainwork/">Open Plainwork ↵</a></p></template>
+    <template data-help-for="boxx"><h3 class="display text-[2rem]">boxx</h3>
+  <p class="mt-2 text-[1rem]">Install and run Docker apps on one Linux host, from a TUI.</p>
+  <p class="mt-2"><span class="st st--soon">Soon</span> <span class="text-muted">· Its own site is next</span></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/boxx-dashboard.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>The boxx dashboard: host stats and installed apps.</b><span>[Illustration]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span class="flag--off">[ ] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Go · Bubble Tea · Docker · Caddy</dd><dt>Built</dt><dd class="tabular-nums">2026-05 → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/boxx/">Open boxx ↵</a></p></template>
+    <template data-help-for="stored"><h3 class="display text-[2rem]">stored</h3>
+  <p class="mt-2 text-[1rem]">Own your store before you've sold a thing.</p>
+  <p class="mt-2"><span class="st st--soon">Soon</span> <span class="text-muted">· Its own site is next</span></p>
+  <figure class="shot shot--help mt-4"><img src="/assets/img/work/stored-storefront.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><figcaption><b>The Rosebee Family books from Bear Mark Publishing: book page, bag and live shipping rates, on stored.</b><span>[Illustration]</span></figcaption></figure>
+  <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+  <dl class="kv mt-3"><dt>Stack</dt><dd>Bun · MySQL · Stripe · EasyPost · Mailgun</dd><dt>Built</dt><dd class="tabular-nums">2026-05 → now</dd></dl>
+  <p class="mt-4"><a class="btn btn--primary" href="/work/stored/">Open stored ↵</a></p></template>
+  </section>
+
+  <section class="pane lg:col-span-12" aria-labelledby="sys-title">
+    <h2 class="pane-title" id="sys-title">System Information</h2>
+    <dl class="grid gap-x-[4ch] gap-y-2 md:grid-cols-2 xl:grid-cols-3">
+      <div class="kv"><dt>Focus</dt><dd>Product ownership, end to end</dd></div>
+      <div class="kv"><dt>Workflow</dt><dd>Agentic since early 2026: plan, guide, review, audit. Hand-coded before that.</dd></div>
+      <div class="kv"><dt>Languages</dt><dd>JavaScript, Go, Swift, Bash, SQL</dd></div>
+      <div class="kv"><dt>Runtimes</dt><dd>Bun, Node.js, Express, Bubble Tea</dd></div>
+      <div class="kv"><dt>Data</dt><dd>MySQL, SQLite, Postgres</dd></div>
+      <div class="kv"><dt>Interface</dt><dd>Server-rendered HTML, Tailwind, htmx, Alpine.js, vanilla JS, TUIs</dd></div>
+      <div class="kv"><dt>Infra</dt><dd>Docker, Caddy, Google Cloud Run, Raspberry Pi, single Linux hosts</dd></div>
+      <div class="kv"><dt>Integrations</dt><dd>Stripe, EasyPost, Mailgun</dd></div>
+      <div class="kv"><dt>Contact</dt><dd><a href="mailto:mrkgrrgn@gmail.com">mrkgrrgn@gmail.com</a></dd></div>
+    </dl>
+  </section>
+</div>
+</main>
+<footer class="legend" aria-label="Keys">
+  <span class="hidden sm:inline-flex items-center gap-[1ch]"><span class="k">j</span><span class="k">k</span><span class="k">↑↓</span>Move</span>
+  <a href="/work/bibsee/" data-open class="max-sm:!hidden"><span class="k">l</span><span class="k">↵</span>Open</a>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>
+  <a href="mailto:mrkgrrgn@gmail.com"><span class="k">E</span>Email</a>
+  <a href="/markgarrigan.pdf" download><span class="k">R</span>Résumé</a>
+  <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
+</footer>
+</body>
+</html>

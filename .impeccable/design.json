@@ -1,0 +1,1749 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T03:42:42+00:00",
+  "title": "Design System: Mark Garrigan",
+  "extensions": {
+    "colorMeta": {
+      "latte-bg": {
+        "role": "neutral",
+        "displayName": "Latte Base Field",
+        "canonical": "#eff1f5",
+        "oklch": "oklch(95.8% 0.006 264.5)",
+        "cssVar": "--bg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#242527",
+          "#414244",
+          "#606164",
+          "#808286",
+          "#a3a5a8",
+          "#c8c9cc",
+          "#edeef1"
+        ]
+      },
+      "latte-panel": {
+        "role": "neutral",
+        "displayName": "Latte Panel Field",
+        "canonical": "#e6e9ef",
+        "oklch": "oklch(93.3% 0.009 264.5)",
+        "cssVar": "--panel",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242528",
+          "#404246",
+          "#5f6166",
+          "#808288",
+          "#a2a5aa",
+          "#c7c9ce",
+          "#eceef2"
+        ]
+      },
+      "latte-fg": {
+        "role": "neutral",
+        "displayName": "Latte Text",
+        "canonical": "#4c4f69",
+        "oklch": "oklch(43.5% 0.043 279.3)",
+        "cssVar": "--fg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#090a14",
+          "#222433",
+          "#3e4054",
+          "#5c5f78",
+          "#7c809c",
+          "#9fa3bd",
+          "#c4c7df",
+          "#ebedff"
+        ]
+      },
+      "latte-muted": {
+        "role": "neutral",
+        "displayName": "Latte Muted Text",
+        "canonical": "#5c5f77",
+        "oklch": "oklch(49.2% 0.038 279.3)",
+        "cssVar": "--muted",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#090a13",
+          "#222431",
+          "#3e4052",
+          "#5d5f75",
+          "#7d809a",
+          "#a0a3bb",
+          "#c5c8dd",
+          "#ebedff"
+        ]
+      },
+      "latte-rule": {
+        "role": "neutral",
+        "displayName": "Latte Box Rule",
+        "canonical": "#7c7f93",
+        "oklch": "oklch(60.1% 0.030 278.7)",
+        "cssVar": "--rule",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#0a0b12",
+          "#23242f",
+          "#3f414f",
+          "#5d6071",
+          "#7e8195",
+          "#a1a4b6",
+          "#c5c8d9",
+          "#ebedfc"
+        ]
+      },
+      "latte-bar-bg": {
+        "role": "neutral",
+        "displayName": "Latte Inverse Bar",
+        "canonical": "#4c4f69",
+        "oklch": "oklch(43.5% 0.043 279.3)",
+        "cssVar": "--bar-bg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#090a14",
+          "#222433",
+          "#3e4054",
+          "#5c5f78",
+          "#7c809c",
+          "#9fa3bd",
+          "#c4c7df",
+          "#ebedff"
+        ]
+      },
+      "latte-bar-fg": {
+        "role": "neutral",
+        "displayName": "Latte Inverse Bar Text",
+        "canonical": "#eff1f5",
+        "oklch": "oklch(95.8% 0.006 264.5)",
+        "cssVar": "--bar-fg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#242527",
+          "#414244",
+          "#606164",
+          "#808286",
+          "#a3a5a8",
+          "#c8c9cc",
+          "#edeef1"
+        ]
+      },
+      "latte-key-bg": {
+        "role": "neutral",
+        "displayName": "Latte Key Cap Field",
+        "canonical": "#eff1f5",
+        "oklch": "oklch(95.8% 0.006 264.5)",
+        "cssVar": "--key-bg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#242527",
+          "#414244",
+          "#606164",
+          "#808286",
+          "#a3a5a8",
+          "#c8c9cc",
+          "#edeef1"
+        ]
+      },
+      "latte-key-fg": {
+        "role": "primary",
+        "displayName": "Latte Mauve",
+        "canonical": "#8839ef",
+        "oklch": "oklch(55.5% 0.250 297.0)",
+        "cssVar": "--key-fg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#100127",
+          "#30015f",
+          "#52099b",
+          "#742dce",
+          "#9653fb",
+          "#b18cfe",
+          "#cfbdfd",
+          "#f0ebff"
+        ]
+      },
+      "latte-sel-bg": {
+        "role": "primary",
+        "displayName": "Latte Mauve",
+        "canonical": "#8839ef",
+        "oklch": "oklch(55.5% 0.250 297.0)",
+        "cssVar": "--sel-bg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#100127",
+          "#30015f",
+          "#52099b",
+          "#742dce",
+          "#9653fb",
+          "#b18cfe",
+          "#cfbdfd",
+          "#f0ebff"
+        ]
+      },
+      "latte-sel-fg": {
+        "role": "primary",
+        "displayName": "Latte Selection Text",
+        "canonical": "#eff1f5",
+        "oklch": "oklch(95.8% 0.006 264.5)",
+        "cssVar": "--sel-fg",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#242527",
+          "#414244",
+          "#606164",
+          "#808286",
+          "#a3a5a8",
+          "#c8c9cc",
+          "#edeef1"
+        ]
+      },
+      "latte-accent": {
+        "role": "secondary",
+        "displayName": "Latte Blue",
+        "canonical": "#8839ef",
+        "oklch": "oklch(55.9% 0.226 262.1)",
+        "cssVar": "--accent",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#000728",
+          "#001d5f",
+          "#03369a",
+          "#1454d2",
+          "#3979f9",
+          "#74a3fd",
+          "#adcaff",
+          "#e6effe"
+        ]
+      },
+      "latte-ok": {
+        "role": "tertiary",
+        "displayName": "Latte Green",
+        "canonical": "#2f7a21",
+        "oklch": "oklch(62.5% 0.177 140.4)",
+        "cssVar": "--ok",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#011000",
+          "#062e00",
+          "#135003",
+          "#23750e",
+          "#3b9a25",
+          "#69bd59",
+          "#97df88",
+          "#cdffc4"
+        ]
+      },
+      "latte-warn": {
+        "role": "tertiary",
+        "displayName": "Latte Peach",
+        "canonical": "#c2410c",
+        "oklch": "oklch(69.2% 0.204 42.4)",
+        "cssVar": "--warn",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#1a0400",
+          "#421501",
+          "#712700",
+          "#a13d08",
+          "#d45513",
+          "#fc7a42",
+          "#ffb598",
+          "#fee9e1"
+        ]
+      },
+      "latte-priv": {
+        "role": "tertiary",
+        "displayName": "Latte Lavender",
+        "canonical": "#4a5bc4",
+        "oklch": "oklch(66.4% 0.175 273.1)",
+        "cssVar": "--priv",
+        "theme": "Latte",
+        "tonalRamp": [
+          "#05022f",
+          "#16195c",
+          "#2d368a",
+          "#4654ba",
+          "#6275e9",
+          "#899dfd",
+          "#b8c6fd",
+          "#e9eeff"
+        ]
+      },
+      "frappe-bg": {
+        "role": "neutral",
+        "displayName": "Frappé Base Field",
+        "canonical": "#303446",
+        "oklch": "oklch(32.9% 0.032 274.8)",
+        "cssVar": "--bg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#090b12",
+          "#222430",
+          "#3e4150",
+          "#5c6072",
+          "#7c8196",
+          "#9fa4b8",
+          "#c4c8da",
+          "#eaeefd"
+        ]
+      },
+      "frappe-panel": {
+        "role": "neutral",
+        "displayName": "Frappé Panel Field",
+        "canonical": "#292c3c",
+        "oklch": "oklch(29.7% 0.029 276.2)",
+        "cssVar": "--panel",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#090b11",
+          "#22242f",
+          "#3e414f",
+          "#5d6071",
+          "#7d8194",
+          "#a0a4b6",
+          "#c5c8d8",
+          "#ebeefc"
+        ]
+      },
+      "frappe-fg": {
+        "role": "neutral",
+        "displayName": "Frappé Text",
+        "canonical": "#c6d0f5",
+        "oklch": "oklch(86.2% 0.053 273.3)",
+        "cssVar": "--fg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#080a16",
+          "#1f2436",
+          "#3b4158",
+          "#58607d",
+          "#7881a2",
+          "#9ba4c3",
+          "#c0c8e5",
+          "#e9eeff"
+        ]
+      },
+      "frappe-muted": {
+        "role": "neutral",
+        "displayName": "Frappé Muted Text",
+        "canonical": "#a5adce",
+        "oklch": "oklch(75.2% 0.048 274.5)",
+        "cssVar": "--muted",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#080a15",
+          "#202435",
+          "#3c4157",
+          "#59607b",
+          "#7981a0",
+          "#9ca4c1",
+          "#c1c8e2",
+          "#e9eefe"
+        ]
+      },
+      "frappe-rule": {
+        "role": "neutral",
+        "displayName": "Frappé Box Rule",
+        "canonical": "#838ba7",
+        "oklch": "oklch(64.0% 0.043 272.6)",
+        "cssVar": "--rule",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#080b14",
+          "#202433",
+          "#3c4155",
+          "#596078",
+          "#79819d",
+          "#9da4be",
+          "#c1c8e0",
+          "#e9eefe"
+        ]
+      },
+      "frappe-bar-bg": {
+        "role": "neutral",
+        "displayName": "Frappé Inverse Bar",
+        "canonical": "#c6d0f5",
+        "oklch": "oklch(86.2% 0.053 273.3)",
+        "cssVar": "--bar-bg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#080a16",
+          "#1f2436",
+          "#3b4158",
+          "#58607d",
+          "#7881a2",
+          "#9ba4c3",
+          "#c0c8e5",
+          "#e9eeff"
+        ]
+      },
+      "frappe-bar-fg": {
+        "role": "neutral",
+        "displayName": "Frappé Inverse Bar Text",
+        "canonical": "#303446",
+        "oklch": "oklch(32.9% 0.032 274.8)",
+        "cssVar": "--bar-fg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#090b12",
+          "#222430",
+          "#3e4150",
+          "#5c6072",
+          "#7c8196",
+          "#9fa4b8",
+          "#c4c8da",
+          "#eaeefd"
+        ]
+      },
+      "frappe-key-bg": {
+        "role": "neutral",
+        "displayName": "Frappé Key Cap Field",
+        "canonical": "#303446",
+        "oklch": "oklch(32.9% 0.032 274.8)",
+        "cssVar": "--key-bg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#090b12",
+          "#222430",
+          "#3e4150",
+          "#5c6072",
+          "#7c8196",
+          "#9fa4b8",
+          "#c4c8da",
+          "#eaeefd"
+        ]
+      },
+      "frappe-key-fg": {
+        "role": "primary",
+        "displayName": "Frappé Mauve",
+        "canonical": "#ca9ee6",
+        "oklch": "oklch(76.5% 0.111 311.7)",
+        "cssVar": "--key-fg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#13041c",
+          "#31193f",
+          "#513364",
+          "#744f8a",
+          "#986eb2",
+          "#ba93d2",
+          "#dcb9f3",
+          "#f6e9fe"
+        ]
+      },
+      "frappe-sel-bg": {
+        "role": "primary",
+        "displayName": "Frappé Mauve",
+        "canonical": "#ca9ee6",
+        "oklch": "oklch(76.5% 0.111 311.7)",
+        "cssVar": "--sel-bg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#13041c",
+          "#31193f",
+          "#513364",
+          "#744f8a",
+          "#986eb2",
+          "#ba93d2",
+          "#dcb9f3",
+          "#f6e9fe"
+        ]
+      },
+      "frappe-sel-fg": {
+        "role": "primary",
+        "displayName": "Frappé Selection Text",
+        "canonical": "#232634",
+        "oklch": "oklch(27.2% 0.026 275.1)",
+        "cssVar": "--sel-fg",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#090b11",
+          "#22242e",
+          "#3f414d",
+          "#5d606f",
+          "#7d8192",
+          "#a0a4b4",
+          "#c5c8d7",
+          "#ebeefa"
+        ]
+      },
+      "frappe-accent": {
+        "role": "secondary",
+        "displayName": "Frappé Blue",
+        "canonical": "#8caaee",
+        "oklch": "oklch(74.2% 0.104 265.7)",
+        "cssVar": "--accent",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#030921",
+          "#152346",
+          "#2d406e",
+          "#475f97",
+          "#6480c1",
+          "#89a4e0",
+          "#b1c9fd",
+          "#e7efff"
+        ]
+      },
+      "frappe-ok": {
+        "role": "tertiary",
+        "displayName": "Frappé Green",
+        "canonical": "#a6d189",
+        "oklch": "oklch(81.2% 0.107 133.4)",
+        "cssVar": "--ok",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#040f00",
+          "#162c02",
+          "#2f4b18",
+          "#4a6d30",
+          "#68904b",
+          "#8db274",
+          "#b4d59e",
+          "#dcf9ca"
+        ]
+      },
+      "frappe-warn": {
+        "role": "tertiary",
+        "displayName": "Frappé Peach",
+        "canonical": "#ef9f76",
+        "oklch": "oklch(77.3% 0.111 47.7)",
+        "cssVar": "--warn",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#190500",
+          "#3f1801",
+          "#663112",
+          "#8e4d2a",
+          "#b76c45",
+          "#d8926e",
+          "#f9b999",
+          "#ffeadf"
+        ]
+      },
+      "frappe-priv": {
+        "role": "tertiary",
+        "displayName": "Frappé Lavender",
+        "canonical": "#babbf1",
+        "oklch": "oklch(81.0% 0.076 283.7)",
+        "cssVar": "--priv",
+        "theme": "Frappé",
+        "tonalRamp": [
+          "#09081a",
+          "#22213d",
+          "#3e3d61",
+          "#5c5c87",
+          "#7c7cae",
+          "#9fa0cf",
+          "#c4c5ef",
+          "#ecedff"
+        ]
+      },
+      "macchiato-bg": {
+        "role": "neutral",
+        "displayName": "Macchiato Base Field",
+        "canonical": "#24273a",
+        "oklch": "oklch(27.9% 0.035 276.9)",
+        "cssVar": "--bg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#090a13",
+          "#222431",
+          "#3e4151",
+          "#5c6074",
+          "#7d8198",
+          "#a0a4b9",
+          "#c4c8dc",
+          "#eaedfe"
+        ]
+      },
+      "macchiato-panel": {
+        "role": "neutral",
+        "displayName": "Macchiato Panel Field",
+        "canonical": "#1e2030",
+        "oklch": "oklch(24.9% 0.030 278.4)",
+        "cssVar": "--panel",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#0a0b12",
+          "#23242f",
+          "#3f414f",
+          "#5d6071",
+          "#7e8195",
+          "#a1a4b6",
+          "#c5c8d9",
+          "#ebedfc"
+        ]
+      },
+      "macchiato-fg": {
+        "role": "neutral",
+        "displayName": "Macchiato Text",
+        "canonical": "#cad3f5",
+        "oklch": "oklch(87.1% 0.048 273.7)",
+        "cssVar": "--fg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#080a15",
+          "#202435",
+          "#3b4157",
+          "#59607a",
+          "#7981a0",
+          "#9ca4c1",
+          "#c1c8e2",
+          "#e9eefe"
+        ]
+      },
+      "macchiato-muted": {
+        "role": "neutral",
+        "displayName": "Macchiato Muted Text",
+        "canonical": "#a5adcb",
+        "oklch": "oklch(75.1% 0.044 273.5)",
+        "cssVar": "--muted",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#080a14",
+          "#202433",
+          "#3c4155",
+          "#5a6078",
+          "#7a819d",
+          "#9da4be",
+          "#c2c8e0",
+          "#e9eeff"
+        ]
+      },
+      "macchiato-rule": {
+        "role": "neutral",
+        "displayName": "Macchiato Box Rule",
+        "canonical": "#8087a2",
+        "oklch": "oklch(62.7% 0.041 273.7)",
+        "cssVar": "--rule",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#080a14",
+          "#212433",
+          "#3c4154",
+          "#5a6077",
+          "#7a819c",
+          "#9da4bd",
+          "#c2c8df",
+          "#e9eefe"
+        ]
+      },
+      "macchiato-bar-bg": {
+        "role": "neutral",
+        "displayName": "Macchiato Inverse Bar",
+        "canonical": "#cad3f5",
+        "oklch": "oklch(87.1% 0.048 273.7)",
+        "cssVar": "--bar-bg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#080a15",
+          "#202435",
+          "#3b4157",
+          "#59607a",
+          "#7981a0",
+          "#9ca4c1",
+          "#c1c8e2",
+          "#e9eefe"
+        ]
+      },
+      "macchiato-bar-fg": {
+        "role": "neutral",
+        "displayName": "Macchiato Inverse Bar Text",
+        "canonical": "#24273a",
+        "oklch": "oklch(27.9% 0.035 276.9)",
+        "cssVar": "--bar-fg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#090a13",
+          "#222431",
+          "#3e4151",
+          "#5c6074",
+          "#7d8198",
+          "#a0a4b9",
+          "#c4c8dc",
+          "#eaedfe"
+        ]
+      },
+      "macchiato-key-bg": {
+        "role": "neutral",
+        "displayName": "Macchiato Key Cap Field",
+        "canonical": "#24273a",
+        "oklch": "oklch(27.9% 0.035 276.9)",
+        "cssVar": "--key-bg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#090a13",
+          "#222431",
+          "#3e4151",
+          "#5c6074",
+          "#7d8198",
+          "#a0a4b9",
+          "#c4c8dc",
+          "#eaedfe"
+        ]
+      },
+      "macchiato-key-fg": {
+        "role": "primary",
+        "displayName": "Macchiato Mauve",
+        "canonical": "#c6a0f6",
+        "oklch": "oklch(77.2% 0.126 303.9)",
+        "cssVar": "--key-fg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#110320",
+          "#2e1845",
+          "#4e326d",
+          "#6f4f95",
+          "#936ebf",
+          "#b493de",
+          "#d7bafe",
+          "#f2eaff"
+        ]
+      },
+      "macchiato-sel-bg": {
+        "role": "primary",
+        "displayName": "Macchiato Mauve",
+        "canonical": "#c6a0f6",
+        "oklch": "oklch(77.2% 0.126 303.9)",
+        "cssVar": "--sel-bg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#110320",
+          "#2e1845",
+          "#4e326d",
+          "#6f4f95",
+          "#936ebf",
+          "#b493de",
+          "#d7bafe",
+          "#f2eaff"
+        ]
+      },
+      "macchiato-sel-fg": {
+        "role": "primary",
+        "displayName": "Macchiato Selection Text",
+        "canonical": "#181926",
+        "oklch": "oklch(21.9% 0.025 280.7)",
+        "cssVar": "--sel-fg",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#0a0b10",
+          "#23242d",
+          "#40414d",
+          "#5e606e",
+          "#7f8192",
+          "#a2a4b3",
+          "#c6c8d6",
+          "#ecedfa"
+        ]
+      },
+      "macchiato-accent": {
+        "role": "secondary",
+        "displayName": "Macchiato Blue",
+        "canonical": "#8aadf4",
+        "oklch": "oklch(75.0% 0.110 263.8)",
+        "cssVar": "--accent",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#020922",
+          "#122348",
+          "#294070",
+          "#445f9a",
+          "#6081c4",
+          "#85a4e3",
+          "#b0c9fd",
+          "#e7efff"
+        ]
+      },
+      "macchiato-ok": {
+        "role": "tertiary",
+        "displayName": "Macchiato Green",
+        "canonical": "#a6da95",
+        "oklch": "oklch(83.5% 0.108 138.2)",
+        "cssVar": "--ok",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#020f00",
+          "#112d06",
+          "#294c1c",
+          "#446e35",
+          "#619151",
+          "#87b478",
+          "#aed7a1",
+          "#d8facd"
+        ]
+      },
+      "macchiato-warn": {
+        "role": "tertiary",
+        "displayName": "Macchiato Peach",
+        "canonical": "#f5a97f",
+        "oklch": "oklch(79.9% 0.106 49.6)",
+        "cssVar": "--warn",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#180500",
+          "#3f1800",
+          "#653213",
+          "#8c4f2b",
+          "#b56e46",
+          "#d6936f",
+          "#f6ba99",
+          "#ffeadf"
+        ]
+      },
+      "macchiato-priv": {
+        "role": "tertiary",
+        "displayName": "Macchiato Lavender",
+        "canonical": "#b7bdf8",
+        "oklch": "oklch(81.4% 0.083 279.9)",
+        "cssVar": "--priv",
+        "theme": "Macchiato",
+        "tonalRamp": [
+          "#08081c",
+          "#20213f",
+          "#3b3e65",
+          "#595c8c",
+          "#787db3",
+          "#9ba0d4",
+          "#c0c5f4",
+          "#ebedff"
+        ]
+      },
+      "mocha-bg": {
+        "role": "neutral",
+        "displayName": "Mocha Base Field",
+        "canonical": "#1e1e2e",
+        "oklch": "oklch(24.3% 0.030 283.9)",
+        "cssVar": "--bg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#0a0a11",
+          "#24242f",
+          "#40404f",
+          "#5f5f71",
+          "#808094",
+          "#a2a3b6",
+          "#c7c7d9",
+          "#ecedfc"
+        ]
+      },
+      "mocha-panel": {
+        "role": "neutral",
+        "displayName": "Mocha Panel Field",
+        "canonical": "#181825",
+        "oklch": "oklch(21.6% 0.025 284.1)",
+        "cssVar": "--panel",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#0a0a10",
+          "#24242d",
+          "#40414d",
+          "#5f606e",
+          "#808191",
+          "#a3a3b3",
+          "#c7c8d6",
+          "#ededfa"
+        ]
+      },
+      "mocha-fg": {
+        "role": "neutral",
+        "displayName": "Mocha Text",
+        "canonical": "#cdd6f4",
+        "oklch": "oklch(87.9% 0.043 272.3)",
+        "cssVar": "--fg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#080b14",
+          "#202433",
+          "#3c4154",
+          "#596078",
+          "#79819c",
+          "#9ca4be",
+          "#c1c8df",
+          "#e9eeff"
+        ]
+      },
+      "mocha-muted": {
+        "role": "neutral",
+        "displayName": "Mocha Muted Text",
+        "canonical": "#a6adc8",
+        "oklch": "oklch(75.1% 0.040 273.9)",
+        "cssVar": "--muted",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#090b14",
+          "#212432",
+          "#3d4153",
+          "#5b6076",
+          "#7b819b",
+          "#9ea4bc",
+          "#c2c8de",
+          "#e9eeff"
+        ]
+      },
+      "mocha-rule": {
+        "role": "neutral",
+        "displayName": "Mocha Box Rule",
+        "canonical": "#7f849c",
+        "oklch": "oklch(61.8% 0.037 276.0)",
+        "cssVar": "--rule",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#090a13",
+          "#222431",
+          "#3d4152",
+          "#5c6074",
+          "#7c8199",
+          "#9fa4ba",
+          "#c4c8dc",
+          "#eaeeff"
+        ]
+      },
+      "mocha-bar-bg": {
+        "role": "neutral",
+        "displayName": "Mocha Inverse Bar",
+        "canonical": "#cdd6f4",
+        "oklch": "oklch(87.9% 0.043 272.3)",
+        "cssVar": "--bar-bg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#080b14",
+          "#202433",
+          "#3c4154",
+          "#596078",
+          "#79819c",
+          "#9ca4be",
+          "#c1c8df",
+          "#e9eeff"
+        ]
+      },
+      "mocha-bar-fg": {
+        "role": "neutral",
+        "displayName": "Mocha Inverse Bar Text",
+        "canonical": "#1e1e2e",
+        "oklch": "oklch(24.3% 0.030 283.9)",
+        "cssVar": "--bar-fg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#0a0a11",
+          "#24242f",
+          "#40404f",
+          "#5f5f71",
+          "#808094",
+          "#a2a3b6",
+          "#c7c7d9",
+          "#ecedfc"
+        ]
+      },
+      "mocha-key-bg": {
+        "role": "neutral",
+        "displayName": "Mocha Key Cap Field",
+        "canonical": "#1e1e2e",
+        "oklch": "oklch(24.3% 0.030 283.9)",
+        "cssVar": "--key-bg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#0a0a11",
+          "#24242f",
+          "#40404f",
+          "#5f5f71",
+          "#808094",
+          "#a2a3b6",
+          "#c7c7d9",
+          "#ecedfc"
+        ]
+      },
+      "mocha-key-fg": {
+        "role": "primary",
+        "displayName": "Mocha Mauve",
+        "canonical": "#cba6f7",
+        "oklch": "oklch(78.7% 0.119 304.8)",
+        "cssVar": "--key-fg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#11031f",
+          "#2e1943",
+          "#4e336a",
+          "#6f5092",
+          "#936fbb",
+          "#b494db",
+          "#d7bafa",
+          "#f3eaff"
+        ]
+      },
+      "mocha-sel-bg": {
+        "role": "primary",
+        "displayName": "Mocha Mauve",
+        "canonical": "#cba6f7",
+        "oklch": "oklch(78.7% 0.119 304.8)",
+        "cssVar": "--sel-bg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#11031f",
+          "#2e1943",
+          "#4e336a",
+          "#6f5092",
+          "#936fbb",
+          "#b494db",
+          "#d7bafa",
+          "#f3eaff"
+        ]
+      },
+      "mocha-sel-fg": {
+        "role": "primary",
+        "displayName": "Mocha Selection Text",
+        "canonical": "#11111b",
+        "oklch": "oklch(18.3% 0.020 284.2)",
+        "cssVar": "--sel-fg",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#0b0b0f",
+          "#24242c",
+          "#41414b",
+          "#60606c",
+          "#80818e",
+          "#a3a4b0",
+          "#c7c8d3",
+          "#ededf7"
+        ]
+      },
+      "mocha-accent": {
+        "role": "secondary",
+        "displayName": "Mocha Blue",
+        "canonical": "#89b4fa",
+        "oklch": "oklch(76.6% 0.111 259.9)",
+        "cssVar": "--accent",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#010922",
+          "#0e2448",
+          "#244170",
+          "#3e619a",
+          "#5a82c4",
+          "#80a6e4",
+          "#accbfd",
+          "#e6efff"
+        ]
+      },
+      "mocha-ok": {
+        "role": "tertiary",
+        "displayName": "Mocha Green",
+        "canonical": "#a6e3a1",
+        "oklch": "oklch(85.8% 0.109 142.7)",
+        "cssVar": "--ok",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#001000",
+          "#0b2d0a",
+          "#234d20",
+          "#3d6f3a",
+          "#599356",
+          "#81b57c",
+          "#a9d8a5",
+          "#d4fbd0"
+        ]
+      },
+      "mocha-warn": {
+        "role": "tertiary",
+        "displayName": "Mocha Peach",
+        "canonical": "#fab387",
+        "oklch": "oklch(82.4% 0.101 52.6)",
+        "cssVar": "--warn",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#170600",
+          "#3d1a00",
+          "#633413",
+          "#8a512b",
+          "#b27046",
+          "#d2956f",
+          "#f3bb9a",
+          "#feeade"
+        ]
+      },
+      "mocha-priv": {
+        "role": "tertiary",
+        "displayName": "Mocha Lavender",
+        "canonical": "#b4befe",
+        "oklch": "oklch(81.7% 0.091 277.3)",
+        "cssVar": "--priv",
+        "theme": "Mocha",
+        "tonalRamp": [
+          "#07081e",
+          "#1e2142",
+          "#393e68",
+          "#565c90",
+          "#757db8",
+          "#98a1d8",
+          "#bdc6f8",
+          "#eaedff"
+        ]
+      },
+      "borland-bg": {
+        "role": "neutral",
+        "displayName": "CGA Blue Field",
+        "canonical": "#0000aa",
+        "oklch": "oklch(33.4% 0.231 264.1)",
+        "cssVar": "--bg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#000036",
+          "#00136e",
+          "#0a32a1",
+          "#1f52d5",
+          "#3f77fc",
+          "#79a3fb",
+          "#afc9fe",
+          "#e7efff"
+        ]
+      },
+      "borland-panel": {
+        "role": "neutral",
+        "displayName": "CGA Blue Field",
+        "canonical": "#0000aa",
+        "oklch": "oklch(33.4% 0.231 264.1)",
+        "cssVar": "--panel",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#000036",
+          "#00136e",
+          "#0a32a1",
+          "#1f52d5",
+          "#3f77fc",
+          "#79a3fb",
+          "#afc9fe",
+          "#e7efff"
+        ]
+      },
+      "borland-fg": {
+        "role": "neutral",
+        "displayName": "CGA White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "cssVar": "--fg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "borland-muted": {
+        "role": "neutral",
+        "displayName": "CGA Light Grey",
+        "canonical": "#aaaaaa",
+        "oklch": "oklch(73.8% 0.000 89.9)",
+        "cssVar": "--muted",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "borland-rule": {
+        "role": "neutral",
+        "displayName": "CGA Light Grey",
+        "canonical": "#aaaaaa",
+        "oklch": "oklch(73.8% 0.000 89.9)",
+        "cssVar": "--rule",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "borland-bar-bg": {
+        "role": "neutral",
+        "displayName": "CGA Light Grey Bar",
+        "canonical": "#aaaaaa",
+        "oklch": "oklch(73.8% 0.000 89.9)",
+        "cssVar": "--bar-bg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "borland-bar-fg": {
+        "role": "neutral",
+        "displayName": "CGA Black",
+        "canonical": "#000000",
+        "oklch": "oklch(0.0% 0.000 0.0)",
+        "cssVar": "--bar-fg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "borland-key-bg": {
+        "role": "neutral",
+        "displayName": "CGA Blue",
+        "canonical": "#0000aa",
+        "oklch": "oklch(33.4% 0.231 264.1)",
+        "cssVar": "--key-bg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#000036",
+          "#00136e",
+          "#0a32a1",
+          "#1f52d5",
+          "#3f77fc",
+          "#79a3fb",
+          "#afc9fe",
+          "#e7efff"
+        ]
+      },
+      "borland-key-fg": {
+        "role": "primary",
+        "displayName": "CGA White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "cssVar": "--key-fg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "borland-sel-bg": {
+        "role": "primary",
+        "displayName": "CGA Light Grey",
+        "canonical": "#aaaaaa",
+        "oklch": "oklch(73.8% 0.000 89.9)",
+        "cssVar": "--sel-bg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "borland-sel-fg": {
+        "role": "primary",
+        "displayName": "CGA Blue",
+        "canonical": "#0000aa",
+        "oklch": "oklch(33.4% 0.231 264.1)",
+        "cssVar": "--sel-fg",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#000036",
+          "#00136e",
+          "#0a32a1",
+          "#1f52d5",
+          "#3f77fc",
+          "#79a3fb",
+          "#afc9fe",
+          "#e7efff"
+        ]
+      },
+      "borland-accent": {
+        "role": "secondary",
+        "displayName": "CGA Yellow",
+        "canonical": "#ffff55",
+        "oklch": "oklch(97.1% 0.183 109.4)",
+        "cssVar": "--accent",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0c0c00",
+          "#272701",
+          "#454506",
+          "#666507",
+          "#888812",
+          "#adac08",
+          "#d0d158",
+          "#f4f696"
+        ]
+      },
+      "borland-ok": {
+        "role": "tertiary",
+        "displayName": "CGA Light Green",
+        "canonical": "#55ff55",
+        "oklch": "oklch(88.0% 0.252 143.1)",
+        "cssVar": "--ok",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#001000",
+          "#022f03",
+          "#005104",
+          "#0b7611",
+          "#189d1d",
+          "#2ac62e",
+          "#70e86d",
+          "#ccfec9"
+        ]
+      },
+      "borland-warn": {
+        "role": "tertiary",
+        "displayName": "CGA Yellow",
+        "canonical": "#ffff55",
+        "oklch": "oklch(97.1% 0.183 109.4)",
+        "cssVar": "--warn",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#0c0c00",
+          "#272701",
+          "#454506",
+          "#666507",
+          "#888812",
+          "#adac08",
+          "#d0d158",
+          "#f4f696"
+        ]
+      },
+      "borland-priv": {
+        "role": "tertiary",
+        "displayName": "CGA Light Cyan",
+        "canonical": "#55ffff",
+        "oklch": "oklch(91.5% 0.136 195.0)",
+        "cssVar": "--priv",
+        "theme": "Borland",
+        "tonalRamp": [
+          "#000e0e",
+          "#012c2c",
+          "#084c4c",
+          "#096f70",
+          "#169595",
+          "#0bbcbd",
+          "#69dfdf",
+          "#b5fefd"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name on the home Main pane and project titles; About/Contact use clamp(2.5rem, 5vw, 4.25rem), private-tool names 2.5rem."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The selected item's name in the Item Specific Help pane."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "One-line hook (1.2rem) and project pitch (1.3rem), capped 48-60ch."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Inset pane titles and in-pane section heads in accent; item names and key caps in bold."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Everything else on the cell grid; story prose at 1.05rem capped 60-68ch; tabular numerals for dates."
+      },
+      "label": {
+        "displayName": "Caption",
+        "purpose": "Screen captions and [Screenshot]/[Illustration] tags, muted."
+      },
+      "body-borland": {
+        "displayName": "Borland Body",
+        "purpose": "BigBlueTerm437 NFM replaces SauceCodePro NFM for the whole stack in the Borland theme; root size scaled by --scale 1.1."
+      }
+    },
+    "themes": [
+      {
+        "id": "latte",
+        "name": "Catppuccin Latte",
+        "selector": ":root, :root[data-theme=\"latte\"]",
+        "default": "light (Auto, prefers-color-scheme: light)"
+      },
+      {
+        "id": "frappe",
+        "name": "Catppuccin Frappé",
+        "selector": ":root[data-theme=\"frappe\"]",
+        "default": null
+      },
+      {
+        "id": "macchiato",
+        "name": "Catppuccin Macchiato",
+        "selector": ":root[data-theme=\"macchiato\"]",
+        "default": null
+      },
+      {
+        "id": "mocha",
+        "name": "Catppuccin Mocha",
+        "selector": ":root[data-theme=\"mocha\"]; @media (prefers-color-scheme: dark) :root:not([data-theme])",
+        "default": "dark (Auto, prefers-color-scheme: dark)"
+      },
+      {
+        "id": "borland",
+        "name": "Borland",
+        "selector": ":root[data-theme=\"borland\"]",
+        "default": null,
+        "font": "BigBlueTerm437 NFM",
+        "scale": 1.1
+      }
+    ],
+    "persistence": {
+      "storage": "localStorage",
+      "key": "theme",
+      "values": [
+        "auto",
+        "latte",
+        "frappe",
+        "macchiato",
+        "mocha",
+        "borland"
+      ],
+      "applied": "inline head script sets html[data-theme] before paint; auto removes it"
+    },
+    "shortcuts": [
+      {
+        "key": "W",
+        "action": "Work tab (/)"
+      },
+      {
+        "key": "A",
+        "action": "About tab (/about/)"
+      },
+      {
+        "key": "C",
+        "action": "Contact tab (/contact/)"
+      },
+      {
+        "key": "j k / ↑ ↓",
+        "action": "Move the selection (project list and the theme/font menus, which preview live)"
+      },
+      {
+        "key": "l / Enter",
+        "action": "Open: follow the selection or a focused link; pick in a menu"
+      },
+      {
+        "key": "h / Esc",
+        "action": "Back: history back on this site, else up to Work; close a menu"
+      },
+      {
+        "key": "← →",
+        "action": "Previous / next project"
+      },
+      {
+        "key": "j k (pages without a list)",
+        "action": "Scroll three lines down / up"
+      },
+      {
+        "key": "d u",
+        "action": "Scroll half a page down / up"
+      },
+      {
+        "key": "gg G",
+        "action": "Jump to top / end"
+      },
+      {
+        "key": "E",
+        "action": "Email (mailto)"
+      },
+      {
+        "key": "R",
+        "action": "Résumé PDF (shows \"(soon)\" until published)"
+      },
+      {
+        "key": "I",
+        "action": "LinkedIn"
+      },
+      {
+        "key": "F",
+        "action": "Font menu (Borland allows only BigBlueTerm)"
+      },
+      {
+        "key": "T",
+        "action": "Theme menu"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "window-shadow",
+        "value": "1ch 0.6rem 0 rgb(0 0 0 / 0.35)",
+        "purpose": "Turbo Vision window shadow under the theme menu. Native to the world; the only hard shadow and the only drop shadow allowed."
+      },
+      {
+        "name": "field-focus-ring",
+        "value": "inset 0 0 0 2px var(--accent)",
+        "purpose": "Text input / textarea focus ring (warn colour when aria-invalid)."
+      }
+    ],
+    "borders": [
+      {
+        "name": "rule",
+        "value": "1px solid var(--rule)",
+        "purpose": "Pane at rest, dividers, screenshot frames, field underline."
+      },
+      {
+        "name": "rule-double",
+        "value": "3px double var(--rule)",
+        "purpose": "Focus pane, tab underline, theme menu frame, strong divider."
+      },
+      {
+        "name": "rule-focus-within",
+        "value": "3px double var(--accent)",
+        "purpose": "Pane while it holds focus (:focus-within)."
+      },
+      {
+        "name": "focus-outline",
+        "value": "2px solid var(--accent); outline-offset: 2px",
+        "purpose": "Global :focus-visible outline for elements without an inversion state."
+      }
+    ],
+    "motion": [
+      {
+        "name": "instant",
+        "value": "none",
+        "purpose": "All state changes (selection, hover inversion, menu, theme) are instant swaps; no transitions or animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px",
+        "note": "Below: item list drops status column, fields stack, legend tightens."
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "note": "Title bar shows the role line; two-up screen grids."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "note": "12-column 7/5 split; Main and Help panes reach the legend."
+      },
+      {
+        "name": "xl",
+        "value": "1280px",
+        "note": "Three-up screen grids."
+      }
+    ],
+    "layout": {
+      "helpPreviewMaxHeight": "min(30vh, 320px)",
+      "fullHeightPane": "calc(100svh - 11.5rem)",
+      "gutter": "2ch",
+      "paneStack": "2.5rem"
+    }
+  },
+  "components": [
+    {
+      "name": "Bracketed Button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Default action: label framed by muted bracket characters; inverts to the selection bar on hover and focus, instantly.",
+      "html": "<button class=\"ds-btn\">Download résumé</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 1ch; padding: 0.3rem 1ch; font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); font-size: 1rem; color: var(--fg, #4c4f69); background: none; border: 0; border-radius: 0; cursor: pointer; white-space: nowrap; font-variant-ligatures: none; } .ds-btn::before { content: \"[\"; color: var(--muted, #5c5f77); } .ds-btn::after { content: \"]\"; color: var(--muted, #5c5f77); } .ds-btn:hover, .ds-btn:focus-visible { background: var(--sel-bg, #8839ef); color: var(--sel-fg, #eff1f5); outline: none; } .ds-btn:hover::before, .ds-btn:hover::after, .ds-btn:focus-visible::before, .ds-btn:focus-visible::after { color: var(--sel-fg, #eff1f5); }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one committing action in a pane, filled with the selection colour at rest.",
+      "html": "<button class=\"ds-btn-primary\">Open Bibsee ↵</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 1ch; padding: 0.3rem 1ch; font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); font-size: 1rem; font-weight: 700; color: var(--sel-fg, #eff1f5); background: var(--sel-bg, #8839ef); border: 0; border-radius: 0; cursor: pointer; white-space: nowrap; font-variant-ligatures: none; } .ds-btn-primary::before { content: \"[\"; } .ds-btn-primary::after { content: \"]\"; } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #8839ef); outline-offset: 2px; }"
+    },
+    {
+      "name": "Title Bar",
+      "kind": "nav",
+      "refersTo": "titlebar",
+      "description": "Inverse-video bar: name left, role centre, theme control right.",
+      "html": "<header class=\"ds-titlebar\"><b>Mark Garrigan</b><span>Full-stack engineer</span><button class=\"ds-tb-btn\">Font: SauceCodePro</button><button class=\"ds-tb-btn\">Theme: Auto</button></header>",
+      "css": ".ds-titlebar { display: flex; align-items: center; justify-content: space-between; gap: 2ch; min-height: 2.5rem; padding: 0 2ch; background: var(--bar-bg, #4c4f69); color: var(--bar-fg, #eff1f5); font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); font-variant-ligatures: none; } .ds-tb-btn { font: inherit; color: inherit; background: none; border: 0; padding: 0.3rem 1ch; cursor: pointer; } .ds-tb-btn::before { content: \"[ \"; } .ds-tb-btn::after { content: \" ]\"; } .ds-tb-btn:hover, .ds-tb-btn:focus-visible { background: var(--sel-bg, #8839ef); color: var(--sel-fg, #eff1f5); outline: none; }"
+    },
+    {
+      "name": "Tabs",
+      "kind": "nav",
+      "refersTo": "tab-current",
+      "description": "Section tabs over a 3px double rule; the current tab is a bold selection block.",
+      "html": "<nav class=\"ds-tabs\"><a href=\"#\" aria-current=\"page\">Work</a><a href=\"#\">About</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-tabs { display: flex; padding: 0 1ch; border-bottom: 3px double var(--rule, #7c7f93); font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); background: var(--bg, #eff1f5); } .ds-tabs a { display: block; padding: 0.35rem 2ch; color: var(--muted, #5c5f77); text-decoration: none; } .ds-tabs a:hover { color: var(--fg, #4c4f69); } .ds-tabs a[aria-current] { background: var(--sel-bg, #8839ef); color: var(--sel-fg, #eff1f5); font-weight: 700; }"
+    },
+    {
+      "name": "Key Legend",
+      "kind": "nav",
+      "refersTo": "legend",
+      "description": "Inverse bar pinned to the bottom; each action is a key cap plus label and is a working link or key.",
+      "html": "<footer class=\"ds-legend\"><a href=\"#\"><span class=\"ds-k\">↑↓</span>Select</a><a href=\"#\"><span class=\"ds-k\">↵</span>Open</a><a href=\"#\"><span class=\"ds-k\">E</span>Email</a><a href=\"#\"><span class=\"ds-k\">L</span>LinkedIn</a><a href=\"#\"><span class=\"ds-k\">T</span>Theme</a></footer>",
+      "css": ".ds-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 2.5ch; padding: 0.45rem 2ch; background: var(--bar-bg, #4c4f69); color: var(--bar-fg, #eff1f5); font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); } .ds-legend a { display: inline-flex; align-items: center; gap: 1ch; color: inherit; text-decoration: none; } .ds-k { display: inline-block; min-width: 2ch; padding: 0 0.6ch; text-align: center; font-weight: 700; background: var(--key-bg, #eff1f5); color: var(--key-fg, #8839ef); } .ds-legend a:hover .ds-k, .ds-legend a:focus-visible .ds-k { outline: 1px solid var(--bar-fg, #eff1f5); }"
+    },
+    {
+      "name": "Box Pane",
+      "kind": "card",
+      "refersTo": "pane",
+      "description": "Box-drawn pane with its title inset in the top rule; the focus pane carries a double rule that turns accent while focus is inside.",
+      "html": "<section class=\"ds-pane ds-pane--focus\" tabindex=\"-1\"><h2 class=\"ds-pane-title\">Main</h2><dl class=\"ds-kv\"><dt>Role</dt><dd>Sole engineer</dd><dt>Built</dt><dd>2025-09 → now</dd></dl><button class=\"ds-pane-btn\">Focus me</button></section>",
+      "css": ".ds-pane { position: relative; margin-top: 1rem; padding: 1.6rem 2ch 1.4rem; border: 1px solid var(--rule, #7c7f93); background: var(--bg, #eff1f5); color: var(--fg, #4c4f69); font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); line-height: 1.55; } .ds-pane--focus { border: 3px double var(--rule, #7c7f93); } .ds-pane:focus-within { border: 3px double var(--accent, #8839ef); } .ds-pane-title { position: absolute; top: -0.8em; left: 1.5ch; margin: 0; padding: 0 1ch; font-size: 1rem; font-weight: 700; line-height: 1.5; background: var(--bg, #eff1f5); color: var(--accent, #8839ef); } .ds-kv { display: grid; grid-template-columns: 13ch 1fr; gap: 0.3rem 2ch; margin: 0; } .ds-kv dt { color: var(--muted, #5c5f77); } .ds-kv dd { margin: 0; font-variant-numeric: tabular-nums; } .ds-pane-btn { margin-top: 1rem; font: inherit; color: inherit; background: none; border: 0; padding: 0.3rem 1ch; cursor: pointer; } .ds-pane-btn:focus-visible { background: var(--sel-bg, #8839ef); color: var(--sel-fg, #eff1f5); outline: none; }"
+    },
+    {
+      "name": "Item List with Selection Bar",
+      "kind": "custom",
+      "refersTo": "list-item-selected",
+      "description": "Signature list: cursor, name, muted description, tabular dates, bracketed status; the selected row is the inverse selection bar and drives the help pane.",
+      "html": "<div class=\"ds-items\"><a class=\"ds-item\" data-sel href=\"#\"><span class=\"ds-cur\">▸</span><span><b>Bibsee</b> <span class=\"ds-desc\">Offline race timing</span></span><span class=\"ds-when\">2025-09 → now</span><span class=\"ds-st ds-st--live\">Live</span></a><a class=\"ds-item\" href=\"#\"><span class=\"ds-cur\">▸</span><span><b>boxx</b> <span class=\"ds-desc\">Single-host deploy tool</span></span><span class=\"ds-when\">2026-05 → now</span><span class=\"ds-st ds-st--soon\">Soon</span></a><a class=\"ds-item\" href=\"#\"><span class=\"ds-cur\">▸</span><span><b>└ nurun-admin</b> <span class=\"ds-desc\">Race operations admin</span></span><span class=\"ds-when\">2026-05 → now</span><span class=\"ds-st ds-st--priv\">Private</span></a></div>",
+      "css": ".ds-items { display: grid; font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); background: var(--bg, #eff1f5); font-variant-ligatures: none; } .ds-item { display: grid; grid-template-columns: 2ch minmax(0, 1fr) auto 9ch; gap: 0 1.5ch; align-items: baseline; padding: 0.3rem 1ch; color: var(--fg, #4c4f69); text-decoration: none; } .ds-cur { visibility: hidden; } .ds-desc, .ds-when { color: var(--muted, #5c5f77); } .ds-when { font-variant-numeric: tabular-nums; white-space: nowrap; } .ds-st::before { content: \"[\"; } .ds-st::after { content: \"]\"; } .ds-st--live::before, .ds-st--live::after { color: var(--ok, #2f7a21); } .ds-st--soon::before, .ds-st--soon::after { color: var(--warn, #c2410c); } .ds-st--priv::before, .ds-st--priv::after { color: var(--priv, #4a5bc4); } .ds-item[data-sel], .ds-item:hover, .ds-item:focus-visible { background: var(--sel-bg, #8839ef); color: var(--sel-fg, #eff1f5); outline: none; } .ds-item[data-sel] .ds-cur, .ds-item:hover .ds-cur, .ds-item:focus-visible .ds-cur { visibility: visible; } .ds-item[data-sel] .ds-desc, .ds-item[data-sel] .ds-when, .ds-item[data-sel] .ds-st::before, .ds-item[data-sel] .ds-st::after, .ds-item:hover .ds-desc, .ds-item:hover .ds-when, .ds-item:hover .ds-st::before, .ds-item:hover .ds-st::after, .ds-item:focus-visible .ds-desc, .ds-item:focus-visible .ds-when { color: var(--sel-fg, #eff1f5); }"
+    },
+    {
+      "name": "Status and Layer Flags",
+      "kind": "chip",
+      "refersTo": "list-item",
+      "description": "Bracketed status with coloured brackets only, and [x]/[ ] layer flags.",
+      "html": "<p class=\"ds-flags\"><span class=\"ds-s ds-s--live\">Live</span><span class=\"ds-s ds-s--soon\">Soon</span><span class=\"ds-s ds-s--priv\">Private</span></p><p class=\"ds-flags\"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span class=\"ds-off\">[ ] Infra</span><span>[x] Ops</span></p>",
+      "css": ".ds-flags { display: flex; flex-wrap: wrap; gap: 0.2rem 2.5ch; margin: 0 0 0.5rem; font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); color: var(--fg, #4c4f69); background: var(--bg, #eff1f5); } .ds-s::before { content: \"[\"; } .ds-s::after { content: \"]\"; } .ds-s--live::before, .ds-s--live::after { color: var(--ok, #2f7a21); } .ds-s--soon::before, .ds-s--soon::after { color: var(--warn, #c2410c); } .ds-s--priv::before, .ds-s--priv::after { color: var(--priv, #4a5bc4); } .ds-off { color: var(--muted, #5c5f77); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Muted 16ch label column; panel-filled square input with a rule underline; inset accent ring on focus, warn ring when invalid.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-n\">Your name</label><input id=\"ds-n\" placeholder=\"optional\"></div>",
+      "css": ".ds-field { display: grid; grid-template-columns: 16ch minmax(0, 1fr); gap: 0.4rem 2ch; align-items: start; font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); background: var(--bg, #eff1f5); } .ds-field label { color: var(--muted, #5c5f77); padding-top: 0.3rem; } .ds-field input { width: 100%; font: inherit; color: var(--fg, #4c4f69); background: var(--panel, #e6e9ef); border: 0; border-bottom: 1px solid var(--rule, #7c7f93); border-radius: 0; padding: 0.3rem 1ch; caret-color: var(--accent, #8839ef); } .ds-field input:focus { outline: none; background: var(--bg, #eff1f5); box-shadow: inset 0 0 0 2px var(--accent, #8839ef); } .ds-field input[aria-invalid=\"true\"] { box-shadow: inset 0 0 0 2px var(--warn, #c2410c); }"
+    },
+    {
+      "name": "Theme Menu",
+      "kind": "custom",
+      "refersTo": "theme-menu",
+      "description": "Inverse window with a double frame and the Turbo Vision window shadow; rows invert to the selection bar.",
+      "html": "<div class=\"ds-menu\"><button><span>●</span><span>Auto</span><span></span></button><button><span></span><span>Latte</span><span class=\"ds-sw\"><i style=\"background:#eff1f5\"></i><i style=\"background:#8839ef\"></i></span></button><button><span></span><span>Mocha</span><span class=\"ds-sw\"><i style=\"background:#1e1e2e\"></i><i style=\"background:#cba6f7\"></i></span></button><button><span></span><span>Borland</span><span class=\"ds-sw\"><i style=\"background:#0000aa\"></i><i style=\"background:#ffff55\"></i></span></button></div>",
+      "css": ".ds-menu { display: inline-block; min-width: 26ch; padding: 0.4rem 0; margin: 0 1ch 0.6rem 0; background: var(--bar-bg, #4c4f69); color: var(--bar-fg, #eff1f5); border: 3px double var(--rule, #7c7f93); box-shadow: 1ch 0.6rem 0 rgb(0 0 0 / 0.35); font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); } .ds-menu button { display: grid; grid-template-columns: 2ch 1fr auto; gap: 1ch; width: 100%; text-align: left; padding: 0.2rem 1.5ch; font: inherit; color: inherit; background: none; border: 0; cursor: pointer; } .ds-menu button:hover, .ds-menu button:focus-visible { background: var(--sel-bg, #8839ef); color: var(--sel-fg, #eff1f5); outline: none; } .ds-sw { display: inline-flex; gap: 2px; } .ds-sw i { display: inline-block; width: 1ch; height: 0.9em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Setup Utility",
+    "overview": "The portfolio is a setup utility. You move through Mark's work the way you'd configure a machine. A title bar names the system, tabs split it into Work, About and Contact, an item list carries the projects with dates and bracketed status, and an \"Item Specific Help\" pane explains whatever the selection bar is on. The key legend pinned to the bottom is the real set of actions. Every key in it works, and so does every pointer click. It's a configuration screen, not the dark \"terminal portfolio\" of prompts, typing effects and card grids.\n\nEverything sits on a character-cell grid in one monospace face. Horizontal measure is counted in ch, structure is drawn with box rules, and emphasis comes from inverse video, not from shadows, gradients or rounded surfaces. It's dense on purpose: ruled panes hold key/value rows, layer flags and tabular timestamps, the way a BIOS screen packs a lot into one view without feeling crowded.\n\nFive themes reskin the same screen. The defaults are Catppuccin Latte (light) and Mocha (dark), and Frappé, Macchiato and a Borland CGA theme can be picked from the menu. Every theme fills the same role tokens, so a component never knows which theme it's in.",
+    "keyCharacteristics": [
+      "One monospace face (SauceCodePro NFM 400/700; BigBlueTerm437 NFM in Borland), ligatures off, on a character-cell grid.",
+      "Inverse-video title bar and key legend. Key caps invert a second time.",
+      "Box-drawing panes: 1px single rule at rest, 3px double rule for focus, title inset in the top rule.",
+      "An inverse selection bar that drives the help pane, from the keyboard or the pointer.",
+      "Bracketed status [Live] [Soon] [Private], [x] layer flags and [ Label ] buttons.",
+      "Square corners everywhere. Flat, with one exception: the theme menu's Turbo Vision window shadow.",
+      "Instant state swaps. No transitions.",
+      "Five role-token themes: Latte, Frappé, Macchiato, Mocha, Borland."
+    ],
+    "rules": [
+      {
+        "name": "The Inverse Video Rule",
+        "body": "The title bar and key legend are true inverse video. The bar field is the theme's text colour and its text is the base colour. Key caps invert again: a base-colour cap with the letter in the selection hue (mauve in Catppuccin; white on CGA blue in Borland). Never tint the bars with a brand colour or a translucent fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Selection Rule",
+        "body": "The selection colour marks the one thing that's chosen or about to act: the selected list row, the active tab, the primary button, a hovered or focused button, a highlighted menu row and selected text. It always comes paired with its own selection-text colour. Never use it for decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Bracket Status Rule",
+        "body": "The ok, warn and priv colours colour only the brackets of [Live], [Soon] and [Private]. The word stays in the text colour. On the selection bar the brackets take the selection-text colour. These three are signal colours, not text colours.",
+        "section": "colors"
+      },
+      {
+        "name": "The Role Token Rule",
+        "body": "Every colour is a role token (base, panel, text, muted, rule, bar, key, selection, accent, ok, warn, priv) defined in all five themes. Components use roles only. The one place a literal hex is allowed in markup is the theme menu's swatches, which preview the themes themselves.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Face Rule",
+        "body": "One monospace family per theme: SauceCodePro NFM at 400 and 700 with ligatures off, or BigBlueTerm437 NFM in Borland. Hierarchy comes from size, weight and colour alone. Never add a second family, an italic or a system display face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Cell Grid Rule",
+        "body": "Horizontal measure is counted in characters: 1ch and 2ch padding, 13ch and 16ch label columns, a 2ch cursor column and a 9ch status column. Line lengths are capped in ch (40 to 68ch). Vertical rhythm is set in rem.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Kicker Rule",
+        "body": "No kicker or eyebrow text above headings, and pane titles never repeat the page heading. The project header pane is titled \"Overview\", not the project name. The inset pane title is the only label a block gets.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Screen Rule",
+        "body": "Every first viewport fits on one screen. At 1024px and up, the Main and Help panes stretch down to the legend (min-height calc(100svh - 11.5rem)), and the help pane's preview screen is capped at min(30vh, 320px) and cropped from the top.",
+        "section": "layout"
+      },
+      {
+        "name": "The Window Shadow Rule",
+        "body": "The theme menu casts a hard, unblurred shadow one character cell right and 0.6rem down (1ch 0.6rem 0 rgb(0 0 0 / 0.35)). This is the Turbo Vision window shadow, part of this world and not a costume. It's the only hard shadow allowed and the only drop shadow of any kind. Every other surface is flat.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Cell Rule",
+        "body": "Every corner is square (0 radius): panes, buttons, key caps, inputs, menus and screenshots. A radius anywhere breaks the character grid.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Double Frame Rule",
+        "body": "A pane at rest has a 1px single rule. A pane that holds focus gets a 3px double rule, and while focus is inside it (:focus-within) the double rule switches to the accent colour. Every rule colour holds at least 3:1 against the field it sits on.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Instant Swap Rule",
+        "body": "Motion is instant state swaps, like a real TUI. Selection, hover inversion, menu open and theme change all happen in a single frame. No transitions, easing, fades or typing effects.",
+        "section": "components"
+      },
+      {
+        "name": "The Labelled Plate Rule",
+        "body": "Every screen image says what it is in the right of its caption: [Screenshot] for a capture of the real product, [Illustration] for a labelled drawing of a private tool. Every shipping raster has a .webp.json provenance sidecar.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** build every surface out of the same parts: title bar, tabs, box-drawn panes with inset titles, an item list with a selection bar, and the pinned key legend.",
+      "**Do** set all text in the one monospace face with `font-variant-ligatures: none`, at 1rem / 1.55 for body and 700 for names, titles and key caps.",
+      "**Do** make every shortcut real and show it in the legend: W/A/C for the tabs (underlined letter), E email, R résumé, I LinkedIn, T theme, ↑↓ or j k select (in the project list and the theme menu, which previews themes live), Enter open, Esc back, ← → previous/next project.",
+      "**Do** keep the selected item and the \"Item Specific Help\" pane in sync for both pointer and keyboard selection.",
+      "**Do** define every new colour role in all five themes and check it in each. Text holds 4.5:1 and rules hold 3:1 against their field.",
+      "**Do** persist the theme choice in localStorage (\"theme\") and fall back to Latte or Mocha through prefers-color-scheme when it's Auto.",
+      "**Do** use native box-drawing and TUI glyphs (└ ▸ ↵ ● [x] [ ]) as structure. They're the world's own characters.",
+      "**Do** label screen images [Screenshot] or [Illustration], and ship each raster with its provenance sidecar."
+    ],
+    "donts": [
+      "**Don't** add a kicker or eyebrow line above a heading, or title a pane with the page heading.",
+      "**Don't** round a corner, blur a shadow, or add any shadow other than the theme menu's window shadow.",
+      "**Don't** animate. No transitions, fades, typing effects or blinking cursors.",
+      "**Don't** set running text in the ok, warn or priv colours. They're bracket and stroke colours, and in Latte they fall under 3:1 on the base field.",
+      "**Don't** introduce a second typeface or a proportional fallback for headings.",
+      "**Don't** turn it into a terminal: no shell prompts, no fake command lines, no project cards in a grid.",
+      "**Don't** pair the selection colour with anything but its own selection-text colour."
+    ]
+  }
+}

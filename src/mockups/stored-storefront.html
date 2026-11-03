@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stored storefront</title>
+<!--
+  Illustrated mockup: the first store on stored, The Rosebee Family books from Bear Mark Publishing.
+  Rebuilt from the real rosebee storefront (the site that calls stored):
+    - backdrop: rosebee app/index.html hero scene (sky, sun, clouds, hills, fence, Barn.svg), rendered to assets/rosebee-scene.jpg
+    - window 1: rosebee app/books/show.html + partials/storefront_nav.html (desktop)
+    - window 2: rosebee app/cart.html (bag) + partials/storefront_nav.html (mobile width)
+    - card:     rosebee app/components/checkout_modal.html, step 2 "Delivery" (live rates from stored's
+                POST /api/checkout/:id/shipping-rates, lib/checkout.js + lib/easypost.js formatShippingRates)
+  Tokens from rosebee app/styles.css (--paper, --ink, --barn, --barn-deep, body.rosebee-shop gradient).
+  Covers and logo are the real files from rosebee public/assets. Titles are real (rosebee lib/shop.js featuredBooks).
+  Invented for the mockup: the $12.99 price, the bag contents, and the rates. Fonts: system stacks (rosebee loads Noto Sans from Google Fonts).
+-->
+<style>
+:root {
+  --paper: #f4f0e8;
+  --paper-soft: #f8f5ef;
+  --ink: #171719;
+  --barn: #9d4b4f;
+  --barn-deep: #7f3639;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --chrome: #e9e6e0;
+  --chrome-line: #d6d1c8;
+  --chrome-text: #7b766e;
+  --ui: "Noto Sans", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  width: 1440px; height: 900px; overflow: hidden; position: relative;
+  background: #c2d8ea url("assets/rosebee-scene.jpg") center / cover no-repeat;
+  font-family: var(--ui); color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+svg.i { width: 1em; height: 1em; fill: currentColor; display: block; }
+
+/* window chrome, same construction as the sibling mockups (light variant) */
+.window {
+  position: absolute; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.14), 0 34px 70px -18px rgba(30,40,20,.55), 0 10px 22px -12px rgba(30,40,20,.35);
+}
+.bar {
+  height: 30px; display: flex; align-items: center; gap: 8px; padding: 0 12px;
+  background: var(--chrome); border-bottom: 1px solid var(--chrome-line); position: relative;
+}
+.bar i { width: 12px; height: 12px; border-radius: 50%; background: #cfcac1; display: block; }
+.bar span {
+  position: absolute; left: 0; right: 0; text-align: center;
+  font: 12px/30px var(--ui); color: var(--chrome-text);
+}
+.page { position: relative; overflow: hidden; }
+/* body.rosebee-shop */
+.shop {
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.86), transparent 28%),
+    linear-gradient(180deg, #efe8dc 0%, #f8f4ed 42%, #f1ece3 100%);
+}
+
+/* .top-nav.is-scrolled */
+.top-nav {
+  background: rgba(248,245,239,.72);
+  backdrop-filter: blur(14px) saturate(130%);
+  box-shadow: 0 16px 28px -22px rgba(0,0,0,.55);
+  border-radius: 999px;
+}
+.nav-shell { position: absolute; left: 0; right: 0; top: 0; z-index: 5; }
+.brand {
+  position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; gap: 24px;
+  min-height: 72px; padding: 12px 24px;
+}
+.brand img.logo { height: 48px; display: block; }
+.brand img.barn { height: 48px; display: block; }
+.nav {
+  margin-left: auto; display: flex; align-items: center; gap: 24px; padding: 12px 20px; width: max-content;
+}
+.nav-links { display: flex; align-items: center; gap: 5.6px; font-size: 14px; }
+.nav-links a { padding: 7.2px 15.2px; border-radius: 999px; color: var(--ink); text-decoration: none; }
+.round {
+  position: relative; width: 48px; height: 48px; border-radius: 999px; display: inline-flex;
+  align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,.2);
+  background: rgba(255,255,255,.7); font-size: 20px; color: var(--ink);
+}
+.badge {
+  position: absolute; right: -1px; top: -1px; min-width: 20px; min-height: 20px; padding: 0 4px;
+  border-radius: 999px; background: var(--barn); color: #fff; font-size: 10px; font-weight: 700; line-height: 20px; text-align: center;
+}
+.updates {
+  border-radius: 999px; background: var(--barn); color: #fff; padding: 8px 16px;
+  font-size: 12px; font-weight: 600; letter-spacing: .025em;
+}
+
+/* ---------- window 1: book page ---------- */
+#book { left: 30px; top: 34px; width: 772px; height: 832px; }
+#book .page { height: 802px; }
+#book .nav-shell { padding: 24px 32px 0; }
+#book .inner { position: relative; }
+#book h1 {
+  margin: 0; padding: 128px 32px 0; font-size: 34px; line-height: 1.02; letter-spacing: -.03em; font-weight: 600;
+}
+.series { padding: 10px 32px 0; font-size: 14px; color: #746d66; }
+.grid { display: grid; grid-template-columns: 310px minmax(0, 1fr); gap: 32px; padding: 34px 32px 0; align-items: start; }
+.gallery {
+  overflow: hidden; border-radius: 1.4rem; border: 1px solid rgba(0,0,0,.05);
+  background: rgba(255,251,244,.7); height: 424px; display: grid; place-items: center;
+}
+.gallery img { width: 282px; height: auto; display: block; }
+.aside { border-top: 1px solid rgba(0,0,0,.06); padding-top: 20px; display: grid; gap: 17.6px; }
+.price-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.price { font-size: 35px; line-height: 1; font-weight: 700; color: #5953e8; }
+.qty { display: flex; align-items: center; gap: 14px; }
+.qty b {
+  width: 49.6px; height: 49.6px; border-radius: 999px; border: 1px solid rgba(23,23,25,.12);
+  background: rgba(255,255,255,.62); display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 400; font-size: 24.8px; line-height: 1;
+}
+.qty b.off { opacity: .5; }
+.qty span {
+  width: 56px; height: 56px; border-radius: 999px; border: 1px solid rgba(23,23,25,.08);
+  background: rgba(255,255,255,.74); display: inline-flex; align-items: center; justify-content: center;
+  font-size: 22.4px; font-weight: 600;
+}
+.addbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  border-radius: 999px; background: #e8e0d3; padding: 12px 12px 12px 24px; color: #25262b;
+}
+.addbar strong { color: #5953e8; margin-left: 8px; }
+.addbtn {
+  min-height: 56px; display: inline-flex; align-items: center; border-radius: 999px; background: var(--ink);
+  color: #fff; font-weight: 600; padding: 0 22.4px; font-size: 16px;
+}
+.facts { border-top: 1px solid rgba(0,0,0,.06); padding-top: 16px; display: grid; gap: 13.6px; font-size: 15px; }
+.facts div { display: grid; gap: 4.5px; color: #746d66; }
+.facts strong { color: #1d1d1d; font-weight: 600; }
+.details { border-top: 1px solid rgba(0,0,0,.06); margin: 30px 32px 0; padding-top: 18px; }
+.details h2 { margin: 0; font-size: 25px; line-height: 1.1; font-weight: 600; }
+.details ul { margin: 12px 0 0; padding-left: 19px; color: #66625d; line-height: 1.9; font-size: 15.5px; }
+
+/* ---------- window 2: bag ---------- */
+#bag { left: 786px; top: 52px; width: 624px; height: 470px; }
+#bag .page { height: 440px; background:
+    radial-gradient(circle at 5% 0%, rgba(255,255,255,.85), transparent 36%),
+    radial-gradient(circle at 100% 100%, rgba(0,0,0,.05), transparent 34%),
+    var(--paper); }
+#bag .nav-shell { padding: 16px 16px 0; }
+#bag .brand { padding: 6px 24px; }
+#bag .brand img.logo { height: 40px; }
+#bag .nav { gap: 16px; }
+.bag-head { padding: 96px 16px 0; text-align: center; }
+.bag-head h1 { margin: 0; font-size: 34px; font-weight: 600; letter-spacing: -.025em; }
+.bag-head p { margin: 10px 0 0; font-size: 14px; line-height: 24px; color: var(--stone-600); }
+.checkout-btn {
+  display: inline-flex; margin-top: 18px; border-radius: 6px; background: var(--barn); color: #fff;
+  font-weight: 600; font-size: 16px; padding: 6px 48px;
+}
+.items { margin: 28px 28px 0; }
+.item {
+  display: grid; grid-template-columns: minmax(0,1fr) 140px 70px 24px; align-items: center; gap: 14px;
+  padding: 14px 0; border-top: 1px solid rgba(0,0,0,.05);
+}
+.item:first-child { border-top: 0; }
+.prod { display: grid; grid-template-columns: 80px minmax(0,1fr); gap: 16px; align-items: center; }
+.thumb { width: 80px; height: 80px; border-radius: 12px; background: rgba(255,255,255,.6); overflow: hidden; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.prod a { font-size: 18px; font-weight: 600; line-height: 24px; color: var(--ink); text-decoration: none; }
+.prod p { margin: 4px 0 0; font-size: 14px; color: var(--stone-500); }
+.stepper {
+  display: inline-flex; align-items: center; gap: 4px; border-radius: 999px; border: 1px solid rgba(0,0,0,.1);
+  background: rgba(255,255,255,.6); padding: 4px;
+}
+.stepper b { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; font-weight: 400; font-size: 20px; color: #44403c; border-radius: 999px; }
+.stepper b.off { opacity: .35; }
+.stepper span { width: 48px; text-align: center; font-weight: 600; font-size: 16px; }
+.line { font-size: 18px; font-weight: 600; }
+.x { font-size: 30px; line-height: 1; color: var(--stone-400); text-align: center; }
+
+/* ---------- card: checkout modal, step 2 ---------- */
+#checkout {
+  position: absolute; left: 848px; top: 452px; width: 560px; height: 430px;
+  display: flex; flex-direction: column; overflow: hidden; border-radius: 16px; background: var(--paper);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 40px 70px -20px rgba(20,25,10,.6), 0 14px 30px -14px rgba(20,25,10,.4);
+}
+.m-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,.08); background: rgba(255,255,255,.5); padding: 14px 24px; }
+.m-head h2 { margin: 0; font-size: 18px; font-weight: 600; }
+.m-head svg { width: 20px; height: 20px; color: var(--stone-400); }
+.steps { display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,.05); background: rgba(255,255,255,.3); padding: 11px 24px; }
+.step { flex: 1; display: flex; align-items: center; gap: 8px; }
+.step .rule { height: 1px; flex: 1; background: rgba(0,0,0,.1); }
+.step .rule.on { background: var(--barn); }
+.dot { width: 28px; height: 28px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex: none; }
+.dot.done { background: rgba(157,75,79,.2); color: var(--barn); }
+.dot.now { background: var(--barn); color: #fff; }
+.dot.next { background: rgba(0,0,0,.05); color: var(--stone-400); }
+.dot svg { width: 14px; height: 14px; }
+.step label { font-size: 12px; font-weight: 500; }
+.step label.dim { color: var(--stone-400); }
+.m-body { flex: 1; padding: 16px 24px; }
+.m-body > p { margin: 0 0 12px; font-size: 14px; font-weight: 500; }
+.rates { display: grid; gap: 8px; }
+.rate {
+  display: flex; align-items: center; gap: 16px; border-radius: 12px; border: 2px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.5); padding: 9px 16px;
+}
+.rate.sel { border-color: var(--barn); background: rgba(157,75,79,.05); }
+.radio { width: 20px; height: 20px; border-radius: 999px; border: 2px solid #d6d3d1; display: flex; align-items: center; justify-content: center; flex: none; }
+.rate.sel .radio { border-color: var(--barn); }
+.rate.sel .radio::after { content: ""; width: 10px; height: 10px; border-radius: 999px; background: var(--barn); }
+.rate .t { flex: 1; }
+.rate .row { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; }
+.rate small { font-size: 12px; color: var(--stone-500); }
+.m-foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(0,0,0,.08); background: rgba(255,255,255,.5); padding: 14px 24px; }
+.m-foot .back { font-size: 14px; font-weight: 500; color: var(--stone-500); }
+.m-foot .go { border-radius: 8px; background: var(--barn); color: #fff; font-size: 14px; font-weight: 600; padding: 10px 24px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ri-shopping-bag-line" viewBox="0 0 24 24"><path d="M7.00488 7.99966V5.99966C7.00488 3.23824 9.24346 0.999664 12.0049 0.999664C14.7663 0.999664 17.0049 3.23824 17.0049 5.99966V7.99966H20.0049C20.5572 7.99966 21.0049 8.44738 21.0049 8.99966V20.9997C21.0049 21.5519 20.5572 21.9997 20.0049 21.9997H4.00488C3.4526 21.9997 3.00488 21.5519 3.00488 20.9997V8.99966C3.00488 8.44738 3.4526 7.99966 4.00488 7.99966H7.00488ZM7.00488 9.99966H5.00488V19.9997H19.0049V9.99966H17.0049V11.9997H15.0049V9.99966H9.00488V11.9997H7.00488V9.99966ZM9.00488 7.99966H15.0049V5.99966C15.0049 4.34281 13.6617 2.99966 12.0049 2.99966C10.348 2.99966 9.00488 4.34281 9.00488 5.99966V7.99966Z"/></symbol>
+  <symbol id="ri-menu-line" viewBox="0 0 24 24"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"/></symbol>
+</svg>
+
+<!-- Window 1: book page (rosebee app/books/show.html) -->
+<div class="window" id="book">
+  <div class="bar"><i></i><i></i><i></i><span>Lost In A Storm | The Rosebee Family</span></div>
+  <div class="page shop">
+    <section class="nav-shell">
+      <div class="inner">
+        <a class="top-nav brand" aria-label="The Rosebee Family">
+          <img class="logo" src="assets/rosebee-logo.svg" alt="The Rosebee Family">
+        </a>
+        <nav class="top-nav nav">
+          <div class="nav-links"><a>Books</a><a>Author</a><a>News</a></div>
+          <a class="round" aria-label="Bag, 2 items"><svg class="i"><use href="#ri-shopping-bag-line"/></svg><span class="badge">2</span></a>
+          <a class="updates">Get Updates</a>
+        </nav>
+      </div>
+    </section>
+
+    <h1>Lost In A Storm</h1>
+
+    <div class="grid">
+      <div class="gallery"><img src="assets/rosebee-lost-in-a-storm.png" alt="Cover artwork for Lost In A Storm"></div>
+      <aside class="aside">
+        <div class="price-row">
+          <div class="price">$12.99</div>
+          <div class="qty"><b class="off">-</b><span>1</span><b>+</b></div>
+        </div>
+        <div class="addbar">
+          <div>Total<strong>$12.99</strong></div>
+          <span class="addbtn">Add to Bag</span>
+        </div>
+        <div class="facts">
+          <div><span>Format</span><strong>Paperback</strong></div>
+          <div><span>Availability</span><strong>Ready to ship from the Rosebee shelf</strong></div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="details">
+      <h2>Product Details</h2>
+      <ul>
+        <li>Paperback edition for everyday reading.</li>
+        <li>Warm, character-led storytelling for the Rosebee shelf.</li>
+        <li>Available while current inventory lasts.</li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<!-- Window 2: the bag (rosebee app/cart.html) -->
+<div class="window" id="bag">
+  <div class="bar"><i></i><i></i><i></i><span>Your Bag | The Rosebee Family</span></div>
+  <div class="page">
+    <section class="nav-shell">
+      <div class="inner">
+        <a class="top-nav brand" aria-label="The Rosebee Family"><img class="logo" src="assets/rosebee-logo.svg" alt="The Rosebee Family"></a>
+        <nav class="top-nav nav">
+          <a class="round" aria-label="Bag, 2 items"><svg class="i"><use href="#ri-shopping-bag-line"/></svg><span class="badge">2</span></a>
+          <a class="round" aria-label="Open navigation menu"><svg class="i"><use href="#ri-menu-line"/></svg></a>
+        </nav>
+      </div>
+    </section>
+
+    <div class="bag-head">
+      <h1>Your bag total is $25.98</h1>
+      <p>Your books are ready for you!</p>
+      <span class="checkout-btn">Checkout</span>
+    </div>
+
+    <div class="items">
+      <article class="item">
+        <div class="prod">
+          <div class="thumb"><img src="assets/rosebee-lost-in-a-storm.png" alt="Cover artwork for Lost In A Storm"></div>
+          <div><a>Lost In A Storm</a><p>$12.99 each</p></div>
+        </div>
+        <div><span class="stepper"><b class="off">-</b><span>1</span><b>+</b></span></div>
+        <strong class="line">$12.99</strong>
+        <span class="x">×</span>
+      </article>
+      <article class="item">
+        <div class="prod">
+          <div class="thumb"><img src="assets/rosebee-county-fair.png" alt="Cover artwork for County Fair"></div>
+          <div><a>County Fair</a><p>$12.99 each</p></div>
+        </div>
+        <div><span class="stepper"><b class="off">-</b><span>1</span><b>+</b></span></div>
+        <strong class="line">$12.99</strong>
+        <span class="x">×</span>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Card: checkout modal, step 2 "Delivery" (rosebee app/components/checkout_modal.html) -->
+<div id="checkout" role="dialog" aria-label="Checkout">
+  <div class="m-head">
+    <h2>Checkout</h2>
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="dot done"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+      <label>Shipping</label>
+      <div class="rule on"></div>
+    </div>
+    <div class="step">
+      <div class="rule on"></div>
+      <div class="dot now">2</div>
+      <label>Delivery</label>
+      <div class="rule"></div>
+    </div>
+    <div class="step">
+      <div class="rule"></div>
+      <div class="dot next">3</div>
+      <label class="dim">Payment</label>
+    </div>
+  </div>
+  <div class="m-body">
+    <p>Choose a shipping method:</p>
+    <div class="rates">
+      <div class="rate">
+        <span class="radio"></span>
+        <div class="t"><div class="row"><span>USPS MediaMail</span><span>$4.12</span></div><small>Est. 6 business days</small></div>
+      </div>
+      <div class="rate sel">
+        <span class="radio"></span>
+        <div class="t"><div class="row"><span>USPS GroundAdvantage</span><span>$5.12</span></div><small>Est. 3 business days</small></div>
+      </div>
+      <div class="rate">
+        <span class="radio"></span>
+        <div class="t"><div class="row"><span>USPS Priority</span><span>$9.85</span></div><small>Est. 2 business days</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="m-foot">
+    <span class="back">&larr; Back</span>
+    <span class="go">Continue to Payment</span>
+  </div>
+</div>
+
+</body>
+</html>

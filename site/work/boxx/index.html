@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>boxx: Install and run Docker apps on one Linux host, from a TUI. · Mark Garrigan</title>
+<meta name="description" content="Install and run Docker apps on one Linux host, from a TUI. I tried Kamal, Coolify and the rest, and wanted something tailored to how I work: one Linux host, many apps, HTTPS for every hostname, and a TUI to see it all.">
+<meta property="og:title" content="boxx: Install and run Docker apps on one Linux host, from a TUI. · Mark Garrigan">
+<meta property="og:description" content="Install and run Docker apps on one Linux host, from a TUI. I tried Kamal, Coolify and the rest, and wanted something tailored to how I work: one Linux host, many apps, HTTPS for every hostname, and a TUI to see it all.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231e1e2e'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23cba6f7' stroke-width='2'/%3E%3Cpath d='M9 22V10l4 6 4-6v12M21 10h3' stroke='%23cdd6f4' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/saucecodepro-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme"),f=localStorage.getItem("font");if(t&&t!=="auto")d.dataset.theme=t;if(f&&f!=="saucecode")d.dataset.font=f}catch(e){}</script>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/main.js" defer></script>
+</head>
+<body data-page="/work/boxx/">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-sel focus:px-3 focus:py-1 focus:text-sel-fg">Skip to content</a>
+<header class="titlebar">
+  <a href="/" class="font-bold whitespace-nowrap no-underline">Mark Garrigan</a>
+  <span class="hidden truncate md:block">Full-stack engineer</span>
+  <div class="flex shrink-0 items-center gap-[1ch]">
+    <div class="relative">
+      <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
+      <div class="menu" id="font-menu" data-menu="font" hidden>
+        <button type="button" data-set="saucecode"><span data-check aria-hidden="true"></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="jetbrains"><span data-check aria-hidden="true"></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="noto"><span data-check aria-hidden="true"></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="bigblue" hidden><span data-check aria-hidden="true"></span><span>BigBlueTerm <span class="sr-only">(Borland theme only)</span></span><span class="sample sample--bigblue" aria-hidden="true">Aa ├─┤</span></button>
+      </div>
+    </div>
+    <div class="relative">
+      <button type="button" class="btn" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-keyshortcuts="T"><span><span class="tab-key">T</span>heme<span class="hidden lg:inline">: <span data-theme-name>Auto</span></span></span></button>
+      <div class="menu" id="theme-menu" data-menu="theme" hidden>
+        <button type="button" data-set="auto"><span data-check aria-hidden="true"></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></button>
+        <button type="button" data-set="latte"><span data-check aria-hidden="true"></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></button>
+        <button type="button" data-set="frappe"><span data-check aria-hidden="true"></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></button>
+        <button type="button" data-set="macchiato"><span data-check aria-hidden="true"></span><span>Macchiato <span class="sr-only">(Catppuccin, dark)</span></span><span class="sw" aria-hidden="true"><i style="background:#24273a"></i><i style="background:#cad3f5"></i><i style="background:#c6a0f6"></i></span></button>
+        <button type="button" data-set="mocha"><span data-check aria-hidden="true"></span><span>Mocha <span class="sr-only">(Catppuccin, darkest)</span></span><span class="sw" aria-hidden="true"><i style="background:#1e1e2e"></i><i style="background:#cdd6f4"></i><i style="background:#cba6f7"></i></span></button>
+        <button type="button" data-set="borland"><span data-check aria-hidden="true"></span><span>Borland <span class="sr-only">(Blue screen, grey bars)</span></span><span class="sw" aria-hidden="true"><i style="background:#0000aa"></i><i style="background:#aaaaaa"></i><i style="background:#ffff55"></i></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <a href="/" aria-current="page" aria-keyshortcuts="W"><span class="tab-key">W</span>ork</a><a href="/about/" aria-keyshortcuts="A"><span class="tab-key">A</span>bout</a><a href="/contact/" aria-keyshortcuts="C"><span class="tab-key">C</span>ontact</a>
+</nav>
+<main id="main" class="flex-1 px-[2ch] pt-8 pb-10">
+<p class="mb-6 text-muted"><a href="/" class="no-underline hover:underline">Work</a> › <span class="text-fg">boxx</span></p>
+<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
+  <section class="pane pane--focus lg:col-span-12" aria-labelledby="p-title">
+    <span class="pane-title" aria-hidden="true">Overview</span>
+    <div class="grid gap-x-[4ch] gap-y-6 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <h1 id="p-title" class="display text-[clamp(2.75rem,6vw,5rem)]">boxx</h1>
+        <p class="mt-4 max-w-[48ch] text-[1.2rem] leading-snug">Install and run Docker apps on one Linux host, from a TUI.</p>
+        <p class="mt-4"><span class="st st--soon">Soon</span> <span class="text-muted">· Not public yet. Its own site is next.</span></p>
+      </div>
+      <div class="lg:col-span-5">
+        <dl class="kv">
+          <dt>Role</dt><dd>Owner: product, architecture and review.</dd>
+          <dt>Built</dt><dd class="tabular-nums">2026-05 → now</dd>
+          <dt>History</dt><dd>22 commits</dd>
+          <dt>Stack</dt><dd>Go · Bubble Tea · Docker · Caddy</dd>
+        </dl>
+        <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span class="flag--off">[ ] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid content-start gap-y-10 lg:col-span-7">
+  <section class="pane" aria-labelledby="story-title">
+    <h2 class="pane-title" id="story-title">Story</h2>
+    <div class="max-w-[68ch] space-y-4 text-[1rem]"><p>I tried Kamal, Coolify and the rest, and wanted something tailored to how I work: one Linux host, many apps, HTTPS for every hostname, and a TUI to see it all.</p><p>One requirement from the start: local development has to mimic the hosted environment with very little setup.</p><p>boxx installs Docker, puts Caddy in front for certificates, sets up MySQL or Postgres if a site needs a database, and deploys without downtime.</p><p>It deploys bibsee.com, nurun.co and nurun-admin today. rosebee and stored are next, and so is this site.</p></div>
+  </section>
+    <section class="pane pane--focus" aria-labelledby="res-title">
+      <h2 class="pane-title" id="res-title">Results</h2>
+      <ul class="grid gap-3"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Deploys bibsee.com, nurun.co and nurun-admin today.</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Next on it: rosebee, stored and this site.</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Its own site comes after that.</span></li></ul>
+    </section>
+  </div>
+
+  <section class="pane pane--panel lg:col-span-5" aria-labelledby="sys-title">
+    <h2 class="pane-title" id="sys-title">System, layer by layer</h2>
+    <dl class="grid gap-4">
+      <div><dt class="font-bold">[x] Interface</dt><dd class="mt-1">A Bubble Tea TUI (dashboard, install wizard, app actions, ops log) and a Cobra CLI.</dd></div>
+      <div class="text-muted"><dt>[ ] API</dt><dd class="mt-1">Not part of this project.</dd></div>
+      <div><dt class="font-bold">[x] Data</dt><dd class="mt-1">Its own state in one file, /var/lib/boxx/state.json. A Docker volume mounted at /storage for each app. An optional MySQL 8 or Postgres database per app (one shared database for a group), on a private Docker network with no public ports.</dd></div>
+      <div><dt class="font-bold">[x] Infra</dt><dd class="mt-1">Docker, plus Caddy with a Let's Encrypt certificate per hostname. Path-based app groups, wildcard subdomains, and a systemd timer for updates.</dd></div>
+      <div><dt class="font-bold">[x] Ops</dt><dd class="mt-1">Zero-downtime deploys, env and config with rollback, doctor, logs, self-upgrade, and a per-app update policy (off, notify, auto).</dd></div>
+    </dl>
+  </section>
+
+  
+
+
+
+  <section class="pane lg:col-span-12" aria-labelledby="screens-title">
+    <h2 class="pane-title" id="screens-title">Screens</h2>
+    <div class="grid gap-x-[2ch] gap-y-8 md:grid-cols-2">
+    <figure class="shot">
+      <img src="/assets/img/work/boxx-dashboard.webp" width="1200" height="750" alt="Illustration: The boxx dashboard: host stats and installed apps." loading="lazy" decoding="async">
+      <figcaption><b>The boxx dashboard: host stats and installed apps.</b><span>[Illustration]</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/assets/img/work/boxx-actions.webp" width="1200" height="750" alt="Illustration: App actions: deploy, change image, restart, logs and more." loading="lazy" decoding="async">
+      <figcaption><b>App actions: deploy, change image, restart, logs and more.</b><span>[Illustration]</span></figcaption>
+    </figure>
+  </div>
+  </section>
+
+  
+
+  <section class="pane lg:col-span-7" aria-labelledby="dec-title">
+    <h2 class="pane-title" id="dec-title">Decisions</h2>
+    <ol class="grid gap-5">
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">01</span><div><h3 class="font-bold">Local matches hosted</h3><p class="mt-1 max-w-[64ch]">A requirement from day one: an app running under boxx on my laptop should behave like it does on the server, with very little setup.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">02</span><div><h3 class="font-bold">A small contract</h3><p class="mt-1 max-w-[64ch]">An app needs three things to run on boxx: it's a Docker image, it listens on port 80, and it answers GET /up. Storage and a database are optional.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">03</span><div><h3 class="font-bold">Storage that survives redeploys</h3><p class="mt-1 max-w-[64ch]">boxx mounts a Docker volume at /storage for each app. Anything an app writes there survives redeploys and image changes, and boxx remove deletes it unless you pass --keep-data. An app that never writes files can ignore it.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">04</span><div><h3 class="font-bold">Databases on request</h3><p class="mt-1 max-w-[64ch]">When you install a site, boxx asks whether it needs a database: none, MySQL or Postgres. If it does, boxx starts one on its private Docker network, generates the credentials itself and hands the app a ready DATABASE_URL, so you never create or store a password. boxx db forward opens a local port to it for tools like TablePlus.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">05</span><div><h3 class="font-bold">State in one file</h3><p class="mt-1 max-w-[64ch]">Everything boxx knows about a host lives in one JSON file, easy to inspect and back up.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">06</span><div><h3 class="font-bold">One operation at a time</h3><p class="mt-1 max-w-[64ch]">Operations take a lock and write to an ops log you can open from the TUI with L, so two deploys never collide.</p></div></li>
+    </ol>
+  </section>
+
+  <div class="grid content-start gap-y-10 lg:col-span-5">
+
+    <section class="pane" aria-labelledby="inv-title">
+      <h2 class="pane-title" id="inv-title">In the box</h2>
+      <ul class="grid gap-1.5"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>install, and install a group behind one hostname</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Zero-downtime deploy</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Hostnames: add, remove, primary, redirect, wildcard</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Optional databases: set up on install, forward to localhost, reset user, recreate</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Env and config with rollback</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Logs, doctor, proxy, upgrade</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>TUI: dashboard, install wizard, app actions, ops log</span></li></ul>
+    </section>
+  </div>
+
+  <nav class="pane lg:col-span-12" aria-label="More projects">
+    <span class="pane-title" aria-hidden="true">More projects</span>
+    <div class="flex flex-wrap justify-between gap-4">
+      <a class="btn" href="/work/plainwork/" data-prev>◂ Plainwork</a>
+      <a class="btn" href="/">All projects</a>
+      <a class="btn" href="/work/stored/" data-next>stored ▸</a>
+    </div>
+  </nav>
+</div>
+</main>
+<footer class="legend" aria-label="Keys">
+  <a href="/" data-back><span class="k">h</span><span class="k">Esc</span>Back</a>
+  <a href="/work/plainwork/"><span class="k">←</span>Plainwork</a>
+  <a href="/work/stored/"><span class="k">→</span>stored</a>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">j</span><span class="k">k</span>Scroll</span>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>
+  <a href="mailto:mrkgrrgn@gmail.com"><span class="k">E</span>Email</a>
+  <a href="/markgarrigan.pdf" download><span class="k">R</span>Résumé</a>
+  <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
+</footer>
+</body>
+</html>

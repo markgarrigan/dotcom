@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stored: Own your store before you've sold a thing. · Mark Garrigan</title>
+<meta name="description" content="Own your store before you've sold a thing. Prebuilt e-commerce is expensive when you have no sales yet. You want to control every cost, and the features you need cost extra on a SaaS plan. Before you've sold a single product, that monthly spend is hard to justify.">
+<meta property="og:title" content="stored: Own your store before you've sold a thing. · Mark Garrigan">
+<meta property="og:description" content="Own your store before you've sold a thing. Prebuilt e-commerce is expensive when you have no sales yet. You want to control every cost, and the features you need cost extra on a SaaS plan. Before you've sold a single product, that monthly spend is hard to justify.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231e1e2e'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23cba6f7' stroke-width='2'/%3E%3Cpath d='M9 22V10l4 6 4-6v12M21 10h3' stroke='%23cdd6f4' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/saucecodepro-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme"),f=localStorage.getItem("font");if(t&&t!=="auto")d.dataset.theme=t;if(f&&f!=="saucecode")d.dataset.font=f}catch(e){}</script>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/main.js" defer></script>
+</head>
+<body data-page="/work/stored/">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-sel focus:px-3 focus:py-1 focus:text-sel-fg">Skip to content</a>
+<header class="titlebar">
+  <a href="/" class="font-bold whitespace-nowrap no-underline">Mark Garrigan</a>
+  <span class="hidden truncate md:block">Full-stack engineer</span>
+  <div class="flex shrink-0 items-center gap-[1ch]">
+    <div class="relative">
+      <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
+      <div class="menu" id="font-menu" data-menu="font" hidden>
+        <button type="button" data-set="saucecode"><span data-check aria-hidden="true"></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="jetbrains"><span data-check aria-hidden="true"></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="noto"><span data-check aria-hidden="true"></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></button>
+        <button type="button" data-set="bigblue" hidden><span data-check aria-hidden="true"></span><span>BigBlueTerm <span class="sr-only">(Borland theme only)</span></span><span class="sample sample--bigblue" aria-hidden="true">Aa ├─┤</span></button>
+      </div>
+    </div>
+    <div class="relative">
+      <button type="button" class="btn" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-keyshortcuts="T"><span><span class="tab-key">T</span>heme<span class="hidden lg:inline">: <span data-theme-name>Auto</span></span></span></button>
+      <div class="menu" id="theme-menu" data-menu="theme" hidden>
+        <button type="button" data-set="auto"><span data-check aria-hidden="true"></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></button>
+        <button type="button" data-set="latte"><span data-check aria-hidden="true"></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></button>
+        <button type="button" data-set="frappe"><span data-check aria-hidden="true"></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></button>
+        <button type="button" data-set="macchiato"><span data-check aria-hidden="true"></span><span>Macchiato <span class="sr-only">(Catppuccin, dark)</span></span><span class="sw" aria-hidden="true"><i style="background:#24273a"></i><i style="background:#cad3f5"></i><i style="background:#c6a0f6"></i></span></button>
+        <button type="button" data-set="mocha"><span data-check aria-hidden="true"></span><span>Mocha <span class="sr-only">(Catppuccin, darkest)</span></span><span class="sw" aria-hidden="true"><i style="background:#1e1e2e"></i><i style="background:#cdd6f4"></i><i style="background:#cba6f7"></i></span></button>
+        <button type="button" data-set="borland"><span data-check aria-hidden="true"></span><span>Borland <span class="sr-only">(Blue screen, grey bars)</span></span><span class="sw" aria-hidden="true"><i style="background:#0000aa"></i><i style="background:#aaaaaa"></i><i style="background:#ffff55"></i></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <a href="/" aria-current="page" aria-keyshortcuts="W"><span class="tab-key">W</span>ork</a><a href="/about/" aria-keyshortcuts="A"><span class="tab-key">A</span>bout</a><a href="/contact/" aria-keyshortcuts="C"><span class="tab-key">C</span>ontact</a>
+</nav>
+<main id="main" class="flex-1 px-[2ch] pt-8 pb-10">
+<p class="mb-6 text-muted"><a href="/" class="no-underline hover:underline">Work</a> › <span class="text-fg">stored</span></p>
+<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
+  <section class="pane pane--focus lg:col-span-12" aria-labelledby="p-title">
+    <span class="pane-title" aria-hidden="true">Overview</span>
+    <div class="grid gap-x-[4ch] gap-y-6 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <h1 id="p-title" class="display text-[clamp(2.75rem,6vw,5rem)]">stored</h1>
+        <p class="mt-4 max-w-[48ch] text-[1.2rem] leading-snug">Own your store before you've sold a thing.</p>
+        <p class="mt-4"><span class="st st--soon">Soon</span> <span class="text-muted">· Not public yet. Its own site is next.</span></p>
+      </div>
+      <div class="lg:col-span-5">
+        <dl class="kv">
+          <dt>Role</dt><dd>Owner: product, architecture and review.</dd>
+          <dt>Built</dt><dd class="tabular-nums">2026-05 → now</dd>
+          <dt>History</dt><dd>16 commits</dd>
+          <dt>Stack</dt><dd>Bun · MySQL · Stripe · EasyPost · Mailgun</dd>
+        </dl>
+        <div class="mt-4"><div class="flags" aria-label="Layers"><span>[x] Interface</span><span>[x] API</span><span>[x] Data</span><span>[x] Infra</span><span>[x] Ops</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid content-start gap-y-10 lg:col-span-7">
+  <section class="pane" aria-labelledby="story-title">
+    <h2 class="pane-title" id="story-title">Story</h2>
+    <div class="max-w-[68ch] space-y-4 text-[1rem]"><p>Prebuilt e-commerce is expensive when you have no sales yet. You want to control every cost, and the features you need cost extra on a SaaS plan. Before you've sold a single product, that monthly spend is hard to justify.</p><p>stored is the store you own: products, checkout, shipping labels, customer emails and mailing lists, on your own server, with no platform fee.</p><p>Its first store will be my wife's self-published book series, from her company Bear Mark Publishing.</p></div>
+  </section>
+    <section class="pane pane--focus" aria-labelledby="res-title">
+      <h2 class="pane-title" id="res-title">Results</h2>
+      <ul class="grid gap-3"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>First store: Bear Mark Publishing's book series.</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Its own site is next.</span></li></ul>
+    </section>
+  </div>
+
+  <section class="pane pane--panel lg:col-span-5" aria-labelledby="sys-title">
+    <h2 class="pane-title" id="sys-title">System, layer by layer</h2>
+    <dl class="grid gap-4">
+      <div><dt class="font-bold">[x] Interface</dt><dd class="mt-1">A server-rendered admin (Edge templates, Alpine.js partial navigation, Tailwind 4) for the merchant, and a storefront API for any front end.</dd></div>
+      <div><dt class="font-bold">[x] API</dt><dd class="mt-1">A storefront API with client tokens, customer tokens and HMAC-signed outbound webhooks.</dd></div>
+      <div><dt class="font-bold">[x] Data</dt><dd class="mt-1">MySQL through Bun.SQL, UUIDv7 ids and money in integer cents.</dd></div>
+      <div><dt class="font-bold">[x] Infra</dt><dd class="mt-1">Multi-arch Docker images published on version tags, to be deployed with boxx. Stripe, EasyPost and Mailgun integrations.</dd></div>
+      <div><dt class="font-bold">[x] Ops</dt><dd class="mt-1">An event log with retried webhooks, errors shown in the admin, and tests against fake Stripe, EasyPost and Mailgun servers.</dd></div>
+    </dl>
+  </section>
+
+  <section class="pane pane--focus lg:col-span-12" aria-labelledby="merchant-title">
+    <h2 class="pane-title" id="merchant-title">For merchants</h2>
+    <div class="grid gap-x-[4ch] gap-y-5 md:grid-cols-2 xl:grid-cols-3">
+  <div><h3 class="font-bold">▸ Sell before you spend</h3><p class="mt-1">No platform subscription. It runs on your own server, and you pay only the Stripe, EasyPost and Mailgun accounts you connect.</p></div>
+  <div><h3 class="font-bold">▸ Your books and your stock, in one place</h3><p class="mt-1">Stock is checked before payment and taken off when the order commits, so you never oversell without knowing it.</p></div>
+  <div><h3 class="font-bold">▸ Real shipping prices, one-click labels</h3><p class="mt-1">Customers pick live carrier rates or your flat rates. After the sale, buy the label from the order page and get tracking.</p></div>
+  <div><h3 class="font-bold">▸ Emails that look like your brand</h3><p class="mt-1">Design order confirmations in a block editor and choose which store events send them.</p></div>
+  <div><h3 class="font-bold">▸ A list that grows with every sale</h3><p class="mt-1">Paying customers join your mailing list on their own, ready for the next launch.</p></div>
+  <div><h3 class="font-bold">▸ Your data stays yours</h3><p class="mt-1">Export the whole store (products, orders, customers, emails, settings) as one bundle, and import it anywhere stored runs.</p></div>
+</div>
+  </section>
+
+
+
+  <section class="pane lg:col-span-12" aria-labelledby="screens-title">
+    <h2 class="pane-title" id="screens-title">Screens</h2>
+    <div class="grid gap-x-[2ch] gap-y-8 md:grid-cols-2">
+    <figure class="shot">
+      <img src="/assets/img/work/stored-storefront.webp" width="1200" height="750" alt="Illustration: The Rosebee Family books from Bear Mark Publishing: book page, bag and live shipping rates, on stored." loading="lazy" decoding="async">
+      <figcaption><b>The Rosebee Family books from Bear Mark Publishing: book page, bag and live shipping rates, on stored.</b><span>[Illustration]</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="/assets/img/work/stored-admin.webp" width="1200" height="750" alt="Illustration: The merchant's admin: orders, payments and shipping labels." loading="lazy" decoding="async">
+      <figcaption><b>The merchant's admin: orders, payments and shipping labels.</b><span>[Illustration]</span></figcaption>
+    </figure>
+  </div>
+  </section>
+
+  
+
+  <section class="pane lg:col-span-7" aria-labelledby="dec-title">
+    <h2 class="pane-title" id="dec-title">Decisions</h2>
+    <ol class="grid gap-5">
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">01</span><div><h3 class="font-bold">Paid means confirmed</h3><p class="mt-1 max-w-[64ch]">“An order only exists after Stored confirms the payment with Stripe.”</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">02</span><div><h3 class="font-bold">Never sell what you don't have</h3><p class="mt-1 max-w-[64ch]">Stock is decremented atomically, and an oversold order is flagged rather than dropped.</p></div></li>
+      <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">03</span><div><h3 class="font-bold">Ship without breaking the store</h3><p class="mt-1 max-w-[64ch]">Every step of the launch plan has to deploy “without breaking the live store.” Legacy checkout paths were “deleted, not fixed.”</p></div></li>
+    </ol>
+  </section>
+
+  <div class="grid content-start gap-y-10 lg:col-span-5">
+
+    <section class="pane" aria-labelledby="inv-title">
+      <h2 class="pane-title" id="inv-title">In the box</h2>
+      <ul class="grid gap-1.5"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Products with SKU, price, inventory, dimensions and weight</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Checkout: address, live shipping rates, Stripe payment</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Orders with payment and fulfillment status, and buy-label shipping</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Customers with saved addresses</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Mailing lists</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>A block email builder with trigger events</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Webhooks, API clients, users, search, and event and error logs</span></li></ul>
+    </section>
+  </div>
+
+  <nav class="pane lg:col-span-12" aria-label="More projects">
+    <span class="pane-title" aria-hidden="true">More projects</span>
+    <div class="flex flex-wrap justify-between gap-4">
+      <a class="btn" href="/work/boxx/" data-prev>◂ boxx</a>
+      <a class="btn" href="/">All projects</a>
+      <a class="btn" href="/work/bibsee/" data-next>Bibsee ▸</a>
+    </div>
+  </nav>
+</div>
+</main>
+<footer class="legend" aria-label="Keys">
+  <a href="/" data-back><span class="k">h</span><span class="k">Esc</span>Back</a>
+  <a href="/work/boxx/"><span class="k">←</span>boxx</a>
+  <a href="/work/bibsee/"><span class="k">→</span>Bibsee</a>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">j</span><span class="k">k</span>Scroll</span>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
+  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>
+  <a href="mailto:mrkgrrgn@gmail.com"><span class="k">E</span>Email</a>
+  <a href="/markgarrigan.pdf" download><span class="k">R</span>Résumé</a>
+  <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
+</footer>
+</body>
+</html>
