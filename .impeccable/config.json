@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-11-01T22:02:10.157Z",
+        "reason": "Finish reviewer ruled intentional: the box-wall seams between box ends, and label data rows set directly under printed rules (pt-2/pt-4); the box-world grammar, not missing insets."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "src/mockups/stored-storefront.html"
+        ],
+        "createdAt": "2026-11-02T03:23:16.650Z",
+        "reason": "Faithful reproduction of another app's real UI (rosebee/stored templates and tokens), rendered to an illustration image; never shipped as a page. Spacing belongs to the reproduced product."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "src/mockups/stored-admin.html"
+        ],
+        "createdAt": "2026-11-02T03:23:16.675Z",
+        "reason": "Faithful reproduction of another app's real UI (rosebee/stored templates and tokens), rendered to an illustration image; never shipped as a page. Spacing belongs to the reproduced product."
+      }
+    ]
+  }
+}
