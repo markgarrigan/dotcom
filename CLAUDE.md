@@ -18,9 +18,10 @@ There is no test suite or linter.
 
 ## CI and releases
 
-- `.github/workflows/ci.yml`: every pull request and push to main renders the site and builds the image. Pushes to main also publish `ghcr.io/markgarrigan/dotcom:edge` and `:sha-<short>` (never `latest`).
-- `.github/workflows/release.yml`: runs after CI passes on a push to main (`workflow_run`), never alongside it. release-please keeps a release PR open from conventional commits (`feat:`, `fix:`, `feat!:`). Merging it bumps `package.json`, writes `CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. The `publish` job then pushes the image: `X.Y.Z` always, and `X.Y`, `X` and `latest` only for stable releases. It refuses to publish if the tag doesn't match `package.json`, or if `site/markgarrigan.pdf` is missing.
-- Images carry a signed build-provenance attestation.
+Each commit's image is built once, in CI. A release adds tags to that image and never rebuilds.
+
+- `.github/workflows/ci.yml`: on a pull request, builds the image (linux/amd64) without pushing. The Dockerfile renders the pages, so a passing image build is the check. On a push to main, builds linux/amd64 and linux/arm64, pushes `ghcr.io/markgarrigan/dotcom:edge` and `:sha-<7-char sha>` (never `latest`), and attaches a signed build-provenance attestation. It fails if `site/markgarrigan.pdf` is missing.
+- `.github/workflows/release.yml`: runs after CI passes on a push to main (`workflow_run`). release-please keeps a release PR open from conventional commits (`feat:`, `fix:`, `feat!:`). Merging it bumps `package.json`, writes `CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. The `promote` job then adds `X.Y.Z` (and `X.Y`, `X` and `latest` for stable releases) to the tagged commit's `:sha-` image with `docker buildx imagetools create`, and checks that every tag has the same digest. It refuses if the tag doesn't match `package.json`.
 - boxx follows a tag's digest, so point production at `:1` (or `:latest`) with update policy `auto` to deploy each stable release, and a staging app at `:edge`.
 - To force a version, put `Release-As: 1.0.0` in a commit body.
 

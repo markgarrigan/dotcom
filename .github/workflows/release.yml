@@ -1,11 +1,12 @@
+# Runs after CI has passed on a push to main.
+#
 # release-please keeps a "chore(main): release x.y.z" pull request up to date from
 # conventional commits. Merging it bumps package.json, writes CHANGELOG.md, tags vX.Y.Z
-# and publishes the GitHub Release. The publish job then pushes the versioned image.
+# and publishes the GitHub Release. The promote job then adds the version tags to the
+# image CI already built for that commit. Nothing is rebuilt, so the release has the same
+# digest (and the same provenance attestation) as the image CI tested.
 #
-# It runs only after CI has passed on a push to main, so nothing is released from a
-# commit whose site or image failed to build.
-#
-# Publishing runs in this workflow (not on a separate `release: published` trigger)
+# Promotion runs in this workflow (not on a separate `release: published` trigger)
 # because a release created with GITHUB_TOKEN does not start other workflows.
 name: Release
 
@@ -24,8 +25,7 @@ permissions:
   pull-requests: write
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE: ghcr.io/${{ github.repository }}
 
 jobs:
   release-please:
@@ -34,7 +34,6 @@ jobs:
     outputs:
       release_created: ${{ steps.rp.outputs.release_created }}
       tag_name: ${{ steps.rp.outputs.tag_name }}
-      version: ${{ steps.rp.outputs.version }}
     steps:
       - id: rp
         uses: googleapis/release-please-action@v4
@@ -42,15 +41,15 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-  publish:
+  promote:
     needs: release-please
     if: needs.release-please.outputs.release_created == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-      id-token: write
-      attestations: write
+    env:
+      TAG: ${{ needs.release-please.outputs.tag_name }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,52 +58,41 @@ jobs:
       - name: Check the tag matches package.json
         run: |
           expected="v$(jq -r .version package.json)"
-          if [ "${{ needs.release-please.outputs.tag_name }}" != "$expected" ]; then
-            echo "Tag ${{ needs.release-please.outputs.tag_name }} doesn't match package.json ($expected)" >&2
-            exit 1
-          fi
+          [ "$TAG" = "$expected" ] || { echo "Tag $TAG doesn't match package.json ($expected)" >&2; exit 1; }
 
-      - name: Refuse to publish without the résumé
-        run: |
-          if [ ! -f site/markgarrigan.pdf ]; then
-            echo "site/markgarrigan.pdf is missing; the pages link to it." >&2
-            exit 1
-          fi
+      - name: Find the image CI built for the tagged commit
+        run: echo "SOURCE=$IMAGE:sha-$(git rev-parse --short=7 HEAD)" >> "$GITHUB_ENV"
 
-      - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
-
       - uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # 1.4.2 always; 1.4, 1 and latest only for stable releases.
+      # X.Y.Z always; X.Y, X and latest only for stable releases.
       # A pre-release (v1.5.0-rc.1) gets its exact tag and nothing that moves.
       - id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.IMAGE }}
           flavor: latest=auto
           tags: |
-            type=semver,pattern={{version}},value=${{ needs.release-please.outputs.tag_name }}
-            type=semver,pattern={{major}}.{{minor}},value=${{ needs.release-please.outputs.tag_name }}
-            type=semver,pattern={{major}},value=${{ needs.release-please.outputs.tag_name }}
+            type=semver,pattern={{version}},value=${{ env.TAG }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ env.TAG }}
+            type=semver,pattern={{major}},value=${{ env.TAG }}
 
-      - id: push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - uses: actions/attest-build-provenance@v2
-        with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          subject-digest: ${{ steps.push.outputs.digest }}
-          push-to-registry: true
+      # With a single source, imagetools makes an exact copy, so the digest doesn't change.
+      - name: Add the version tags to that image
+        env:
+          TAGS: ${{ steps.meta.outputs.tags }}
+        run: |
+          digest() { docker buildx imagetools inspect "$1" --format '{{json .Manifest}}' | jq -r .digest; }
+          src="$(digest "$SOURCE")" || { echo "$SOURCE not found; did CI publish it?" >&2; exit 1; }
+          args=(); while read -r t; do [ -n "$t" ] && args+=(-t "$t"); done <<< "$TAGS"
+          docker buildx imagetools create "${args[@]}" "$SOURCE"
+          while read -r t; do
+            [ -z "$t" ] && continue
+            [ "$(digest "$t")" = "$src" ] || { echo "$t has a different digest than $SOURCE" >&2; exit 1; }
+            echo "$t -> $src"
+          done <<< "$TAGS"

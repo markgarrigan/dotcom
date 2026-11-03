@@ -6,7 +6,7 @@ RUN npm ci
 COPY src ./src
 COPY site ./site
 RUN npm run build
-# (the release workflow refuses to publish without site/markgarrigan.pdf)
+# (CI fails if site/markgarrigan.pdf is missing)
 
 FROM nginx:1.29-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
