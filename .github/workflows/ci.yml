@@ -1,5 +1,12 @@
-# Every pull request and every push to main: render the site and build the image.
-# Pushes to main also publish a preview image (:edge and :sha-xxxxxxx). Never :latest.
+# Every commit is built once, here.
+#
+#   pull request    build the image (linux/amd64) to check the change; nothing is pushed
+#   push to main    build it for linux/amd64 and linux/arm64, push :edge and :sha-xxxxxxx,
+#                   and attach a signed build-provenance attestation
+#
+# The Dockerfile renders the pages and compiles the CSS, so building the image is the check.
+# Release never builds: it adds version tags to the :sha-xxxxxxx image pushed here, so what
+# ships is exactly what was built and tested.
 name: CI
 
 on:
@@ -7,45 +14,20 @@ on:
   push:
     branches: [main]
 
+# A newer push to a PR cancels the older run. Runs on main never cancel each other,
+# because Release needs every main commit's image.
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
   cancel-in-progress: true
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE: ghcr.io/${{ github.repository }}
+  PUBLISH: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+  # Release looks the image up by this tag, so pin the short-sha length.
+  DOCKER_META_SHORT_SHA_LENGTH: 7
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-
-      - name: Render pages and compile CSS
-        run: |
-          npm ci
-          npm run build
-
-      - uses: docker/setup-buildx-action@v3
-
-      - name: Build the image (not pushed)
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: false
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-  edge:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: verify
+  image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -55,37 +37,43 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: docker/setup-qemu-action@v3
+      - name: Check the résumé is in place (the pages link to it)
+        run: test -f site/markgarrigan.pdf || { echo "site/markgarrigan.pdf is missing" >&2; exit 1; }
+
+      - if: env.PUBLISH == 'true'
+        uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
 
-      - uses: docker/login-action@v3
+      - if: env.PUBLISH == 'true'
+        uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.IMAGE }}
           flavor: latest=false
           tags: |
             type=edge,branch=main
             type=sha,format=short,prefix=sha-
 
-      - id: push
+      - id: build
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
+          platforms: ${{ env.PUBLISH == 'true' && 'linux/amd64,linux/arm64' || 'linux/amd64' }}
+          push: ${{ env.PUBLISH == 'true' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - uses: actions/attest-build-provenance@v2
+      - if: env.PUBLISH == 'true'
+        uses: actions/attest-build-provenance@v2
         with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          subject-digest: ${{ steps.push.outputs.digest }}
+          subject-name: ${{ env.IMAGE }}
+          subject-digest: ${{ steps.build.outputs.digest }}
           push-to-registry: true
