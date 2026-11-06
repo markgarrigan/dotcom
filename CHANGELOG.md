@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/markgarrigan/dotcom/compare/v1.0.3...v1.0.4) (2026-11-06)
+
+
+### Features
+
+* show the version next to the name in the title bar ([63b33ec](https://github.com/markgarrigan/dotcom/commit/63b33ec))
+* run the whole local setup with one `npm run dev` ([2ac70cf](https://github.com/markgarrigan/dotcom/commit/2ac70cf))
+
 ## [1.0.3](https://github.com/markgarrigan/dotcom/compare/v1.0.2...v1.0.3) (2026-11-06)
 
 
