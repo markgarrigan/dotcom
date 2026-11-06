@@ -267,7 +267,7 @@ export const projects = [
     role: "Owner: product, architecture and review.",
     stack: "Go · Bubble Tea · Docker · Caddy",
     story: [
-      "I tried Kamal, Coolify and the rest, and wanted something tailored to how I work: one Linux host, many apps, HTTPS for every hostname, and a TUI to see it all.",
+      "I tried ONCE and Kamal, admired how they were made, and wanted to see what it would take to build my own, shaped around how I work: one Linux host, many apps, HTTPS for every hostname, and a TUI to see it all.",
       "One requirement from the start: local development has to mimic the hosted environment with very little setup.",
       "boxx installs Docker, puts Caddy in front for certificates, sets up MySQL or Postgres if a site needs a database, and deploys without downtime.",
       "It deploys bibsee.com, nurun.co, nurun-admin and its own site, boxxup.com, today. rosebee and stored are next, and so is this site.",
