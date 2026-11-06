@@ -1,6 +1,16 @@
 # Changelog
 
-Releases after 1.0.2 are listed on [GitHub Releases](https://github.com/markgarrigan/dotcom/releases).
+## [1.0.3](https://github.com/markgarrigan/dotcom/compare/v1.0.2...v1.0.3) (2026-11-06)
+
+
+### Bug Fixes
+
+* spell it resumé, with the accent only on the last e ([c901a09](https://github.com/markgarrigan/dotcom/commit/c901a09))
+
+
+### Build
+
+* publish on v* tags, like nurun: one workflow builds the image and creates the GitHub Release, replacing release-please ([c82e336](https://github.com/markgarrigan/dotcom/commit/c82e336))
 
 ## [1.0.2](https://github.com/markgarrigan/dotcom/compare/v1.0.1...v1.0.2) (2026-11-06)
 

@@ -20,10 +20,9 @@ There is no test suite or linter.
 
 Same model as nurun: a tag is the release, and nothing runs on branch pushes.
 
-- To release, tag main and push the tag: `git tag v1.0.3 && git push origin v1.0.3`. Pick the next version by hand; `package.json` has no version field.
+- To release: `npm version X.Y.Z --no-git-tag-version` (bumps `package.json` and `package-lock.json`), add an entry at the top of `CHANGELOG.md`, commit `chore: release X.Y.Z`, then `git tag vX.Y.Z && git push origin main vX.Y.Z`.
 - `.github/workflows/publish.yml` runs on `v*` tags. It builds linux/amd64 and linux/arm64, pushes `ghcr.io/markgarrigan/dotcom` as `X.Y.Z`, `X.Y`, `X` and `latest`, then creates the GitHub Release with generated notes. The Dockerfile renders the pages and refuses to build without `site/markgarrigan.pdf`, so a broken build fails before anything is pushed.
 - Point production in boxx at `:1` (or `:latest`) with update policy `auto` to deploy each stable release.
-- `CHANGELOG.md` is history up to 1.0.2; later releases are on GitHub Releases.
 - When real tests exist, add a job that runs them on every push.
 
 ## Architecture
