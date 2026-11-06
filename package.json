@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node src/build.mjs && tailwindcss -i src/site.css -o site/assets/css/site.css --minify",
-    "dev": "node src/build.mjs && tailwindcss -i src/site.css -o site/assets/css/site.css --watch",
-    "serve": "npx --yes serve site -l 4321"
+    "dev": "node src/dev.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.0",

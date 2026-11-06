@@ -10,8 +10,7 @@ markgarrigan.com, Mark Garrigan's portfolio, designed as a TUI "setup utility". 
 
 - `npm install`: install Tailwind 4 (the only dependency)
 - `npm run build`: render the pages (`node src/build.mjs`), then compile `src/site.css` to `site/assets/css/site.css`
-- `npm run dev`: render the pages, then watch the CSS
-- Serve locally: `cd site && python3 -m http.server 4321`
+- `npm run dev`: one terminal for local work (`src/dev.mjs`). It re-renders the pages when `src/` changes, recompiles the CSS, and serves `site/` at http://localhost:4321 (`PORT` overrides it). Reload the browser to see changes; Ctrl-C stops everything.
 - Docker: `docker build -t markgarrigan-dotcom .` serves the site on port 80, and `GET /up` returns 200 for boxx.
 
 There is no test suite or linter.
