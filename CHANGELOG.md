@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/markgarrigan/dotcom/compare/v1.0.4...v1.0.5) (2026-11-06)
+
+
+### Features
+
+* boxx is live at boxxup.com: the entry links to the site and leads with a screenshot of it ([ef853d6](https://github.com/markgarrigan/dotcom/commit/ef853d6))
+
 ## [1.0.4](https://github.com/markgarrigan/dotcom/compare/v1.0.3...v1.0.4) (2026-11-06)
 
 
