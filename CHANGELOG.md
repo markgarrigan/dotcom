@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/markgarrigan/dotcom/compare/v1.0.5...v1.0.6) (2026-11-06)
+
+
+### Bug Fixes
+
+* boxx began with ONCE and Kamal, not Coolify ([656fab6](https://github.com/markgarrigan/dotcom/commit/656fab6))
+
 ## [1.0.5](https://github.com/markgarrigan/dotcom/compare/v1.0.4...v1.0.5) (2026-11-06)
 
 
