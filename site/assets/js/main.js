@@ -216,7 +216,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-/* ---------- résumé: say so plainly until the PDF is published ---------- */
+/* ---------- resumé: say so plainly until the PDF is published ---------- */
 
 fetch("/markgarrigan.pdf", { method: "HEAD" }).then((r) => {
   if (r.ok) return;

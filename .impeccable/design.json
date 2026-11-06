@@ -1479,7 +1479,7 @@
       },
       {
         "key": "R",
-        "action": "Résumé PDF (shows \"(soon)\" until published)"
+        "action": "Resumé PDF (shows \"(soon)\" until published)"
       },
       {
         "key": "I",
@@ -1570,7 +1570,7 @@
       "kind": "button",
       "refersTo": "button",
       "description": "Default action: label framed by muted bracket characters; inverts to the selection bar on hover and focus, instantly.",
-      "html": "<button class=\"ds-btn\">Download résumé</button>",
+      "html": "<button class=\"ds-btn\">Download resumé</button>",
       "css": ".ds-btn { display: inline-flex; align-items: center; gap: 1ch; padding: 0.3rem 1ch; font-family: var(--font, \"SauceCodePro NFM\", ui-monospace, Menlo, monospace); font-size: 1rem; color: var(--fg, #4c4f69); background: none; border: 0; border-radius: 0; cursor: pointer; white-space: nowrap; font-variant-ligatures: none; } .ds-btn::before { content: \"[\"; color: var(--muted, #5c5f77); } .ds-btn::after { content: \"]\"; color: var(--muted, #5c5f77); } .ds-btn:hover, .ds-btn:focus-visible { background: var(--sel-bg, #8839ef); color: var(--sel-fg, #eff1f5); outline: none; } .ds-btn:hover::before, .ds-btn:hover::after, .ds-btn:focus-visible::before, .ds-btn:focus-visible::after { color: var(--sel-fg, #eff1f5); }"
     },
     {
@@ -1729,7 +1729,7 @@
     "dos": [
       "**Do** build every surface out of the same parts: title bar, tabs, box-drawn panes with inset titles, an item list with a selection bar, and the pinned key legend.",
       "**Do** set all text in the one monospace face with `font-variant-ligatures: none`, at 1rem / 1.55 for body and 700 for names, titles and key caps.",
-      "**Do** make every shortcut real and show it in the legend: W/A/C for the tabs (underlined letter), E email, R résumé, I LinkedIn, T theme, ↑↓ or j k select (in the project list and the theme menu, which previews themes live), Enter open, Esc back, ← → previous/next project.",
+      "**Do** make every shortcut real and show it in the legend: W/A/C for the tabs (underlined letter), E email, R resumé, I LinkedIn, T theme, ↑↓ or j k select (in the project list and the theme menu, which previews themes live), Enter open, Esc back, ← → previous/next project.",
       "**Do** keep the selected item and the \"Item Specific Help\" pane in sync for both pointer and keyboard selection.",
       "**Do** define every new colour role in all five themes and check it in each. Text holds 4.5:1 and rules hold 3:1 against their field.",
       "**Do** persist the theme choice in localStorage (\"theme\") and fall back to Latte or Mocha through prefers-color-scheme when it's Auto.",

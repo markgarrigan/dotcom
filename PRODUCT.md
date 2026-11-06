@@ -20,7 +20,7 @@ Other audiences have not been confirmed.
 
 ## Product Purpose
 
-A personal portfolio at markgarrigan.com. It presents Mark's work so that a recruiter or employer can see what he builds and how he builds it. Success means a qualified recruiter or hiring manager gets in touch, downloads the résumé, or follows through on LinkedIn.
+A personal portfolio at markgarrigan.com. It presents Mark's work so that a recruiter or employer can see what he builds and how he builds it. Success means a qualified recruiter or hiring manager gets in touch, downloads the resumé, or follows through on LinkedIn.
 
 ## Positioning
 
@@ -33,13 +33,13 @@ A personal portfolio at markgarrigan.com. It presents Mark's work so that a recr
 - Conversion paths, all confirmed:
   - Email
   - LinkedIn
-  - Résumé download (PDF hosted on the site)
+  - Resumé download (PDF hosted on the site)
   - Contact form. Since the stack is static, the form needs a handler. One could run in the Docker/VM deployment, or an external service could be used. Which one is **undecided**.
 
 ## Capabilities and Constraints
 
 - Static-first site. Any server behavior (the contact form handler) must fit inside the Docker image or come from an external service.
-- **Contact (confirmed 2026-11-01):** email mrkgrrgn@gmail.com; LinkedIn https://www.linkedin.com/in/markgarrigan/. The résumé (/markgarrigan.pdf) is being revised. The contact form's handler and spam protection are **undecided**.
+- **Contact (confirmed 2026-11-01):** email mrkgrrgn@gmail.com; LinkedIn https://www.linkedin.com/in/markgarrigan/. The resumé (/markgarrigan.pdf) is being revised. The contact form's handler and spam protection are **undecided**.
 - **Decided (2026-11-01):** the six projects and their order are in Evidence on Hand below: Bibsee, nurun co., Luna Coffee, Plainwork, boxx, stored. nurun must come before Luna; Bibsee leading was Claude's assumption; Mark hasn't confirmed or changed it.
 
 ## Evidence on Hand
@@ -61,7 +61,7 @@ Mark decided to leave these out: simonses, dsdev, jayz, barded, wifi.sh, checked
 
 - **Coming soon: boxx and stored.** Neither has any public exposure right now (Mark, 2026-11-01). Each still gets a fully built-out portfolio entry, as deep as the live projects, clearly labeled **coming soon**. Their own public sites are the next things Mark will build after this portfolio. Until they launch, the site must not link to a repo, install command, image registry or live instance for either one, and must not suggest that a visitor can use them today. Once a site launches, the entry switches to live and gains its link. Any claim about them should be one that can be checked once they go public.
 
-Absent, so must not be fabricated: testimonials, client names, employer names, metrics or outcomes, press, and the résumé contents. Use only what Mark supplies.
+Absent, so must not be fabricated: testimonials, client names, employer names, metrics or outcomes, press, and the resumé contents. Use only what Mark supplies.
 
 ## Project Stories
 
@@ -78,7 +78,7 @@ Naming is cleared for Luna Coffee, the BRTC, nurun co. and Bear Mark Publishing.
 
 ## How the Work Gets Built (be transparent)
 
-Mark's words (2026-11-02; date corrected to 2024 on 2026-11-05): until 2024 he hand-coded everything, meticulously. Since then he has taken an active role in agentic development: thorough planning sessions, guidance during implementation, then reviews and audits. It would not be truthful to say "I built" many of the latest things. **Don't write "I built" and don't write "AI built"** about recent work. Describe projects by what they are and do, keep "I" for ownership, decisions, operations and pre-2024 hand-coded work, and state the workflow plainly where it matters (About page, résumé, cover letters, LinkedIn).
+Mark's words (2026-11-02; date corrected to 2024 on 2026-11-05): until 2024 he hand-coded everything, meticulously. Since then he has taken an active role in agentic development: thorough planning sessions, guidance during implementation, then reviews and audits. It would not be truthful to say "I built" many of the latest things. **Don't write "I built" and don't write "AI built"** about recent work. Describe projects by what they are and do, keep "I" for ownership, decisions, operations and pre-2024 hand-coded work, and state the workflow plainly where it matters (About page, resumé, cover letters, LinkedIn).
 
 ## Product Principles
 

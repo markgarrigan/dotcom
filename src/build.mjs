@@ -85,7 +85,7 @@ ${body}
   <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
   <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>`}
   <a href="mailto:${site.email}"><span class="k">E</span>Email</a>
-  <a href="${site.resume}" download><span class="k">R</span>Résumé</a>
+  <a href="${site.resume}" download><span class="k">R</span>Resumé</a>
   <a href="${site.linkedin}" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
 </footer>
 </body>
@@ -368,13 +368,13 @@ const contactBody = `<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
   <section class="pane pane--focus lg:col-span-5" aria-labelledby="contact-title">
     <span class="pane-title" aria-hidden="true">Contact</span>
     <h1 id="contact-title" class="display text-[clamp(2.5rem,5vw,4.25rem)]">Let's talk.</h1>
-    <p class="mt-5 max-w-[40ch] text-[1rem]">Email is the quickest way to reach me. The résumé is a PDF.</p>
+    <p class="mt-5 max-w-[40ch] text-[1rem]">Email is the quickest way to reach me. The resumé is a PDF.</p>
     <dl class="kv mt-6">
       <dt>Email</dt><dd><a href="mailto:${site.email}">${site.email}</a></dd>
       <dt>LinkedIn</dt><dd><a href="${site.linkedin}" rel="me noopener" target="_blank">in/markgarrigan</a></dd>
-      <dt>Résumé</dt><dd><a href="${site.resume}" download>markgarrigan.pdf</a></dd>
+      <dt>Resumé</dt><dd><a href="${site.resume}" download>markgarrigan.pdf</a></dd>
     </dl>
-    <p class="mt-6 flex flex-wrap gap-2"><a class="btn btn--primary" href="mailto:${site.email}">Email me</a><a class="btn" href="${site.resume}" download>Download résumé</a></p>
+    <p class="mt-6 flex flex-wrap gap-2"><a class="btn btn--primary" href="mailto:${site.email}">Email me</a><a class="btn" href="${site.resume}" download>Download resumé</a></p>
   </section>
   <section class="pane pane--panel lg:col-span-7" aria-labelledby="form-title">
     <h2 class="pane-title" id="form-title">Send a message</h2>
@@ -412,7 +412,7 @@ out("about/index.html", shell({
   path: "/about/", tab: "About", body: aboutBody, legend: `<a href="/" data-back><span class="k">h</span><span class="k">Esc</span>Back</a>`,
 }));
 out("contact/index.html", shell({
-  title: `Contact · ${site.name}`, description: "Email, LinkedIn, résumé, or send a message.",
+  title: `Contact · ${site.name}`, description: "Email, LinkedIn, resumé, or send a message.",
   path: "/contact/", tab: "Contact", body: contactBody, legend: `<a href="/" data-back><span class="k">h</span><span class="k">Esc</span>Back</a>`,
 }));
 projects.forEach((p, i) => out(`work/${p.slug}/index.html`, projectPage(p, i)));
