@@ -36,4 +36,4 @@ Same model as nurun: a tag is the release, and nothing runs on branch pushes.
 
 - `site/markgarrigan.pdf` is the public resumé, rendered from `~/Desktop/Mark Garrigan Résumé 2026/resume.html`. Re-copy it when the resumé changes.
 - The contact form has no server-side handler.
-- boxx and stored are "coming soon": no repo, install or registry links until they're public.
+- stored is "coming soon": no repo, install or registry links until it's public. boxx went live on 2026-11-06 (boxxup.com).

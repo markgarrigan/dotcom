@@ -258,7 +258,9 @@ export const projects = [
     name: "boxx",
     short: "Single-host deploy tool",
     pitch: "Install and run Docker apps on one Linux host, from a TUI.",
-    status: "soon",
+    status: "live",
+    url: "https://boxxup.com",
+    host: "boxxup.com",
     from: "2026-05",
     to: "now",
     commits: "22 commits",
@@ -268,7 +270,7 @@ export const projects = [
       "I tried Kamal, Coolify and the rest, and wanted something tailored to how I work: one Linux host, many apps, HTTPS for every hostname, and a TUI to see it all.",
       "One requirement from the start: local development has to mimic the hosted environment with very little setup.",
       "boxx installs Docker, puts Caddy in front for certificates, sets up MySQL or Postgres if a site needs a database, and deploys without downtime.",
-      "It deploys bibsee.com, nurun.co and nurun-admin today. rosebee and stored are next, and so is this site.",
+      "It deploys bibsee.com, nurun.co, nurun-admin and its own site, boxxup.com, today. rosebee and stored are next, and so is this site.",
     ],
     layers: {
       Interface: "A Bubble Tea TUI (dashboard, install wizard, app actions, ops log) and a Cobra CLI.",
@@ -286,9 +288,9 @@ export const projects = [
       ["One operation at a time", "Operations take a lock and write to an ops log you can open from the TUI with L, so two deploys never collide."],
     ],
     results: [
-      "Deploys bibsee.com, nurun.co and nurun-admin today.",
+      "Its own site, boxxup.com, is live, with a one-line installer at get.boxxup.com.",
+      "Deploys bibsee.com, nurun.co, nurun-admin and boxxup.com today.",
       "Next on it: rosebee, stored and this site.",
-      "Its own site comes after that.",
     ],
     inventory: [
       "install, and install a group behind one hostname",
@@ -300,6 +302,7 @@ export const projects = [
       "TUI: dashboard, install wizard, app actions, ops log",
     ],
     screens: [
+      { src: "boxxup", kind: "Screenshot", caption: "boxxup.com, with the one-line installer." },
       { src: "boxx-dashboard", kind: "Illustration", caption: "The boxx dashboard: host stats and installed apps." },
       { src: "boxx-actions", kind: "Illustration", caption: "App actions: deploy, change image, restart, logs and more." },
     ],
