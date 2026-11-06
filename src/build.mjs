@@ -125,7 +125,7 @@ function helpFor(item) {
 
 const skills = [
   ["Focus", "Product ownership, end to end"],
-  ["Workflow", "Agentic since early 2026: plan, guide, review, audit. Hand-coded before that."],
+  ["Workflow", "Agentic since 2024: plan, guide, review, audit. Hand-coded before that."],
   ["Languages", "JavaScript, Go, Swift, Bash, SQL"],
   ["Runtimes", "Bun, Node.js, Express, Bubble Tea"],
   ["Data", "MySQL, SQLite, Postgres"],
@@ -337,7 +337,7 @@ const aboutBody = `<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
     <div class="mt-6 max-w-[64ch] space-y-4 text-[1rem]">
       <p>I'm Mark Garrigan, a full-stack engineer. I take products from the first idea to production, and I keep running them after launch.</p>
       <p>Most of my work starts with a problem I'm close to. Bibsee exists because my own race needed timing that works without a signal, and nurun-admin because race week lived in spreadsheets. Luna Coffee, a roaster I've worked with since the early 2000s, needed its whole business online; its platform is on its fourth version now. boxx came from wanting to host my own apps on one box.</p>
-      <p>Until early 2026 I hand-coded everything, and I was meticulous about it. Since then I've worked agentically: thorough planning sessions up front, guiding AI coding agents through the implementation, then reviewing and auditing the work before it ships. The plans, the architecture, the decisions and the review are mine, and so is responsibility for what runs.</p>
+      <p>Until 2024 I hand-coded everything, and I was meticulous about it. Since then I've worked agentically: thorough planning sessions up front, guiding AI coding agents through the implementation, then reviewing and auditing the work before it ships. The plans, the architecture, the decisions and the review are mine, and so is responsibility for what runs.</p>
       <p>I like small, legible systems: one server, one database, plain HTML where it works, and a terminal UI when it helps.</p>
     </div>
   </section>
@@ -346,7 +346,7 @@ const aboutBody = `<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
     <ol class="grid gap-4">
       ${[["Idea", "Work out the problem with the people who have it, before writing code."],
          ["Architecture", "Choose the fewest parts that will hold up."],
-         ["Build", "Interface, API, data and infrastructure. Since early 2026, AI coding agents implement against my plans while I guide the work; before that, I hand-coded all of it."],
+         ["Build", "Interface, API, data and infrastructure. Since 2024, AI coding agents implement against my plans while I guide the work; before that, I hand-coded all of it."],
          ["Review", "Review and audit everything before it ships: the code, the tests and the decisions behind them."],
          ["Launch", "Ship it as a Docker image onto infrastructure I set up and understand."],
          ["Run", "Keep it running after launch: fixes, updates and the next version."]]

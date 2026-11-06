@@ -78,7 +78,7 @@ Naming is cleared for Luna Coffee, the BRTC, nurun co. and Bear Mark Publishing.
 
 ## How the Work Gets Built (be transparent)
 
-Mark's words (2026-11-02): until early 2026 he hand-coded everything, meticulously. Since then he has taken an active role in agentic development: thorough planning sessions, guidance during implementation, then reviews and audits. It would not be truthful to say "I built" many of the latest things. **Don't write "I built" and don't write "AI built"** about recent work. Describe projects by what they are and do, keep "I" for ownership, decisions, operations and pre-2026 hand-coded work, and state the workflow plainly where it matters (About page, résumé, cover letters, LinkedIn).
+Mark's words (2026-11-02; date corrected to 2024 on 2026-11-05): until 2024 he hand-coded everything, meticulously. Since then he has taken an active role in agentic development: thorough planning sessions, guidance during implementation, then reviews and audits. It would not be truthful to say "I built" many of the latest things. **Don't write "I built" and don't write "AI built"** about recent work. Describe projects by what they are and do, keep "I" for ownership, decisions, operations and pre-2024 hand-coded work, and state the workflow plainly where it matters (About page, résumé, cover letters, LinkedIn).
 
 ## Product Principles
 
