@@ -144,6 +144,7 @@
     display: inline-block; min-width: 2ch; padding: 0 0.6ch; text-align: center; font-weight: 700;
     background: var(--key-bg, var(--sel-bg)); color: var(--key-fg, var(--sel-fg));
   }
+  .titlebar-version { font-size: 0.8em; font-variant-numeric: tabular-nums; }
   .titlebar .btn, .titlebar .btn::before, .titlebar .btn::after { color: var(--bar-fg); }
   .titlebar .btn:hover, .titlebar .btn:focus-visible,
   .titlebar .btn:hover::before, .titlebar .btn:hover::after { color: var(--sel-fg); }

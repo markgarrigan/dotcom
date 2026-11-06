@@ -1,11 +1,13 @@
 // Renders the static pages into site/ from src/content.mjs.
 // Run with `npm run build` (this, then Tailwind).
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { site, projects, LAYERS } from "./content.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "site");
+// Shown next to the name in the title bar. Bump it with `npm version` when releasing.
+const { version } = JSON.parse(readFileSync(join(ROOT, "..", "package.json"), "utf8"));
 
 const esc = (s) => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -55,7 +57,7 @@ function shell({ title, description, path, tab, body, legend }) {
 <body data-page="${esc(path)}">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-sel focus:px-3 focus:py-1 focus:text-sel-fg">Skip to content</a>
 <header class="titlebar">
-  <a href="/" class="font-bold whitespace-nowrap no-underline">${esc(site.name)}</a>
+  <span class="whitespace-nowrap"><a href="/" class="font-bold no-underline">${esc(site.name)}</a> <span class="titlebar-version">v${esc(version)}</span></span>
   <span class="hidden truncate md:block">${esc(site.role)}</span>
   <div class="flex shrink-0 items-center gap-[1ch]">
     <div class="relative">
