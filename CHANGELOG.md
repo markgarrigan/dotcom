@@ -1,5 +1,7 @@
 # Changelog
 
+Releases after 1.0.2 are listed on [GitHub Releases](https://github.com/markgarrigan/dotcom/releases).
+
 ## [1.0.2](https://github.com/markgarrigan/dotcom/compare/v1.0.1...v1.0.2) (2026-11-06)
 
 

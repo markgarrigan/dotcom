@@ -18,12 +18,13 @@ There is no test suite or linter.
 
 ## CI and releases
 
-Each commit's image is built once, in CI. A release adds tags to that image and never rebuilds.
+Same model as nurun: a tag is the release, and nothing runs on branch pushes.
 
-- `.github/workflows/ci.yml`: on a pull request, builds the image (linux/amd64) without pushing. The Dockerfile renders the pages, so a passing image build is the check. On a push to main, builds linux/amd64 and linux/arm64, pushes `ghcr.io/markgarrigan/dotcom:edge` and `:sha-<7-char sha>` (never `latest`), and attaches a signed build-provenance attestation. It fails if `site/markgarrigan.pdf` is missing.
-- `.github/workflows/release.yml`: runs after CI passes on a push to main (`workflow_run`). release-please keeps a release PR open from conventional commits (`feat:`, `fix:`, `feat!:`). Merging it bumps `package.json`, writes `CHANGELOG.md`, tags `vX.Y.Z` and publishes the GitHub Release. The `promote` job then adds `X.Y.Z` (and `X.Y`, `X` and `latest` for stable releases) to the tagged commit's `:sha-` image with `docker buildx imagetools create`, and checks that every tag has the same digest. It refuses if the tag doesn't match `package.json`.
-- boxx follows a tag's digest, so point production at `:1` (or `:latest`) with update policy `auto` to deploy each stable release, and a staging app at `:edge`.
-- To force a version, put `Release-As: 1.0.0` in a commit body.
+- To release, tag main and push the tag: `git tag v1.0.3 && git push origin v1.0.3`. Pick the next version by hand; `package.json` has no version field.
+- `.github/workflows/publish.yml` runs on `v*` tags. It builds linux/amd64 and linux/arm64, pushes `ghcr.io/markgarrigan/dotcom` as `X.Y.Z`, `X.Y`, `X` and `latest`, then creates the GitHub Release with generated notes. The Dockerfile renders the pages and refuses to build without `site/markgarrigan.pdf`, so a broken build fails before anything is pushed.
+- Point production in boxx at `:1` (or `:latest`) with update policy `auto` to deploy each stable release.
+- `CHANGELOG.md` is history up to 1.0.2; later releases are on GitHub Releases.
+- When real tests exist, add a job that runs them on every push.
 
 ## Architecture
 
