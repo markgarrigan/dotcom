@@ -270,7 +270,6 @@ export const projects = [
       "I tried ONCE and Kamal, admired how they were made, and wanted to see what it would take to build my own, shaped around how I work: one Linux host, many apps, HTTPS for every hostname, and a TUI to see it all.",
       "One requirement from the start: local development has to mimic the hosted environment with very little setup.",
       "boxx installs Docker, puts Caddy in front for certificates, sets up MySQL or Postgres if a site needs a database, and deploys without downtime.",
-      "It deploys bibsee.com, nurun.co, nurun-admin and its own site, boxxup.com, today. rosebee and stored are next, and so is this site.",
     ],
     layers: {
       Interface: "A Bubble Tea TUI (dashboard, install wizard, app actions, ops log) and a Cobra CLI.",
@@ -289,8 +288,8 @@ export const projects = [
     ],
     results: [
       "Its own site, boxxup.com, is live, with a one-line installer at get.boxxup.com.",
-      "Deploys bibsee.com, nurun.co, nurun-admin and boxxup.com today.",
-      "Next on it: rosebee, stored and this site.",
+      "Deploys bibsee.com, nurun.co, nurun-admin, boxxup.com and this site, markgarrigan.com.",
+      "Next on it: rosebee and stored.",
     ],
     inventory: [
       "install, and install a group behind one hostname",

@@ -361,7 +361,7 @@ const aboutBody = `<div class="grid gap-x-[2ch] gap-y-10 lg:grid-cols-12">
       <div class="kv"><dt>Made with</dt><dd>Static HTML, Tailwind 4, a little vanilla JavaScript</dd></div>
       <div class="kv"><dt>Type</dt><dd>Nerd Fonts: SauceCodePro, JetBrains Mono or Noto Sans Mono; BigBlueTerm in the Borland theme</dd></div>
       <div class="kv"><dt>Colour</dt><dd>Catppuccin Latte, Frappé, Macchiato and Mocha, plus Borland</dd></div>
-      <div class="kv"><dt>Ships as</dt><dd>A Docker image, to be deployed with boxx</dd></div>
+      <div class="kv"><dt>Ships as</dt><dd>A Docker image, deployed with <a href="/work/boxx/">boxx</a></dd></div>
     </dl>
   </section>
 </div>`;
