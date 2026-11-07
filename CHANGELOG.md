@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/markgarrigan/dotcom/compare/v1.1.1...v1.1.2) (2026-11-07)
+
+
+### Bug Fixes
+
+* update the résumé PDF to show boxx live at boxxup.com ([8f4279b](https://github.com/markgarrigan/dotcom/commit/8f4279b))
+
 ## [1.1.1](https://github.com/markgarrigan/dotcom/compare/v1.1.0...v1.1.1) (2026-11-07)
 
 
