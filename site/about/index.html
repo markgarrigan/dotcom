@@ -13,15 +13,15 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231e1e2e'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23cba6f7' stroke-width='2'/%3E%3Cpath d='M9 22V10l4 6 4-6v12M21 10h3' stroke='%23cdd6f4' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/saucecodepro-400.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var d=document.documentElement,t=localStorage.getItem("theme"),f=localStorage.getItem("font");if(t&&t!=="auto")d.dataset.theme=t;if(f&&f!=="saucecode")d.dataset.font=f}catch(e){}</script>
-<link rel="stylesheet" href="/assets/css/site.css">
-<script src="/assets/js/main.js" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=1.1.0">
+<script src="/assets/js/main.js?v=1.1.0" defer></script>
 </head>
 <body data-page="/about/">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-sel focus:px-3 focus:py-1 focus:text-sel-fg">Skip to content</a>
 <header class="titlebar">
   <span class="whitespace-nowrap"><a href="/" class="font-bold no-underline">Mark Garrigan</a> <span class="titlebar-version">v1.1.0</span></span>
   <span class="hidden truncate md:block">Full-stack engineer</span>
-  <a class="btn sm:!hidden" href="#site-menu" id="menu-btn" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded="false" aria-keyshortcuts="M"><span><span class="tab-key">M</span>enu</span></a>
+  <a class="btn sm:hidden" href="#site-menu" id="menu-btn" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded="false" aria-keyshortcuts="M"><span><span class="tab-key">M</span>enu</span></a>
   <div class="hidden shrink-0 items-center gap-[1ch] sm:flex">
     <div class="relative">
       <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
@@ -84,12 +84,12 @@
 </main>
 <footer class="legend" aria-label="Keys">
   <a href="/" data-back><span class="k">h</span><span class="k">Esc</span>Back</a>
-  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">j</span><span class="k">k</span>Scroll</span>
-  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
-  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>
-  <a href="mailto:mrkgrrgn@gmail.com"><span class="k">E</span>Email</a>
-  <a href="/markgarrigan.pdf" download><span class="k">R</span>Resumé</a>
-  <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
+  <span data-scroll-hint><span class="k">j</span><span class="k">k</span>Scroll</span>
+  <span data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
+  <span data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>
+  <a href="mailto:mrkgrrgn@gmail.com" data-contact><span class="k">E</span>Email</a>
+  <a href="/markgarrigan.pdf" download data-contact><span class="k">R</span>Resumé</a>
+  <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank" data-contact><span class="k">I</span>LinkedIn</a>
 </footer>
 <div class="overlay" id="site-menu" role="dialog" aria-modal="true" aria-labelledby="m-title" data-overlay>
   <div class="overlay-bar">

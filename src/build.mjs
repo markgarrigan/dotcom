@@ -85,15 +85,15 @@ function shell({ title, description, path, tab, body, legend, page = [], near = 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231e1e2e'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23cba6f7' stroke-width='2'/%3E%3Cpath d='M9 22V10l4 6 4-6v12M21 10h3' stroke='%23cdd6f4' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/saucecodepro-400.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var d=document.documentElement,t=localStorage.getItem("theme"),f=localStorage.getItem("font");if(t&&t!=="auto")d.dataset.theme=t;if(f&&f!=="saucecode")d.dataset.font=f}catch(e){}</script>
-<link rel="stylesheet" href="/assets/css/site.css">
-<script src="/assets/js/main.js" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=${esc(version)}">
+<script src="/assets/js/main.js?v=${esc(version)}" defer></script>
 </head>
 <body data-page="${esc(path)}">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-sel focus:px-3 focus:py-1 focus:text-sel-fg">Skip to content</a>
 <header class="titlebar">
   <span class="whitespace-nowrap"><a href="/" class="font-bold no-underline">${esc(site.name)}</a> <span class="titlebar-version">v${esc(version)}</span></span>
   <span class="hidden truncate md:block">${esc(site.role)}</span>
-  <a class="btn sm:!hidden" href="#site-menu" id="menu-btn" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded="false" aria-keyshortcuts="M"><span><span class="tab-key">M</span>enu</span></a>
+  <a class="btn sm:hidden" href="#site-menu" id="menu-btn" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded="false" aria-keyshortcuts="M"><span><span class="tab-key">M</span>enu</span></a>
   <div class="hidden shrink-0 items-center gap-[1ch] sm:flex">
     <div class="relative">
       <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
@@ -117,13 +117,13 @@ ${body}
 </main>
 <footer class="legend" aria-label="Keys">
   ${legend}
-  ${path === "/" ? `<span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
-  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>` : `<span class="items-center gap-[1ch]" data-scroll-hint><span class="k">j</span><span class="k">k</span>Scroll</span>
-  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
-  <span class="items-center gap-[1ch]" data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>`}
-  <a href="mailto:${site.email}"><span class="k">E</span>Email</a>
-  <a href="${site.resume}" download><span class="k">R</span>Resumé</a>
-  <a href="${site.linkedin}" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
+  ${path === "/" ? `<span data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
+  <span data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>` : `<span data-scroll-hint><span class="k">j</span><span class="k">k</span>Scroll</span>
+  <span data-scroll-hint><span class="k">d</span><span class="k">u</span>Page</span>
+  <span data-scroll-hint><span class="k">gg</span><span class="k">G</span>Top/End</span>`}
+  <a href="mailto:${site.email}" data-contact><span class="k">E</span>Email</a>
+  <a href="${site.resume}" download data-contact><span class="k">R</span>Resumé</a>
+  <a href="${site.linkedin}" rel="me noopener" target="_blank" data-contact><span class="k">I</span>LinkedIn</a>
 </footer>
 ${menuWindow({ tab, page, near })}
 </body>
@@ -333,10 +333,10 @@ function projectPage(p, i) {
 
   <nav class="pane lg:col-span-12" aria-label="More projects">
     <span class="pane-title" aria-hidden="true">More projects</span>
-    <div class="flex flex-wrap justify-between gap-4 max-sm:flex-nowrap max-sm:gap-2">
-      <a class="btn" href="/work/${prev.slug}/" data-prev aria-label="Previous project: ${esc(prev.name)}">◂ <span class="max-sm:hidden">${esc(prev.name)}</span><span class="sm:hidden">Prev</span></a>
-      <a class="btn" href="/" aria-label="All projects">All<span class="max-sm:hidden"> projects</span></a>
-      <a class="btn" href="/work/${next.slug}/" data-next aria-label="Next project: ${esc(next.name)}"><span class="max-sm:hidden">${esc(next.name)}</span><span class="sm:hidden">Next</span> ▸</a>
+    <div class="flex justify-between gap-2 sm:flex-wrap sm:gap-4">
+      <a class="btn" href="/work/${prev.slug}/" data-prev aria-label="Previous project: ${esc(prev.name)}">◂ <span class="sm:hidden">Prev</span><span class="hidden sm:inline">${esc(prev.name)}</span></a>
+      <a class="btn" href="/" aria-label="All projects">All<span class="hidden sm:inline"> projects</span></a>
+      <a class="btn" href="/work/${next.slug}/" data-next aria-label="Next project: ${esc(next.name)}"><span class="sm:hidden">Next</span><span class="hidden sm:inline">${esc(next.name)}</span> ▸</a>
     </div>
   </nav>
 </div>`;
@@ -445,8 +445,8 @@ function out(rel, html) {
   writeFileSync(file, html);
 }
 
-const homeLegend = `<span class="hidden sm:inline-flex items-center gap-[1ch]"><span class="k">j</span><span class="k">k</span><span class="k">↑↓</span>Move</span>
-  <a href="/work/${projects[0].slug}/" data-open class="max-sm:!hidden"><span class="k">l</span><span class="k">↵</span>Open</a>`;
+const homeLegend = `<span><span class="k">j</span><span class="k">k</span><span class="k">↑↓</span>Move</span>
+  <a href="/work/${projects[0].slug}/" data-open><span class="k">l</span><span class="k">↵</span>Open</a>`;
 
 out("index.html", shell({
   title: `${site.name}, ${site.role.toLowerCase()}`,

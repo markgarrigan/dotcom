@@ -308,9 +308,11 @@ The page is a vertical stack. The title bar (min 2.5rem) sits on top, the tabs a
 
 Breakpoints: 640px, 768px (the title bar shows the role line), 1024px (the 12-column split, full-height panes, the Item Specific Help pane and the selection bar), 1280px (three-up screen grids).
 
+The CSS is mobile-first: phone styles are the base, and `min-width` queries at 640px and 1024px add the wider layouts. There are no `max-width` queries.
+
 **Phones (under 640px)** get their own arrangement, not a squeezed desktop:
 - The title bar holds the name, the version and `[ Menu ]` (M underlined). Font and Theme move into the Menu window, so the bar never overflows.
-- The tabs stay. The key legend shows only E, R and I on Work, About and Contact (Back is the phone's own gesture), and project pages drop the legend entirely: they're long reads, and Menu carries their keys.
+- The tabs stay. The key legend is an ordinary bar at the end of every page, not sticky, and shows only E Email, R Resumé and I LinkedIn. Menu carries the other keys.
 - Each project row is the name and its bracketed status on one line, with the description underneath (child rows indent it 2ch). No cursor column, no dates.
 - Key/value rows stack: the muted label sits above its value, with 0.55rem between pairs.
 - Screen captions wrap, so the [Screenshot] / [Illustration] tag can drop under a long caption.
@@ -381,7 +383,7 @@ The components are terse and literal. Each one reads as the part of a setup scre
 
 ### Navigation: Title Bar and Key Legend
 - **Title bar:** inverse video. The name is bold on the left with the site version (`v1.0.7`, from package.json) beside it at 0.8em, "Full-stack engineer" is in the middle (768px and up), and `[ Font: SauceCodePro ]` and `[ Theme: Auto ]` are on the right, with F and T underlined as their keys. Under 640px those two give way to `[ Menu ]`. "Setup Utility" is the design's north star, never on-screen copy.
-- **Key legend:** an inverse bar stuck to the bottom of the viewport. Each entry is a bold key cap (min 2ch, 0.6ch side padding, base field, selection-hue letter) followed by its label. Hovering outlines the cap 1px in the bar text colour. An unavailable entry (the resumé while it's being revised) drops to 0.75 opacity and says "(soon)".
+- **Key legend:** an inverse bar stuck to the bottom of the viewport from 640px up (on phones it sits at the end of the page with only E, R and I). Each entry is a bold key cap (min 2ch, 0.6ch side padding, base field, selection-hue letter) followed by its label. Hovering outlines the cap 1px in the bar text colour. An unavailable entry (the resumé while it's being revised) drops to 0.75 opacity and says "(soon)".
 - **Shortcuts:** M Menu (phones only, where the title bar shows `[ Menu ]`; T and F open it there too), W Work, A About, C Contact (each tab underlines its key letter), j k / ↑↓ move, l / Enter open (follows the selection or a focused link; picks in a menu), h / Esc back (history back on this site, else up to Work; closes a menu), ← → previous/next project, E email, R resumé, I LinkedIn, F font, T theme. Shortcuts never fire while typing in a field, and keys pressed inside an open menu stay in the menu. The legend shows movement and actions (`j k ↑↓ Move`, `l ↵ Open`, `h Esc Back`, E, R, I). Font and Theme live in the title bar, where their F and T are underlined like the tab letters; they aren't repeated in the legend. Scrolling: on pages without a list j k scroll three lines; d u scroll half a page and gg G jump to the top or end on any page that scrolls. All scrolling is instant, and the legend shows `j k Scroll`, `d u Page` and `gg G Top/End` only when the page actually scrolls and only from 640px up.
 
 ### Menu Window (phones)
