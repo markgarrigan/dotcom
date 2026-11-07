@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/markgarrigan/dotcom/compare/v1.0.7...v1.1.0) (2026-11-07)
+
+
+### Features
+
+* a phone layout with a Menu window: `[ Menu ]` (M) opens this page's sections, the tabs, previous and next project, contact links and the theme and font settings; X closes it. Project pages drop the sticky legend on phones, the project list is cleaner and lines up with its heading, and the page no longer scrolls sideways ([a79a10b](https://github.com/markgarrigan/dotcom/commit/a79a10b))
+
 ## [1.0.7](https://github.com/markgarrigan/dotcom/compare/v1.0.6...v1.0.7) (2026-11-06)
 
 
