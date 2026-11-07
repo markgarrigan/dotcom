@@ -34,7 +34,41 @@ const statusLabel = { live: "Live", soon: "Soon", priv: "Private" };
 const st = (s) => `<span class="st st--${s}">${statusLabel[s]}</span>`;
 const img = (src) => `/assets/img/work/${src}.webp`;
 
-function shell({ title, description, path, tab, body, legend }) {
+// The Menu window: on phones it holds everything the title bar and legend carry on
+// wider screens. Rows are [key, label, href, note, attrs]; key "" leaves the cap empty.
+const mrow = ([key, label, href, note = "", attrs = ""]) =>
+  `<li><a class="mrow" href="${href}"${key ? ` data-key="${key.toLowerCase()}"` : ""}${attrs}><span class="${key ? "k" : "k k--blank"}" aria-hidden="true">${esc(key)}</span><span>${esc(label)}</span><span class="note">${esc(note)}</span></a></li>`;
+const mgroup = (id, title, rows, cls = "") =>
+  `<section class="pane${cls}" aria-labelledby="m-${id}"><h2 class="pane-title" id="m-${id}">${title}</h2><ul class="mrows">${rows.map(mrow).join("")}</ul></section>`;
+const choice = (kind, items) => `<div class="mt-1" data-choices="${kind}" role="group" aria-labelledby="m-${kind}">
+        ${items.map(([id, name, note, extra]) => `<button type="button" class="mrow" data-set="${id}"${id === "bigblue" ? " hidden" : ""}><span class="k k--blank" aria-hidden="true" data-check></span><span>${name} <span class="sr-only">(${note})</span></span><span class="note">${extra}</span></button>`).join("\n        ")}
+      </div>`;
+
+function menuWindow({ tab, page = [], near = [] }) {
+  const tabs = [["W", "Work", "/"], ["A", "About", "/about/"], ["C", "Contact", "/contact/"]]
+    .map(([k, n, h]) => [k, n, h, "", n === tab ? ' aria-current="page"' : ""]);
+  page = page.map(([label, href, note], n) => [String(n + 1), label, href, note]);
+  return `<div class="overlay" id="site-menu" role="dialog" aria-modal="true" aria-labelledby="m-title" data-overlay>
+  <div class="overlay-bar">
+    <span class="font-bold" id="m-title">Menu</span>
+    <a href="#main" class="btn" data-close aria-keyshortcuts="X"><span><span class="tab-key">X</span> Close</span></a>
+  </div>
+  <div class="overlay-body">
+    ${page.length ? mgroup("page", "On this page", page) : ""}
+    ${mgroup("go", "Go to", [...tabs, ...near])}
+    ${mgroup("touch", "Get in touch", [["E", "Email", `mailto:${site.email}`, site.email], ["R", "Resumé", site.resume, "PDF", " download"], ["I", "LinkedIn", site.linkedin, "in/markgarrigan", ' rel="me noopener" target="_blank"']])}
+    <section class="pane pane--panel" aria-labelledby="m-settings">
+      <h2 class="pane-title" id="m-settings">Settings</h2>
+      <h3 class="font-bold text-accent" id="m-theme">Theme</h3>
+      ${choice("theme", THEMES.map(([id, name, note, sw]) => [id, name, note, `<span class="sw" aria-hidden="true">${sw.map((c) => `<i style="background:${c}"></i>`).join("")}</span>`]))}
+      <h3 class="mt-5 font-bold text-accent" id="m-font">Font</h3>
+      ${choice("font", FONTS.map(([id, name, note]) => [id, name, note, `<span class="sample sample--${id}" aria-hidden="true">Aa ├─┤</span>`]))}
+    </section>
+  </div>
+</div>`;
+}
+
+function shell({ title, description, path, tab, body, legend, page = [], near = [] }) {
   const tabs = [["Work", "/"], ["About", "/about/"], ["Contact", "/contact/"]];
   return `<!doctype html>
 <html lang="en">
@@ -59,16 +93,17 @@ function shell({ title, description, path, tab, body, legend }) {
 <header class="titlebar">
   <span class="whitespace-nowrap"><a href="/" class="font-bold no-underline">${esc(site.name)}</a> <span class="titlebar-version">v${esc(version)}</span></span>
   <span class="hidden truncate md:block">${esc(site.role)}</span>
-  <div class="flex shrink-0 items-center gap-[1ch]">
+  <a class="btn sm:!hidden" href="#site-menu" id="menu-btn" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded="false" aria-keyshortcuts="M"><span><span class="tab-key">M</span>enu</span></a>
+  <div class="hidden shrink-0 items-center gap-[1ch] sm:flex">
     <div class="relative">
       <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
-      <div class="menu" id="font-menu" data-menu="font" hidden>
+      <div class="menu" id="font-menu" data-menu="font" data-choices="font" hidden>
         ${FONTS.map(([id, name, note, family]) => `<button type="button" data-set="${id}"${id === "bigblue" ? " hidden" : ""}><span data-check aria-hidden="true"></span><span>${name} <span class="sr-only">(${note})</span></span><span class="sample sample--${id}" aria-hidden="true">Aa ├─┤</span></button>`).join("\n        ")}
       </div>
     </div>
     <div class="relative">
       <button type="button" class="btn" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-keyshortcuts="T"><span><span class="tab-key">T</span>heme<span class="hidden lg:inline">: <span data-theme-name>Auto</span></span></span></button>
-      <div class="menu" id="theme-menu" data-menu="theme" hidden>
+      <div class="menu" id="theme-menu" data-menu="theme" data-choices="theme" hidden>
         ${THEMES.map(([id, name, note, sw]) => `<button type="button" data-set="${id}"><span data-check aria-hidden="true"></span><span>${name} <span class="sr-only">(${note})</span></span><span class="sw" aria-hidden="true">${sw.map((c) => `<i style="background:${c}"></i>`).join("")}</span></button>`).join("\n        ")}
       </div>
     </div>
@@ -90,6 +125,7 @@ ${body}
   <a href="${site.resume}" download><span class="k">R</span>Resumé</a>
   <a href="${site.linkedin}" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
 </footer>
+${menuWindow({ tab, page, near })}
 </body>
 </html>
 `;
@@ -156,15 +192,15 @@ const homeBody = `<h1 class="sr-only">${esc(site.name)}, ${esc(site.role.toLower
       <ul class="items" data-items>
         ${listItems.map((it, i) => `<li><a class="item${it.child ? " item--child" : ""}" href="${it.href}" data-item="${it.id}"${i === 0 ? " data-sel" : ""}>
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">${esc(it.name)}</span> <span class="desc">${esc(it.desc)}</span></span>
-          <span class="when hidden sm:inline">${esc(it.when)}</span>
+          <span class="main"><span class="name font-bold">${esc(it.name)}</span> <span class="desc">${esc(it.desc)}</span></span>
+          <span class="when">${esc(it.when)}</span>
           ${st(it.status)}
         </a></li>`).join("\n        ")}
       </ul>
     </nav>
   </section>
 
-  <section class="pane pane--panel lg:col-span-5 lg:min-h-[calc(100svh-11.5rem)]" aria-labelledby="help-title">
+  <section class="pane pane--panel hidden lg:col-span-5 lg:block lg:min-h-[calc(100svh-11.5rem)]" aria-labelledby="help-title">
     <h2 class="pane-title" id="help-title">Item Specific Help</h2>
     <div data-help>${helpFor(listItems[0])}</div>
     ${listItems.map((it) => `<template data-help-for="${it.id}">${helpFor(it)}</template>`).join("\n    ")}
@@ -236,17 +272,17 @@ function projectPage(p, i) {
   </section>
 
   <div class="grid content-start gap-y-10 lg:col-span-7">
-  <section class="pane" aria-labelledby="story-title">
+  <section class="pane scroll-mt-6" id="story" aria-labelledby="story-title">
     <h2 class="pane-title" id="story-title">Story</h2>
     <div class="max-w-[68ch] space-y-4 text-[1rem]">${story.map((t) => `<p>${esc(t)}</p>`).join("")}</div>
   </section>
-    <section class="pane pane--focus" aria-labelledby="res-title">
+    <section class="pane pane--focus scroll-mt-6" id="results" aria-labelledby="res-title">
       <h2 class="pane-title" id="res-title">Results</h2>
       <ul class="grid gap-3">${p.results.map((r) => `<li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>${esc(r)}</span></li>`).join("")}</ul>
     </section>
   </div>
 
-  <section class="pane pane--panel lg:col-span-5" aria-labelledby="sys-title">
+  <section class="pane pane--panel scroll-mt-6 lg:col-span-5" id="system" aria-labelledby="sys-title">
     <h2 class="pane-title" id="sys-title">System, layer by layer</h2>
     <dl class="grid gap-4">
       ${LAYERS.map((l) => p.layers[l]
@@ -255,14 +291,14 @@ function projectPage(p, i) {
     </dl>
   </section>
 
-  ${p.slug === "stored" ? `<section class="pane pane--focus lg:col-span-12" aria-labelledby="merchant-title">
+  ${p.slug === "stored" ? `<section class="pane pane--focus scroll-mt-6 lg:col-span-12" id="merchants" aria-labelledby="merchant-title">
     <h2 class="pane-title" id="merchant-title">For merchants</h2>
     ${STORED_PITCH}
   </section>` : ""}
 
 
 
-  <section class="pane lg:col-span-12" aria-labelledby="screens-title">
+  <section class="pane scroll-mt-6 lg:col-span-12" id="screens" aria-labelledby="screens-title">
     <h2 class="pane-title" id="screens-title">Screens</h2>
     ${screensGrid(mainScreens, p)}
   </section>
@@ -280,7 +316,7 @@ function projectPage(p, i) {
     </div>
   </section>` : ""}
 
-  <section class="pane lg:col-span-7" aria-labelledby="dec-title">
+  <section class="pane scroll-mt-6 lg:col-span-7" id="decisions" aria-labelledby="dec-title">
     <h2 class="pane-title" id="dec-title">Decisions</h2>
     <ol class="grid gap-5">
       ${p.decisions.map(([t, d], n) => `<li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">${String(n + 1).padStart(2, "0")}</span><div><h3 class="font-bold">${esc(t)}</h3><p class="mt-1 max-w-[64ch]">${esc(d)}</p></div></li>`).join("\n      ")}
@@ -289,7 +325,7 @@ function projectPage(p, i) {
 
   <div class="grid content-start gap-y-10 lg:col-span-5">
 
-    <section class="pane" aria-labelledby="inv-title">
+    <section class="pane scroll-mt-6" id="inventory" aria-labelledby="inv-title">
       <h2 class="pane-title" id="inv-title">In the box</h2>
       <ul class="grid gap-1.5">${p.inventory.map((r) => `<li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>${esc(r)}</span></li>`).join("")}</ul>
     </section>
@@ -297,10 +333,10 @@ function projectPage(p, i) {
 
   <nav class="pane lg:col-span-12" aria-label="More projects">
     <span class="pane-title" aria-hidden="true">More projects</span>
-    <div class="flex flex-wrap justify-between gap-4">
-      <a class="btn" href="/work/${prev.slug}/" data-prev>◂ ${esc(prev.name)}</a>
-      <a class="btn" href="/">All projects</a>
-      <a class="btn" href="/work/${next.slug}/" data-next>${esc(next.name)} ▸</a>
+    <div class="flex flex-wrap justify-between gap-4 max-sm:flex-nowrap max-sm:gap-2">
+      <a class="btn" href="/work/${prev.slug}/" data-prev aria-label="Previous project: ${esc(prev.name)}">◂ <span class="max-sm:hidden">${esc(prev.name)}</span><span class="sm:hidden">Prev</span></a>
+      <a class="btn" href="/" aria-label="All projects">All<span class="max-sm:hidden"> projects</span></a>
+      <a class="btn" href="/work/${next.slug}/" data-next aria-label="Next project: ${esc(next.name)}"><span class="max-sm:hidden">${esc(next.name)}</span><span class="sm:hidden">Next</span> ▸</a>
     </div>
   </nav>
 </div>`;
@@ -311,6 +347,14 @@ function projectPage(p, i) {
     path: `/work/${p.slug}/`,
     tab: "Work",
     body,
+    page: [
+      ["Story", "#story"], ["Results", "#results"], ["System, layer by layer", "#system"],
+      ...(p.slug === "stored" ? [["For merchants", "#merchants"]] : []),
+      ["Screens", "#screens"],
+      ...(p.child ? [[`Private tool: ${p.child.name}`, `#${p.child.slug}`]] : []),
+      ["Decisions", "#decisions"], ["In the box", "#inventory"],
+    ],
+    near: [["←", prev.name, `/work/${prev.slug}/`, "previous"], ["→", next.name, `/work/${next.slug}/`, "next"]],
     legend: `<a href="/" data-back><span class="k">h</span><span class="k">Esc</span>Back</a>
   <a href="/work/${prev.slug}/"><span class="k">←</span>${esc(prev.name)}</a>
   <a href="/work/${next.slug}/"><span class="k">→</span>${esc(next.name)}</a>`,

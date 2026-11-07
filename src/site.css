@@ -139,15 +139,20 @@
   /* scroll keys show only when the page scrolls and there's room (no keyboard on phones) */
   .legend [data-scroll-hint] { display: none; }
   @media (min-width: 640px) { .legend [data-scroll-hint].is-on { display: inline-flex; } }
-  @media (max-width: 639px) { .legend { gap: 0.25rem 1.6ch; padding-inline: 1.5ch; } }
+  @media (max-width: 639px) {
+    .legend { gap: 0.25rem 1.6ch; padding-inline: 1.5ch; }
+    .legend [data-back] { display: none; }
+    /* project pages are long reads on a phone: Menu carries their keys instead */
+    body[data-page^="/work/"] .legend { display: none; }
+  }
   .k {
     display: inline-block; min-width: 2ch; padding: 0 0.6ch; text-align: center; font-weight: 700;
     background: var(--key-bg, var(--sel-bg)); color: var(--key-fg, var(--sel-fg));
   }
   .titlebar-version { font-size: 0.8em; font-variant-numeric: tabular-nums; }
-  .titlebar .btn, .titlebar .btn::before, .titlebar .btn::after { color: var(--bar-fg); }
-  .titlebar .btn:hover, .titlebar .btn:focus-visible,
-  .titlebar .btn:hover::before, .titlebar .btn:hover::after { color: var(--sel-fg); }
+  :is(.titlebar, .overlay-bar) .btn, :is(.titlebar, .overlay-bar) .btn::before, :is(.titlebar, .overlay-bar) .btn::after { color: var(--bar-fg); }
+  :is(.titlebar, .overlay-bar) .btn:hover, :is(.titlebar, .overlay-bar) .btn:focus-visible,
+  :is(.titlebar, .overlay-bar) .btn:hover::before, :is(.titlebar, .overlay-bar) .btn:hover::after { color: var(--sel-fg); }
 
   /* ---------- panes ---------- */
   .pane {
@@ -177,22 +182,51 @@
     display: grid; grid-template-columns: 2ch minmax(0, 1fr) auto 9ch; gap: 0 1.5ch; align-items: baseline;
     padding: 0.3rem 1ch; text-decoration: none; color: var(--fg);
   }
+  .item .main { min-width: 0; }
   .item .cur { visibility: hidden; }
-  .item .desc { color: var(--muted); }
-  @media (max-width: 639px) {
-    .item { grid-template-columns: 2ch minmax(0, 1fr) auto; }
-    .item .desc { display: block; }
-  }
-  .item .when { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .item .seen { color: var(--muted); }
-  .item[data-sel], .item:focus-visible {
-    background: var(--sel-bg); color: var(--sel-fg); outline: none;
-  }
-  .item[data-sel] .desc, .item[data-sel] .when, .item[data-sel] .seen,
-  .item:focus-visible .desc, .item:focus-visible .when { color: var(--sel-fg); }
-  .item[data-sel] .cur, .item:focus-visible .cur { visibility: visible; }
+  .item .desc, .item .when, .item .seen { color: var(--muted); }
+  .item .when { font-variant-numeric: tabular-nums; white-space: nowrap; }
   .item--child .name::before { content: "└ "; color: var(--muted); }
-  .item[data-sel].item--child .name::before { color: var(--sel-fg); }
+
+  /* The selection bar. From 1024px up it follows [data-sel], because it drives the
+     help pane there. At any width a keyboard-focused or pressed row lights up, and
+     under 1024px a hovered one does too (there's no help pane to drive). */
+  .item:is(:focus-visible, :active) { background: var(--sel-bg); color: var(--sel-fg); outline: none; }
+  .item:is(:focus-visible, :active) :is(.desc, .when, .seen, .cur),
+  .item:is(:focus-visible, :active) .name::before,
+  .item:is(:focus-visible, :active) .st::before, .item:is(:focus-visible, :active) .st::after { color: var(--sel-fg); }
+  .item:focus-visible .cur { visibility: visible; }
+  @media (min-width: 1024px) {
+    .item[data-sel] { background: var(--sel-bg); color: var(--sel-fg); }
+    .item[data-sel] :is(.desc, .when, .seen),
+    .item[data-sel] .name::before, .item[data-sel] .st::before, .item[data-sel] .st::after { color: var(--sel-fg); }
+    .item[data-sel] .cur { visibility: visible; }
+  }
+  @media (max-width: 1023px) and (hover: hover) {
+    .item:hover { background: var(--sel-bg); color: var(--sel-fg); }
+    .item:hover :is(.desc, .when, .seen),
+    .item:hover .name::before, .item:hover .st::before, .item:hover .st::after { color: var(--sel-fg); }
+  }
+
+  /* Under 1024px a tap opens the project, so the list drops the cursor column (and
+     the page drops the help pane). Under 640px each row is name and status over
+     its description. */
+  @media (max-width: 1023px) {
+    /* the row's padding bleeds into the pane gutter, so the text lines up with the
+       Projects heading while a pressed row's bar still reaches past it */
+    .item { grid-template-columns: minmax(0, 1fr) auto 9ch; padding: 0.45rem 1ch; margin-inline: -1ch; }
+    .item .cur { display: none; }
+  }
+  @media (max-width: 639px) {
+    .items { gap: 0.2rem; }
+    .item { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name st" "desc desc"; gap: 0.05rem 2ch; padding: 0.55rem 1ch; }
+    .item .main { display: contents; }
+    .item .name { grid-area: name; }
+    .item .desc { grid-area: desc; }
+    .item .st { grid-area: st; }
+    .item .when { display: none; }
+    .item--child .desc { padding-left: 2ch; }
+  }
 
   /* ---------- status ---------- */
   .st { white-space: nowrap; }
@@ -201,7 +235,6 @@
   .st--live::before, .st--live::after { color: var(--ok); }
   .st--soon::before, .st--soon::after { color: var(--warn); }
   .st--priv::before, .st--priv::after { color: var(--priv); }
-  .item[data-sel] .st::before, .item[data-sel] .st::after { color: var(--sel-fg); }
 
   .flags { display: flex; flex-wrap: wrap; gap: 0.2rem 2.5ch; }
   .flag--off { color: var(--muted); }
@@ -222,12 +255,17 @@
   /* ---------- key/value rows ---------- */
   .kv { display: grid; grid-template-columns: 13ch minmax(0, 1fr); gap: 0.3rem 2ch; }
   .kv dt { color: var(--muted); }
+  @media (max-width: 639px) {
+    .kv { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+    .kv dd + dt { margin-top: 0.55rem; }
+  }
 
   /* ---------- screens ---------- */
   .shot { margin: 0; }
   .shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); background: var(--panel); }
   .shot figcaption { display: flex; justify-content: space-between; gap: 2ch; margin-top: 0.4rem; color: var(--muted); font-size: 0.875rem; }
   .shot figcaption b { color: var(--fg); font-weight: 400; }
+  @media (max-width: 639px) { .shot figcaption { flex-wrap: wrap; gap: 0 2ch; } }
   a.is-pending { cursor: default; color: var(--muted); }
   .legend a.is-pending { color: inherit; opacity: 0.75; }
   .shot--help img { max-height: min(30vh, 320px); object-fit: cover; object-position: top; }
@@ -252,6 +290,44 @@
   .sample--bigblue { font-family: "BigBlueTerm437 NFM", monospace; }
   .menu button[hidden] { display: none; }
   .menu .sw i { width: 1ch; height: 0.9em; display: inline-block; }
+
+  /* ---------- the Menu window (phones) ----------
+     A full-screen setup-utility window: inverse bar on top, ruled groups below.
+     Without JS it opens through :target, so the Menu link still works. */
+  /* Sized to the visible viewport (dvh), not inset: 0, so iOS Safari's toolbar
+     never covers the end of the list. */
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; z-index: 60;
+    display: none; flex-direction: column; background: var(--bg);
+  }
+  .overlay:target, .overlay.is-open { display: flex; }
+  :root.has-overlay { overflow: hidden; }
+  .overlay-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 2ch;
+    min-height: 2.5rem; padding: env(safe-area-inset-top) 2ch 0; background: var(--bar-bg); color: var(--bar-fg);
+  }
+  .overlay-body {
+    flex: 1; overflow-y: auto; overscroll-behavior: contain;
+    display: grid; align-content: start; gap: 2.5rem;
+    padding: 2rem 2ch calc(3rem + env(safe-area-inset-bottom));
+  }
+  .mrows { display: grid; }
+  .mrow {
+    display: grid; grid-template-columns: 3ch minmax(0, 1fr) minmax(0, max-content); gap: 0 1.5ch; align-items: center;
+    width: 100%; min-height: 2.75rem; padding: 0.3rem 1ch; text-align: left;
+    font: inherit; color: var(--fg); background: none; border: 0; text-decoration: none; cursor: pointer;
+  }
+  .mrow[hidden] { display: none; }
+  .mrow .note { color: var(--muted); font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mrow .k { background: var(--bar-bg); color: var(--bar-fg); }
+  .mrow .k--blank { background: none; color: inherit; }
+  .mrow:hover, .mrow:focus-visible, .mrow:active, .mrow[aria-current] { background: var(--sel-bg); color: var(--sel-fg); outline: none; }
+  .mrow:hover .note, .mrow:focus-visible .note, .mrow:active .note, .mrow[aria-current] .note { color: var(--sel-fg); }
+  /* on the selection bar a cap inverts again, like the legend's caps on their bar */
+  .mrow:is(:hover, :focus-visible, :active, [aria-current]) .k:not(.k--blank) { background: var(--sel-fg); color: var(--sel-bg); }
+  .mrow .sw { display: inline-flex; gap: 2px; }
+  .mrow .sw i { width: 1ch; height: 0.9em; display: inline-block; }
+  .mrow .sample { font-size: 1rem; }
 
   /* ---------- form fields ---------- */
   .field { display: grid; grid-template-columns: 16ch minmax(0, 1fr); gap: 0.4rem 2ch; align-items: start; }

@@ -30,7 +30,7 @@ function render() {
   document.querySelectorAll("[data-theme-name]").forEach((el) => { el.textContent = THEME_NAMES[t]; });
   document.querySelectorAll("[data-font-name]").forEach((el) => { el.textContent = isBorland() ? FONT_NAMES.bigblue : FONT_NAMES[f]; });
   // the font menu offers BigBlueTerm only under Borland, and only it there
-  document.querySelectorAll('#font-menu [data-set]').forEach((b) => {
+  document.querySelectorAll('[data-choices="font"] [data-set]').forEach((b) => {
     b.hidden = isBorland() ? b.dataset.set !== "bigblue" : b.dataset.set === "bigblue";
   });
   marks();
@@ -38,7 +38,7 @@ function render() {
 function marks() {
   for (const kind of ["theme", "font"]) {
     const saved = kind === "font" && state.theme.saved === "borland" ? "bigblue" : state[kind].saved;
-    document.querySelectorAll(`#${kind}-menu [data-set]`).forEach((b) => {
+    document.querySelectorAll(`[data-choices="${kind}"] [data-set]`).forEach((b) => {
       const on = b.dataset.set === saved;
       b.setAttribute("aria-pressed", String(on));
       b.querySelector("[data-check]").textContent = on ? "●" : " ";
@@ -109,6 +109,67 @@ document.addEventListener("click", (e) => {
   if (kind && !menus[kind].el.contains(e.target) && !e.target.closest("#theme-btn,#font-btn,[data-menu-open]")) closeMenu(false);
 });
 
+/* ---------- the Menu window (phones) ----------
+   [ Menu ] in the title bar, or M, opens a full-screen window holding the tabs,
+   this page's sections, the contact keys and the theme and font settings.
+   X or Esc closes it. Without JS the Menu link opens it through :target. */
+
+const overlay = document.getElementById("site-menu");
+const menuBtn = document.getElementById("menu-btn");
+const overlayOpen = () => !!overlay?.classList.contains("is-open");
+const overlayRows = () => [...overlay.querySelectorAll(".mrow:not([hidden]), [data-close]")];
+
+function openOverlay() {
+  if (!overlay || overlayOpen()) return;
+  closeMenu(false);
+  overlay.classList.add("is-open");
+  root.classList.add("has-overlay");
+  menuBtn?.setAttribute("aria-expanded", "true");
+  overlay.querySelector(".overlay-body").scrollTop = 0;
+  (overlay.querySelector(".mrow[aria-current]") || overlay.querySelector(".mrow"))?.focus({ preventScroll: true });
+}
+function closeOverlay(focusBack = true) {
+  if (!overlay) return;
+  overlay.classList.remove("is-open");
+  root.classList.remove("has-overlay");
+  menuBtn?.setAttribute("aria-expanded", "false");
+  if (location.hash === "#site-menu") history.replaceState(null, "", location.pathname + location.search);
+  if (focusBack) menuBtn?.focus({ preventScroll: true });
+}
+
+if (overlay) {
+  menuBtn?.addEventListener("click", (e) => { e.preventDefault(); openOverlay(); });
+  overlay.querySelector("[data-close]").addEventListener("click", (e) => { e.preventDefault(); closeOverlay(); });
+  // leaving through a row: close first, so an in-page jump lands on an unlocked page
+  overlay.querySelectorAll("a.mrow").forEach((a) => a.addEventListener("click", () => closeOverlay(false)));
+  overlay.querySelectorAll("[data-choices] [data-set]").forEach((b) => {
+    b.addEventListener("click", () => commit(b.closest("[data-choices]").dataset.choices, b.dataset.set));
+  });
+  overlay.addEventListener("keydown", (e) => {
+    e.stopPropagation();   // keys inside the window belong to the window
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const rows = overlayRows();
+    const i = rows.indexOf(document.activeElement);
+    const to = (n) => { e.preventDefault(); rows[(n + rows.length) % rows.length].focus(); };
+    const k = e.key;
+    if (k === "Escape" || k === "x" || k === "X") { e.preventDefault(); closeOverlay(); }
+    else if (k === "ArrowDown" || k === "j") to(i + 1);
+    else if (k === "ArrowUp" || k === "k") to(i - 1);
+    else if (k === "Home") to(0);
+    else if (k === "End") to(rows.length - 1);
+    else if (k === "l") { e.preventDefault(); rows[i]?.click(); }
+    else if (k === "Tab") to(e.shiftKey ? i - 1 : i + 1);   // keep focus inside the window
+    else {
+      const key = { ArrowLeft: "←", ArrowRight: "→" }[k] || k.toLowerCase();
+      const row = overlay.querySelector(`.mrow[data-key="${CSS.escape(key)}"]`);
+      if (row) { e.preventDefault(); row.click(); }
+    }
+  });
+  if (location.hash === "#site-menu") openOverlay();
+  // widening past the phone layout closes it (the title bar has its own menus there)
+  matchMedia("(min-width: 640px)").addEventListener("change", (q) => { if (q.matches && overlayOpen()) closeOverlay(false); });
+}
+
 /* ---------- the item list (home) ---------- */
 
 const list = document.querySelector("[data-items]");
@@ -133,13 +194,13 @@ if (list) {
       mark.className = "seen";
       mark.textContent = " ✓";
       mark.setAttribute("aria-label", "visited");
-      el.querySelector(".name").after(mark);
+      el.querySelector(".name").append(mark);
     }
     el.addEventListener("mouseenter", () => select(el));
     el.addEventListener("focus", () => select(el));
   });
   document.addEventListener("keydown", (e) => {
-    if (isTyping(e) || openMenuName()) return;
+    if (isTyping(e) || openMenuName() || overlayOpen()) return;
     const all = items();
     const cur = all.findIndex((el) => el.hasAttribute("data-sel"));
     if (e.key === "ArrowDown" || e.key === "j") { e.preventDefault(); select(all[Math.min(cur + 1, all.length - 1)], { focus: true }); }
@@ -183,7 +244,7 @@ addEventListener("load", showScrollHints);
 const lineStep = () => 3 * parseFloat(getComputedStyle(document.body).lineHeight || 24);
 let lastG = 0;
 document.addEventListener("keydown", (e) => {
-  if (isTyping(e) || openMenuName() || !canScroll()) return;
+  if (isTyping(e) || openMenuName() || overlayOpen() || !canScroll()) return;
   const k = e.key;
   if (!list && (k === "j" || k === "k")) { e.preventDefault(); scrollBy({ top: k === "j" ? lineStep() : -lineStep(), behavior: "instant" }); }
   else if (k === "d" || k === "u") { e.preventDefault(); scrollBy({ top: (k === "d" ? 1 : -1) * innerHeight / 2, behavior: "instant" }); }
@@ -196,6 +257,7 @@ document.addEventListener("keydown", (e) => {
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && openMenuName()) { closeMenu(); return; }
+  if (overlayOpen()) { if (/^(escape|x)$/i.test(e.key)) closeOverlay(); return; }
   if (isTyping(e) || openMenuName()) return;
   const legend = document.querySelector(".legend");
   const go = (sel) => legend?.querySelector(sel)?.click();
@@ -205,8 +267,9 @@ document.addEventListener("keydown", (e) => {
     case "i": go('a[href*="linkedin"]'); break;
     case "h": back(); break;
     case "l": if (!list && document.activeElement?.matches("a[href]")) document.activeElement.click(); break;
-    case "t": e.preventDefault(); openMenu("theme"); break;
-    case "f": e.preventDefault(); openMenu("font"); break;
+    case "t": e.preventDefault(); if (menuBtn?.offsetParent) openOverlay(); else openMenu("theme"); break;
+    case "f": e.preventDefault(); if (menuBtn?.offsetParent) openOverlay(); else openMenu("font"); break;
+    case "m": if (menuBtn?.offsetParent) { e.preventDefault(); openOverlay(); } break;
     case "w": if (page !== "/") location.href = "/"; break;
     case "a": if (page !== "/about/") location.href = "/about/"; break;
     case "c": if (page !== "/contact/") location.href = "/contact/"; break;

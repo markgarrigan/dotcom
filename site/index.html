@@ -21,10 +21,11 @@
 <header class="titlebar">
   <span class="whitespace-nowrap"><a href="/" class="font-bold no-underline">Mark Garrigan</a> <span class="titlebar-version">v1.0.7</span></span>
   <span class="hidden truncate md:block">Full-stack engineer</span>
-  <div class="flex shrink-0 items-center gap-[1ch]">
+  <a class="btn sm:!hidden" href="#site-menu" id="menu-btn" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded="false" aria-keyshortcuts="M"><span><span class="tab-key">M</span>enu</span></a>
+  <div class="hidden shrink-0 items-center gap-[1ch] sm:flex">
     <div class="relative">
       <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
-      <div class="menu" id="font-menu" data-menu="font" hidden>
+      <div class="menu" id="font-menu" data-menu="font" data-choices="font" hidden>
         <button type="button" data-set="saucecode"><span data-check aria-hidden="true"></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></button>
         <button type="button" data-set="jetbrains"><span data-check aria-hidden="true"></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></button>
         <button type="button" data-set="noto"><span data-check aria-hidden="true"></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></button>
@@ -33,7 +34,7 @@
     </div>
     <div class="relative">
       <button type="button" class="btn" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-keyshortcuts="T"><span><span class="tab-key">T</span>heme<span class="hidden lg:inline">: <span data-theme-name>Auto</span></span></span></button>
-      <div class="menu" id="theme-menu" data-menu="theme" hidden>
+      <div class="menu" id="theme-menu" data-menu="theme" data-choices="theme" hidden>
         <button type="button" data-set="auto"><span data-check aria-hidden="true"></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></button>
         <button type="button" data-set="latte"><span data-check aria-hidden="true"></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></button>
         <button type="button" data-set="frappe"><span data-check aria-hidden="true"></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></button>
@@ -65,57 +66,57 @@
       <ul class="items" data-items>
         <li><a class="item" href="/work/bibsee/" data-item="bibsee" data-sel>
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">Bibsee</span> <span class="desc">Offline race timing</span></span>
-          <span class="when hidden sm:inline">2025-09 → now</span>
+          <span class="main"><span class="name font-bold">Bibsee</span> <span class="desc">Offline race timing</span></span>
+          <span class="when">2025-09 → now</span>
           <span class="st st--live">Live</span>
         </a></li>
         <li><a class="item" href="/work/nurun/" data-item="nurun">
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">nurun co.</span> <span class="desc">Race site and ops admin</span></span>
-          <span class="when hidden sm:inline">2017 → now</span>
+          <span class="main"><span class="name font-bold">nurun co.</span> <span class="desc">Race site and ops admin</span></span>
+          <span class="when">2017 → now</span>
           <span class="st st--live">Live</span>
         </a></li>
         <li><a class="item item--child" href="/work/nurun/#admin" data-item="nurun-admin">
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">nurun-admin</span> <span class="desc">Race operations admin</span></span>
-          <span class="when hidden sm:inline">2026-05 → now</span>
+          <span class="main"><span class="name font-bold">nurun-admin</span> <span class="desc">Race operations admin</span></span>
+          <span class="when">2026-05 → now</span>
           <span class="st st--priv">Private</span>
         </a></li>
         <li><a class="item" href="/work/luna/" data-item="luna">
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">Luna Coffee</span> <span class="desc">Online store and operations</span></span>
-          <span class="when hidden sm:inline">2000s → now</span>
+          <span class="main"><span class="name font-bold">Luna Coffee</span> <span class="desc">Online store and operations</span></span>
+          <span class="when">2000s → now</span>
           <span class="st st--live">Live</span>
         </a></li>
         <li><a class="item item--child" href="/work/luna/#delivery" data-item="luna-delivery">
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">Luna delivery app</span> <span class="desc">The driver's delivery app</span></span>
-          <span class="when hidden sm:inline">2025-08 → now</span>
+          <span class="main"><span class="name font-bold">Luna delivery app</span> <span class="desc">The driver's delivery app</span></span>
+          <span class="when">2025-08 → now</span>
           <span class="st st--priv">Private</span>
         </a></li>
         <li><a class="item" href="/work/plainwork/" data-item="plainwork">
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">Plainwork</span> <span class="desc">Tiny macOS apps</span></span>
-          <span class="when hidden sm:inline">2025-12 → 2026-01</span>
+          <span class="main"><span class="name font-bold">Plainwork</span> <span class="desc">Tiny macOS apps</span></span>
+          <span class="when">2025-12 → 2026-01</span>
           <span class="st st--live">Live</span>
         </a></li>
         <li><a class="item" href="/work/boxx/" data-item="boxx">
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">boxx</span> <span class="desc">Single-host deploy tool</span></span>
-          <span class="when hidden sm:inline">2026-05 → now</span>
+          <span class="main"><span class="name font-bold">boxx</span> <span class="desc">Single-host deploy tool</span></span>
+          <span class="when">2026-05 → now</span>
           <span class="st st--live">Live</span>
         </a></li>
         <li><a class="item" href="/work/stored/" data-item="stored">
           <span class="cur" aria-hidden="true">▸</span>
-          <span class="min-w-0"><span class="name font-bold">stored</span> <span class="desc">Own-your-store commerce</span></span>
-          <span class="when hidden sm:inline">2026-05 → now</span>
+          <span class="main"><span class="name font-bold">stored</span> <span class="desc">Own-your-store commerce</span></span>
+          <span class="when">2026-05 → now</span>
           <span class="st st--soon">Soon</span>
         </a></li>
       </ul>
     </nav>
   </section>
 
-  <section class="pane pane--panel lg:col-span-5 lg:min-h-[calc(100svh-11.5rem)]" aria-labelledby="help-title">
+  <section class="pane pane--panel hidden lg:col-span-5 lg:block lg:min-h-[calc(100svh-11.5rem)]" aria-labelledby="help-title">
     <h2 class="pane-title" id="help-title">Item Specific Help</h2>
     <div data-help><h3 class="display text-[2rem]">Bibsee</h3>
   <p class="mt-2 text-[1rem]">Race timing for where the signal ends.</p>
@@ -207,5 +208,35 @@
   <a href="/markgarrigan.pdf" download><span class="k">R</span>Resumé</a>
   <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
 </footer>
+<div class="overlay" id="site-menu" role="dialog" aria-modal="true" aria-labelledby="m-title" data-overlay>
+  <div class="overlay-bar">
+    <span class="font-bold" id="m-title">Menu</span>
+    <a href="#main" class="btn" data-close aria-keyshortcuts="X"><span><span class="tab-key">X</span> Close</span></a>
+  </div>
+  <div class="overlay-body">
+    
+    <section class="pane" aria-labelledby="m-go"><h2 class="pane-title" id="m-go">Go to</h2><ul class="mrows"><li><a class="mrow" href="/" data-key="w" aria-current="page"><span class="k" aria-hidden="true">W</span><span>Work</span><span class="note"></span></a></li><li><a class="mrow" href="/about/" data-key="a"><span class="k" aria-hidden="true">A</span><span>About</span><span class="note"></span></a></li><li><a class="mrow" href="/contact/" data-key="c"><span class="k" aria-hidden="true">C</span><span>Contact</span><span class="note"></span></a></li></ul></section>
+    <section class="pane" aria-labelledby="m-touch"><h2 class="pane-title" id="m-touch">Get in touch</h2><ul class="mrows"><li><a class="mrow" href="mailto:mrkgrrgn@gmail.com" data-key="e"><span class="k" aria-hidden="true">E</span><span>Email</span><span class="note">mrkgrrgn@gmail.com</span></a></li><li><a class="mrow" href="/markgarrigan.pdf" data-key="r" download><span class="k" aria-hidden="true">R</span><span>Resumé</span><span class="note">PDF</span></a></li><li><a class="mrow" href="https://www.linkedin.com/in/markgarrigan/" data-key="i" rel="me noopener" target="_blank"><span class="k" aria-hidden="true">I</span><span>LinkedIn</span><span class="note">in/markgarrigan</span></a></li></ul></section>
+    <section class="pane pane--panel" aria-labelledby="m-settings">
+      <h2 class="pane-title" id="m-settings">Settings</h2>
+      <h3 class="font-bold text-accent" id="m-theme">Theme</h3>
+      <div class="mt-1" data-choices="theme" role="group" aria-labelledby="m-theme">
+        <button type="button" class="mrow" data-set="auto"><span class="k k--blank" aria-hidden="true" data-check></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></span></button>
+        <button type="button" class="mrow" data-set="latte"><span class="k k--blank" aria-hidden="true" data-check></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></span></button>
+        <button type="button" class="mrow" data-set="frappe"><span class="k k--blank" aria-hidden="true" data-check></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></span></button>
+        <button type="button" class="mrow" data-set="macchiato"><span class="k k--blank" aria-hidden="true" data-check></span><span>Macchiato <span class="sr-only">(Catppuccin, dark)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#24273a"></i><i style="background:#cad3f5"></i><i style="background:#c6a0f6"></i></span></span></button>
+        <button type="button" class="mrow" data-set="mocha"><span class="k k--blank" aria-hidden="true" data-check></span><span>Mocha <span class="sr-only">(Catppuccin, darkest)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#1e1e2e"></i><i style="background:#cdd6f4"></i><i style="background:#cba6f7"></i></span></span></button>
+        <button type="button" class="mrow" data-set="borland"><span class="k k--blank" aria-hidden="true" data-check></span><span>Borland <span class="sr-only">(Blue screen, grey bars)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#0000aa"></i><i style="background:#aaaaaa"></i><i style="background:#ffff55"></i></span></span></button>
+      </div>
+      <h3 class="mt-5 font-bold text-accent" id="m-font">Font</h3>
+      <div class="mt-1" data-choices="font" role="group" aria-labelledby="m-font">
+        <button type="button" class="mrow" data-set="saucecode"><span class="k k--blank" aria-hidden="true" data-check></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="note"><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></span></button>
+        <button type="button" class="mrow" data-set="jetbrains"><span class="k k--blank" aria-hidden="true" data-check></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="note"><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></span></button>
+        <button type="button" class="mrow" data-set="noto"><span class="k k--blank" aria-hidden="true" data-check></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="note"><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></span></button>
+        <button type="button" class="mrow" data-set="bigblue" hidden><span class="k k--blank" aria-hidden="true" data-check></span><span>BigBlueTerm <span class="sr-only">(Borland theme only)</span></span><span class="note"><span class="sample sample--bigblue" aria-hidden="true">Aa ├─┤</span></span></button>
+      </div>
+    </section>
+  </div>
+</div>
 </body>
 </html>

@@ -21,10 +21,11 @@
 <header class="titlebar">
   <span class="whitespace-nowrap"><a href="/" class="font-bold no-underline">Mark Garrigan</a> <span class="titlebar-version">v1.0.7</span></span>
   <span class="hidden truncate md:block">Full-stack engineer</span>
-  <div class="flex shrink-0 items-center gap-[1ch]">
+  <a class="btn sm:!hidden" href="#site-menu" id="menu-btn" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded="false" aria-keyshortcuts="M"><span><span class="tab-key">M</span>enu</span></a>
+  <div class="hidden shrink-0 items-center gap-[1ch] sm:flex">
     <div class="relative">
       <button type="button" class="btn" id="font-btn" aria-haspopup="true" aria-expanded="false" aria-controls="font-menu" aria-keyshortcuts="F"><span><span class="tab-key">F</span>ont<span class="hidden lg:inline">: <span data-font-name>SauceCodePro</span></span></span></button>
-      <div class="menu" id="font-menu" data-menu="font" hidden>
+      <div class="menu" id="font-menu" data-menu="font" data-choices="font" hidden>
         <button type="button" data-set="saucecode"><span data-check aria-hidden="true"></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></button>
         <button type="button" data-set="jetbrains"><span data-check aria-hidden="true"></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></button>
         <button type="button" data-set="noto"><span data-check aria-hidden="true"></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></button>
@@ -33,7 +34,7 @@
     </div>
     <div class="relative">
       <button type="button" class="btn" id="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu" aria-keyshortcuts="T"><span><span class="tab-key">T</span>heme<span class="hidden lg:inline">: <span data-theme-name>Auto</span></span></span></button>
-      <div class="menu" id="theme-menu" data-menu="theme" hidden>
+      <div class="menu" id="theme-menu" data-menu="theme" data-choices="theme" hidden>
         <button type="button" data-set="auto"><span data-check aria-hidden="true"></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></button>
         <button type="button" data-set="latte"><span data-check aria-hidden="true"></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></button>
         <button type="button" data-set="frappe"><span data-check aria-hidden="true"></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></button>
@@ -71,17 +72,17 @@
   </section>
 
   <div class="grid content-start gap-y-10 lg:col-span-7">
-  <section class="pane" aria-labelledby="story-title">
+  <section class="pane scroll-mt-6" id="story" aria-labelledby="story-title">
     <h2 class="pane-title" id="story-title">Story</h2>
     <div class="max-w-[68ch] space-y-4 text-[1rem]"><p>Luna Coffee has roasted small-batch coffee since 2000, and I've been its web developer since the early 2000s, long before I used GitHub. Today's platform is the fourth version of the site and the third of the admin.</p><p>The current version runs the whole online business. Customers shop for coffee, tea, gift boxes, gift cards, drinkware and apparel, then check out for pickup, local delivery (checked by ZIP code) or shipping. Orders are packed, labelled and tracked in the admin, and the local driver delivers them from a phone app. A monthly job writes a Stripe sales report, and product images come from a separate image host.</p><p>Over those versions it opened new sales channels for them: online ordering, local delivery, shipping, gift cards and fundraisers.</p></div>
   </section>
-    <section class="pane pane--focus" aria-labelledby="res-title">
+    <section class="pane pane--focus scroll-mt-6" id="results" aria-labelledby="res-title">
       <h2 class="pane-title" id="res-title">Results</h2>
       <ul class="grid gap-3"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Built and rebuilt since the early 2000s: the site is on version 4, the admin on version 3.</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Opened online ordering, pickup, local delivery, shipping, gift cards and fundraisers.</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-ok" aria-hidden="true">✓</span><span>Live at lunacafe.com.</span></li></ul>
     </section>
   </div>
 
-  <section class="pane pane--panel lg:col-span-5" aria-labelledby="sys-title">
+  <section class="pane pane--panel scroll-mt-6 lg:col-span-5" id="system" aria-labelledby="sys-title">
     <h2 class="pane-title" id="sys-title">System, layer by layer</h2>
     <dl class="grid gap-4">
       <div><dt class="font-bold">[x] Interface</dt><dd class="mt-1">Express 5 with a small custom file-based router, plus htmx, server-sent events and idiomorph, and Tailwind 4 through Vite.</dd></div>
@@ -96,7 +97,7 @@
 
 
 
-  <section class="pane lg:col-span-12" aria-labelledby="screens-title">
+  <section class="pane scroll-mt-6 lg:col-span-12" id="screens" aria-labelledby="screens-title">
     <h2 class="pane-title" id="screens-title">Screens</h2>
     <div class="grid gap-x-[2ch] gap-y-8 md:grid-cols-2">
     <figure class="shot">
@@ -128,7 +129,7 @@
     </div>
   </section>
 
-  <section class="pane lg:col-span-7" aria-labelledby="dec-title">
+  <section class="pane scroll-mt-6 lg:col-span-7" id="decisions" aria-labelledby="dec-title">
     <h2 class="pane-title" id="dec-title">Decisions</h2>
     <ol class="grid gap-5">
       <li class="grid grid-cols-[4ch_1fr] gap-x-1"><span class="text-muted tabular-nums">01</span><div><h3 class="font-bold">Stripe is the order book</h3><p class="mt-1 max-w-[64ch]">Orders come straight from Stripe payments and invoices. The app keeps no separate order ledger.</p></div></li>
@@ -139,7 +140,7 @@
 
   <div class="grid content-start gap-y-10 lg:col-span-5">
 
-    <section class="pane" aria-labelledby="inv-title">
+    <section class="pane scroll-mt-6" id="inventory" aria-labelledby="inv-title">
       <h2 class="pane-title" id="inv-title">In the box</h2>
       <ul class="grid gap-1.5"><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Shop by category, product pages and a cart drawer</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Pickup, local delivery by ZIP, or shipping</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Stripe checkout</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Twelve café menu pages, contact and fundraising</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Admin: orders, subscriptions, packing slips</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Fulfillment panels: pickup, delivery, shipping, parcel, tracking, gift card</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Customer emails from confirmation to delivered</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Products in six categories, café hours, sales report</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Delivery app for the local driver</span></li><li class="grid grid-cols-[2ch_1fr] gap-x-1"><span class="text-muted" aria-hidden="true">·</span><span>Monthly Stripe sales report job</span></li></ul>
     </section>
@@ -147,10 +148,10 @@
 
   <nav class="pane lg:col-span-12" aria-label="More projects">
     <span class="pane-title" aria-hidden="true">More projects</span>
-    <div class="flex flex-wrap justify-between gap-4">
-      <a class="btn" href="/work/nurun/" data-prev>◂ nurun co.</a>
-      <a class="btn" href="/">All projects</a>
-      <a class="btn" href="/work/plainwork/" data-next>Plainwork ▸</a>
+    <div class="flex flex-wrap justify-between gap-4 max-sm:flex-nowrap max-sm:gap-2">
+      <a class="btn" href="/work/nurun/" data-prev aria-label="Previous project: nurun co.">◂ <span class="max-sm:hidden">nurun co.</span><span class="sm:hidden">Prev</span></a>
+      <a class="btn" href="/" aria-label="All projects">All<span class="max-sm:hidden"> projects</span></a>
+      <a class="btn" href="/work/plainwork/" data-next aria-label="Next project: Plainwork"><span class="max-sm:hidden">Plainwork</span><span class="sm:hidden">Next</span> ▸</a>
     </div>
   </nav>
 </div>
@@ -166,5 +167,35 @@
   <a href="/markgarrigan.pdf" download><span class="k">R</span>Resumé</a>
   <a href="https://www.linkedin.com/in/markgarrigan/" rel="me noopener" target="_blank"><span class="k">I</span>LinkedIn</a>
 </footer>
+<div class="overlay" id="site-menu" role="dialog" aria-modal="true" aria-labelledby="m-title" data-overlay>
+  <div class="overlay-bar">
+    <span class="font-bold" id="m-title">Menu</span>
+    <a href="#main" class="btn" data-close aria-keyshortcuts="X"><span><span class="tab-key">X</span> Close</span></a>
+  </div>
+  <div class="overlay-body">
+    <section class="pane" aria-labelledby="m-page"><h2 class="pane-title" id="m-page">On this page</h2><ul class="mrows"><li><a class="mrow" href="#story" data-key="1"><span class="k" aria-hidden="true">1</span><span>Story</span><span class="note"></span></a></li><li><a class="mrow" href="#results" data-key="2"><span class="k" aria-hidden="true">2</span><span>Results</span><span class="note"></span></a></li><li><a class="mrow" href="#system" data-key="3"><span class="k" aria-hidden="true">3</span><span>System, layer by layer</span><span class="note"></span></a></li><li><a class="mrow" href="#screens" data-key="4"><span class="k" aria-hidden="true">4</span><span>Screens</span><span class="note"></span></a></li><li><a class="mrow" href="#delivery" data-key="5"><span class="k" aria-hidden="true">5</span><span>Private tool: Luna delivery app</span><span class="note"></span></a></li><li><a class="mrow" href="#decisions" data-key="6"><span class="k" aria-hidden="true">6</span><span>Decisions</span><span class="note"></span></a></li><li><a class="mrow" href="#inventory" data-key="7"><span class="k" aria-hidden="true">7</span><span>In the box</span><span class="note"></span></a></li></ul></section>
+    <section class="pane" aria-labelledby="m-go"><h2 class="pane-title" id="m-go">Go to</h2><ul class="mrows"><li><a class="mrow" href="/" data-key="w" aria-current="page"><span class="k" aria-hidden="true">W</span><span>Work</span><span class="note"></span></a></li><li><a class="mrow" href="/about/" data-key="a"><span class="k" aria-hidden="true">A</span><span>About</span><span class="note"></span></a></li><li><a class="mrow" href="/contact/" data-key="c"><span class="k" aria-hidden="true">C</span><span>Contact</span><span class="note"></span></a></li><li><a class="mrow" href="/work/nurun/" data-key="←"><span class="k" aria-hidden="true">←</span><span>nurun co.</span><span class="note">previous</span></a></li><li><a class="mrow" href="/work/plainwork/" data-key="→"><span class="k" aria-hidden="true">→</span><span>Plainwork</span><span class="note">next</span></a></li></ul></section>
+    <section class="pane" aria-labelledby="m-touch"><h2 class="pane-title" id="m-touch">Get in touch</h2><ul class="mrows"><li><a class="mrow" href="mailto:mrkgrrgn@gmail.com" data-key="e"><span class="k" aria-hidden="true">E</span><span>Email</span><span class="note">mrkgrrgn@gmail.com</span></a></li><li><a class="mrow" href="/markgarrigan.pdf" data-key="r" download><span class="k" aria-hidden="true">R</span><span>Resumé</span><span class="note">PDF</span></a></li><li><a class="mrow" href="https://www.linkedin.com/in/markgarrigan/" data-key="i" rel="me noopener" target="_blank"><span class="k" aria-hidden="true">I</span><span>LinkedIn</span><span class="note">in/markgarrigan</span></a></li></ul></section>
+    <section class="pane pane--panel" aria-labelledby="m-settings">
+      <h2 class="pane-title" id="m-settings">Settings</h2>
+      <h3 class="font-bold text-accent" id="m-theme">Theme</h3>
+      <div class="mt-1" data-choices="theme" role="group" aria-labelledby="m-theme">
+        <button type="button" class="mrow" data-set="auto"><span class="k k--blank" aria-hidden="true" data-check></span><span>Auto <span class="sr-only">(Latte by day, Mocha by night)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#1e1e2e"></i></span></span></button>
+        <button type="button" class="mrow" data-set="latte"><span class="k k--blank" aria-hidden="true" data-check></span><span>Latte <span class="sr-only">(Catppuccin, light)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#eff1f5"></i><i style="background:#4c4f69"></i><i style="background:#8839ef"></i></span></span></button>
+        <button type="button" class="mrow" data-set="frappe"><span class="k k--blank" aria-hidden="true" data-check></span><span>Frappé <span class="sr-only">(Catppuccin, dusk)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#303446"></i><i style="background:#c6d0f5"></i><i style="background:#ca9ee6"></i></span></span></button>
+        <button type="button" class="mrow" data-set="macchiato"><span class="k k--blank" aria-hidden="true" data-check></span><span>Macchiato <span class="sr-only">(Catppuccin, dark)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#24273a"></i><i style="background:#cad3f5"></i><i style="background:#c6a0f6"></i></span></span></button>
+        <button type="button" class="mrow" data-set="mocha"><span class="k k--blank" aria-hidden="true" data-check></span><span>Mocha <span class="sr-only">(Catppuccin, darkest)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#1e1e2e"></i><i style="background:#cdd6f4"></i><i style="background:#cba6f7"></i></span></span></button>
+        <button type="button" class="mrow" data-set="borland"><span class="k k--blank" aria-hidden="true" data-check></span><span>Borland <span class="sr-only">(Blue screen, grey bars)</span></span><span class="note"><span class="sw" aria-hidden="true"><i style="background:#0000aa"></i><i style="background:#aaaaaa"></i><i style="background:#ffff55"></i></span></span></button>
+      </div>
+      <h3 class="mt-5 font-bold text-accent" id="m-font">Font</h3>
+      <div class="mt-1" data-choices="font" role="group" aria-labelledby="m-font">
+        <button type="button" class="mrow" data-set="saucecode"><span class="k k--blank" aria-hidden="true" data-check></span><span>SauceCodePro <span class="sr-only">(Source Code Pro, Nerd Font)</span></span><span class="note"><span class="sample sample--saucecode" aria-hidden="true">Aa ├─┤</span></span></button>
+        <button type="button" class="mrow" data-set="jetbrains"><span class="k k--blank" aria-hidden="true" data-check></span><span>JetBrains Mono <span class="sr-only">(JetBrains Mono, Nerd Font)</span></span><span class="note"><span class="sample sample--jetbrains" aria-hidden="true">Aa ├─┤</span></span></button>
+        <button type="button" class="mrow" data-set="noto"><span class="k k--blank" aria-hidden="true" data-check></span><span>Noto Sans Mono <span class="sr-only">(Noto Sans Mono, Nerd Font)</span></span><span class="note"><span class="sample sample--noto" aria-hidden="true">Aa ├─┤</span></span></button>
+        <button type="button" class="mrow" data-set="bigblue" hidden><span class="k k--blank" aria-hidden="true" data-check></span><span>BigBlueTerm <span class="sr-only">(Borland theme only)</span></span><span class="note"><span class="sample sample--bigblue" aria-hidden="true">Aa ├─┤</span></span></button>
+      </div>
+    </section>
+  </div>
+</div>
 </body>
 </html>
