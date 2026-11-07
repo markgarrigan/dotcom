@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/markgarrigan/dotcom/compare/v1.1.0...v1.1.1) (2026-11-07)
+
+
+### Bug Fixes
+
+* cache-bust the CSS and JS so phones stop mixing the new pages with old styles, make the phone layout mobile-first, and keep the phone legend to Email, Resumé and LinkedIn at the end of the page ([78ba798](https://github.com/markgarrigan/dotcom/commit/78ba798))
+
 ## [1.1.0](https://github.com/markgarrigan/dotcom/compare/v1.0.7...v1.1.0) (2026-11-07)
 
 
