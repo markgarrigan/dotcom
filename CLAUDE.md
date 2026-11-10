@@ -8,9 +8,9 @@ markgarrigan.com, Mark Garrigan's portfolio, designed as a TUI "setup utility". 
 
 ## Commands
 
-- `npm install`: install Tailwind 4 (the only dependency)
-- `npm run build`: render the pages (`node src/build.mjs`), then compile `src/site.css` to `site/assets/css/site.css`
-- `npm run dev`: one terminal for local work (`src/dev.mjs`). It re-renders the pages when `src/` changes, recompiles the CSS, and serves `site/` at http://localhost:4321 (`PORT` overrides it). Reload the browser to see changes; Ctrl-C stops everything.
+- `bun install`: install Tailwind 4 (the only dependency). The site runs on Bun, not Node: there is no `package-lock.json`, only `bun.lock`.
+- `bun run build`: render the pages (`bun src/build.mjs`), then compile `src/site.css` to `site/assets/css/site.css`. Tailwind runs as `bun --bun tailwindcss`: its CLI has a `#!/usr/bin/env node` shebang, and `--bun` runs it on Bun (the Docker image has no Node).
+- `bun run dev`: one terminal for local work (`src/dev.mjs`). It re-renders the pages when `src/` changes, recompiles the CSS, and serves `site/` at http://localhost:4321 (`PORT` overrides it). Reload the browser to see changes; Ctrl-C stops everything.
 - Docker: `docker build -t markgarrigan-dotcom .` serves the site on port 80, and `GET /up` returns 200 for boxx.
 
 There is no test suite or linter.
@@ -19,7 +19,7 @@ There is no test suite or linter.
 
 Same model as nurun: a tag is the release, and nothing runs on branch pushes.
 
-- To release: `npm version X.Y.Z --no-git-tag-version` (bumps `package.json` and `package-lock.json`), add an entry at the top of `CHANGELOG.md`, commit `chore: release X.Y.Z`, then `git tag vX.Y.Z && git push origin main vX.Y.Z`.
+- To release: `bun pm version X.Y.Z --no-git-tag-version` (bumps `package.json`), add an entry at the top of `CHANGELOG.md`, commit `chore: release X.Y.Z`, then `git tag vX.Y.Z && git push origin main vX.Y.Z`.
 - `.github/workflows/publish.yml` runs on `v*` tags. It builds linux/amd64 and linux/arm64, pushes `ghcr.io/markgarrigan/dotcom` as `X.Y.Z`, `X.Y`, `X` and `latest`, then creates the GitHub Release with generated notes. The Dockerfile renders the pages and refuses to build without `site/markgarrigan.pdf`, so a broken build fails before anything is pushed.
 - Point production in boxx at `:1` (or `:latest`) with update policy `auto` to deploy each stable release.
 - When real tests exist, add a job that runs them on every push.

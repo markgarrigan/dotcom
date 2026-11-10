@@ -1,12 +1,12 @@
 // Renders the static pages into site/ from src/content.mjs.
-// Run with `npm run build` (this, then Tailwind).
+// Run with `bun run build` (this, then Tailwind).
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { site, projects, LAYERS } from "./content.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "site");
-// Shown next to the name in the title bar. Bump it with `npm version` when releasing.
+// Shown next to the name in the title bar. Bump it with `bun pm version` when releasing.
 const { version } = JSON.parse(readFileSync(join(ROOT, "..", "package.json"), "utf8"));
 
 const esc = (s) => String(s)
