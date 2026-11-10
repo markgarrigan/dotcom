@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/markgarrigan/dotcom/compare/v1.1.2...v1.1.3) (2026-11-09)
+
+
+### Build System
+
+* run on bun instead of npm and node: bun.lock replaces package-lock.json, and the image builds on oven/bun ([702770d](https://github.com/markgarrigan/dotcom/commit/702770d))
+
 ## [1.1.2](https://github.com/markgarrigan/dotcom/compare/v1.1.1...v1.1.2) (2026-11-07)
 
 
